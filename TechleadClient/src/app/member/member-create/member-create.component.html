@@ -1,0 +1,213 @@
+<form [formGroup]="createAccountForm" novalidate>
+  <!-- Account info accordion-->
+  <mat-accordion>
+    <mat-expansion-panel expanded>
+      <mat-expansion-panel-header class="my-primary-text">
+        <mat-panel-title>
+          Account Information
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <br/>
+      <!-- User name Input -->
+      <div layout="row">
+        <mat-form-field flex>
+          <input matInput placeholder="User Name" type="text" formControlName="userName">
+          <mat-error align="end">
+            <span *ngIf="userName.hasError('required')">User Name is required</span>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <br/>
+      <br/>
+      <!-- Password Input -->
+      <div layout="row">
+        <mat-form-field flex>
+          <input matInput placeholder="Password" type="password" formControlName="password">
+          <mat-error align="end">
+            <span *ngIf="password.hasError('required')">Password is required</span>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <br/>
+      <br/>
+      <!-- Email Input -->
+      <div layout="row">
+        <mat-form-field flex>
+          <input matInput placeholder="Email" type="email" formControlName="email">
+          <mat-error align="end">
+            <span *ngIf="email.hasError('required')">Email is required</span>
+            <span *ngIf="!email.hasError('required') && email.hasError('email')">
+              valid format required - xx@xx.xx</span>
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+  <br/>
+  <br/>
+  <!-- Payment Information accordion -->
+  <mat-accordion>
+    <mat-expansion-panel expanded>
+      <mat-expansion-panel-header class="my-primary-text">
+        <mat-panel-title>
+          Payment Information
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <br/>
+      <!-- Payment Type input -->
+      <div layout="row">
+        <mat-form-field>
+          <mat-select placeholder="Payment Method" formControlName="paymentType" value="paymentType">
+            <mat-option [value]="" disabled selected>Payment Method</mat-option>
+            <mat-option [value]="'PAYPAL'">Pay Pal</mat-option>
+            <mat-option [value]="'VISA'">Visa</mat-option>
+            <mat-option [value]="'MASTERCARD'">Master Card</mat-option>
+            <mat-option [value]="'PAYSAFECARD'">PaySafe Card</mat-option>
+            <mat-option [value]="'AMERICANEXPRESS'">American Express</mat-option>
+          </mat-select>
+          <mat-error flex *ngIf="paymentType.errors && (paymentType.dirty || paymentType.touched)" align="end">
+            <p align="end" mat-pad-xs *ngIf="paymentType.hasError('required')">Choose a Payment Type</p>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <br/>
+      <br/>
+      <!-- Card Number input -->
+      <div layout="row">
+        <mat-form-field flex>
+          <input matInput placeholder="Card Number" type="text" formControlName="cardNumber">
+          <mat-error align="end">
+            <span *ngIf="cardNumber.hasError('required')">Card Number is required</span>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <br/>
+      <br/>
+      <!-- Card Expiry Date input -->
+      <mat-label>Card Expiry Date</mat-label>
+      <div layout="row">
+        <mat-form-field flex>
+          <input matInput type="date" formControlName="expiryDate">
+          <mat-error align="end">
+            <span *ngIf="expiryDate.hasError('required')">Expiry Date is required</span>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <br/>
+      <br/>
+      <!-- Security Code input -->
+      <div layout="row">
+        <mat-form-field flex>
+          <input matInput placeholder="Security Code" type="text" formControlName="securityCode">
+          <mat-error align="end">
+            <span *ngIf="securityCode.hasError('required')">Security Code is required</span>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <br/>
+      <br/>
+      <!-- First Name input -->
+      <div layout="row">
+        <mat-form-field flex>
+          <input matInput placeholder="Holder's First Name" type="text" formControlName="holdersFirstName">
+          <mat-error align="end">
+            <span *ngIf="holdersFirstName.hasError('required')">Card holder's first name is required</span>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <br/>
+      <br/>
+      <!-- Last Name input -->
+      <div layout="row">
+        <mat-form-field flex>
+          <input matInput placeholder="Holder's Last Name" type="text" formControlName="holdersLastName">
+          <mat-error align="end">
+            <span *ngIf="holdersLastName.hasError('required')">Card holder's last name is required</span>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <br/>
+      <br/>
+      <!-- City input -->
+      <div layout="row">
+        <mat-form-field flex>
+          <input matInput placeholder="City" type="text" formControlName="city">
+          <mat-error align="end">
+            <span *ngIf="city.hasError('required')">City is required</span>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <br/>
+      <br/>
+      <!-- Province input -->
+      <div layout="row">
+        <mat-form-field>
+          <mat-select placeholder="Province" formControlName="province" value="province">
+            <mat-option [value]="" disabled selected>Province</mat-option>
+            <mat-option [value]="'AB'">Alberta</mat-option>
+            <mat-option [value]="'BC'">British Columbia</mat-option>
+            <mat-option [value]="'MB'">Manitoba</mat-option>
+            <mat-option [value]="'NB'">New Brunswick</mat-option>
+            <mat-option [value]="'NL'">Newfoundland and Labrador</mat-option>
+            <mat-option [value]="'NT'">Northwest Territories</mat-option>
+            <mat-option [value]="'NS'">Nova Scotia</mat-option>
+            <mat-option [value]="'NU'">Nunavut</mat-option>
+            <mat-option [value]="'ON'">Ontario</mat-option>
+            <mat-option [value]="'PE'">Prince Edward Island</mat-option>
+            <mat-option [value]="'QC'">Quebec</mat-option>
+            <mat-option [value]="'SK'">Saskatchewan</mat-option>
+            <mat-option [value]="'YT'">Yukon</mat-option>
+          </mat-select>
+          <mat-error flex *ngIf="province.errors && (province.dirty || province.touched)" align="end">
+            <p align="end" mat-pad-xs *ngIf="province.hasError('required')">Choose a Province</p>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <br/>
+      <br/>
+      <!-- Billing Address 1 input -->
+      <div layout="row">
+        <mat-form-field flex>
+          <input matInput placeholder="Billing Address 1" type="text" formControlName="billingAddress1">
+          <mat-error align="end">
+            <span *ngIf="billingAddress1.hasError('required')">Billing Address 1 is required</span>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <br/>
+      <br/>
+      <!-- Billing Address 2 input -->
+      <div layout="row">
+        <mat-form-field flex>
+          <input matInput placeholder="Billing Address 2" type="text" formControlName="billingAddress2">
+        </mat-form-field>
+      </div>
+      <br/>
+      <br/>
+      <!-- Postal Code input -->
+      <div layout="row">
+        <mat-form-field flex>
+          <input matInput placeholder="Postal Code" type="text" formControlName="postalCode">
+          <mat-error align="end">
+            <span *ngIf="postalCode.hasError('required')">Postal code is required</span>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <br/>
+      <br/>
+      <!-- Phone Number input -->
+      <div layout="row">
+        <mat-form-field flex>
+          <input matInput placeholder="Phone Number" type="text" formControlName="phoneNumber">
+          <mat-error align="end">
+            <span *ngIf="phoneNumber.hasError('required')">Phone number is required</span>
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+  <br/>
+  <span>
+<button mat-raised-button [disabled]="!createAccountForm.valid" type="button">Save</button>
+</span>
+</form>

@@ -1,1 +1,12 @@
-<app-member-home></app-member-home>
+<mat-toolbar color="primary">
+  <span>INFO5059</span>
+  <span style="flex: 1 1 auto;"></span>
+  <button mat-button [matMenuTriggerFor]="appMenu" align="end">
+    <mat-icon>menu</mat-icon>
+  </button>
+</mat-toolbar>
+<mat-menu #appMenu="matMenu">
+  <a mat-menu-item [routerLink]="['memberhome']">member home</a>
+  <a mat-menu-item [routerLink]="['createaccount']">create account</a>
+</mat-menu>
+<router-outlet></router-outlet>
