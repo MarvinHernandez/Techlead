@@ -1,5 +1,9 @@
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, Output, EventEmitter, OnInit } from '@angular/core';
+import {ValidatePhone} from '../../validators/phoneno.validator';
+import {ValidateCardNum} from '../../validators/cardnum.validator';
+import {ValidatePostalCode} from '../../validators/postalcode.validator';
+import {ValidateCardSecurityCode} from '../../validators/securitycode.validator';
 
 @Component({
   selector: 'app-create-account-page',
@@ -28,17 +32,17 @@ export class MemberCreateComponent implements OnInit {
     this.password = new FormControl('', Validators.compose([Validators.required]));
     this.email = new FormControl('', Validators.compose([Validators.required, Validators.email]));
     this.paymentType = new FormControl('', Validators.compose([Validators.required]));
-    this.cardNumber = new FormControl('', Validators.compose([Validators.required]));
+    this.cardNumber = new FormControl('', Validators.compose([Validators.required, ValidateCardNum]));
     this.expiryDate = new FormControl('', Validators.compose([Validators.required]));
-    this.securityCode = new FormControl('', Validators.compose([Validators.required]));
+    this.securityCode = new FormControl('', Validators.compose([Validators.required, ValidateCardSecurityCode]));
     this.holdersFirstName = new FormControl('', Validators.compose([Validators.required]));
     this.holdersLastName = new FormControl('', Validators.compose([Validators.required]));
     this.city = new FormControl('', Validators.compose([Validators.required]));
     this.province = new FormControl('', Validators.compose([Validators.required]));
     this.billingAddress1 = new FormControl('', Validators.compose([Validators.required]));
     this.billingAddress2 = new FormControl('');
-    this.postalCode = new FormControl('', Validators.compose([Validators.required]));
-    this.phoneNumber = new FormControl('', Validators.compose([Validators.required]));
+    this.postalCode = new FormControl('', Validators.compose([Validators.required, ValidatePostalCode]));
+    this.phoneNumber = new FormControl('', Validators.compose([Validators.required, ValidatePhone]));
   }
 
   ngOnInit(): void {
@@ -60,5 +64,4 @@ export class MemberCreateComponent implements OnInit {
       phoneNumber: this.phoneNumber
     });
   }
-
 }

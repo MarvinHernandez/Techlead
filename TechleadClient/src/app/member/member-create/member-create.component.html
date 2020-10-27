@@ -12,8 +12,8 @@
       <div layout="row">
         <mat-form-field flex>
           <input matInput placeholder="User Name" type="text" formControlName="userName">
-          <mat-error align="end">
-            <span *ngIf="userName.hasError('required')">User Name is required</span>
+          <mat-error flex *ngIf="userName.errors && (userName.dirty || userName.touched)" align="end" >
+            <p *ngIf="userName.hasError('required')">User Name is required.</p>
           </mat-error>
         </mat-form-field>
       </div>
@@ -23,8 +23,8 @@
       <div layout="row">
         <mat-form-field flex>
           <input matInput placeholder="Password" type="password" formControlName="password">
-          <mat-error align="end">
-            <span *ngIf="password.hasError('required')">Password is required</span>
+          <mat-error *ngIf="password.errors && (password.dirty || password.touched)" align="end" >
+            <p *ngIf="password.hasError('required')">Password is required</p>
           </mat-error>
         </mat-form-field>
       </div>
@@ -34,10 +34,10 @@
       <div layout="row">
         <mat-form-field flex>
           <input matInput placeholder="Email" type="email" formControlName="email">
-          <mat-error align="end">
-            <span *ngIf="email.hasError('required')">Email is required</span>
-            <span *ngIf="!email.hasError('required') && email.hasError('email')">
-              valid format required - xx@xx.xx</span>
+          <mat-error flex *ngIf="email.errors && (email.dirty || email.touched)" align="end" >
+            <p *ngIf="email.hasError('required')">Email is required</p>
+            <p *ngIf="!email.hasError('required') && email.hasError('email')">
+              valid format required - xx@xx.xx</p>
           </mat-error>
         </mat-form-field>
       </div>
@@ -65,7 +65,7 @@
             <mat-option [value]="'PAYSAFECARD'">PaySafe Card</mat-option>
             <mat-option [value]="'AMERICANEXPRESS'">American Express</mat-option>
           </mat-select>
-          <mat-error flex *ngIf="paymentType.errors && (paymentType.dirty || paymentType.touched)" align="end">
+          <mat-error *ngIf="paymentType.errors && (paymentType.dirty || paymentType.touched)" align="end">
             <p align="end" mat-pad-xs *ngIf="paymentType.hasError('required')">Choose a Payment Type</p>
           </mat-error>
         </mat-form-field>
@@ -76,8 +76,10 @@
       <div layout="row">
         <mat-form-field flex>
           <input matInput placeholder="Card Number" type="text" formControlName="cardNumber">
-          <mat-error align="end">
-            <span *ngIf="cardNumber.hasError('required')">Card Number is required</span>
+          <mat-error *ngIf="cardNumber.errors && (cardNumber.dirty || cardNumber.touched)" align="end">
+            <p *ngIf="cardNumber.hasError('required')">Card Number is required</p>
+            <p *ngIf="!cardNumber.hasError('required') && cardNumber.hasError('invalidCardNum')">
+              only numbers and needs format - xxxxxxxxxxxxxxxx</p>
           </mat-error>
         </mat-form-field>
       </div>
@@ -88,8 +90,8 @@
       <div layout="row">
         <mat-form-field flex>
           <input matInput type="date" formControlName="expiryDate">
-          <mat-error align="end">
-            <span *ngIf="expiryDate.hasError('required')">Expiry Date is required</span>
+          <mat-error *ngIf="expiryDate.errors && (expiryDate.dirty || expiryDate.touched)" align="end">
+            <p *ngIf="expiryDate.hasError('required')">Expiry Date is required</p>
           </mat-error>
         </mat-form-field>
       </div>
@@ -99,8 +101,10 @@
       <div layout="row">
         <mat-form-field flex>
           <input matInput placeholder="Security Code" type="text" formControlName="securityCode">
-          <mat-error align="end">
-            <span *ngIf="securityCode.hasError('required')">Security Code is required</span>
+          <mat-error *ngIf="securityCode.errors && (securityCode.dirty || securityCode.touched)" align="end">
+            <p *ngIf="securityCode.hasError('required')">Security Code is required</p>
+            <p *ngIf="!securityCode.hasError('required') && securityCode.hasError('invalidCardCode')">
+              the card's security code is 3 digits</p>
           </mat-error>
         </mat-form-field>
       </div>
@@ -110,8 +114,9 @@
       <div layout="row">
         <mat-form-field flex>
           <input matInput placeholder="Holder's First Name" type="text" formControlName="holdersFirstName">
-          <mat-error align="end">
-            <span *ngIf="holdersFirstName.hasError('required')">Card holder's first name is required</span>
+          <mat-error *ngIf="holdersFirstName.errors && (holdersFirstName.dirty || holdersFirstName.touched)"
+                     align="end">
+            <p *ngIf="holdersFirstName.hasError('required')">Card holder's first name is required</p>
           </mat-error>
         </mat-form-field>
       </div>
@@ -121,8 +126,9 @@
       <div layout="row">
         <mat-form-field flex>
           <input matInput placeholder="Holder's Last Name" type="text" formControlName="holdersLastName">
-          <mat-error align="end">
-            <span *ngIf="holdersLastName.hasError('required')">Card holder's last name is required</span>
+          <mat-error *ngIf="holdersLastName.errors && (holdersLastName.dirty || holdersLastName.touched)"
+                     align="end">
+            <p *ngIf="holdersLastName.hasError('required')">Card holder's last name is required</p>
           </mat-error>
         </mat-form-field>
       </div>
@@ -132,8 +138,8 @@
       <div layout="row">
         <mat-form-field flex>
           <input matInput placeholder="City" type="text" formControlName="city">
-          <mat-error align="end">
-            <span *ngIf="city.hasError('required')">City is required</span>
+          <mat-error *ngIf="city.errors && (city.dirty || city.touched)" align="end">
+            <p *ngIf="city.hasError('required')">City is required</p>
           </mat-error>
         </mat-form-field>
       </div>
@@ -158,7 +164,7 @@
             <mat-option [value]="'SK'">Saskatchewan</mat-option>
             <mat-option [value]="'YT'">Yukon</mat-option>
           </mat-select>
-          <mat-error flex *ngIf="province.errors && (province.dirty || province.touched)" align="end">
+          <mat-error *ngIf="province.errors && (province.dirty || province.touched)" align="end">
             <p align="end" mat-pad-xs *ngIf="province.hasError('required')">Choose a Province</p>
           </mat-error>
         </mat-form-field>
@@ -169,8 +175,9 @@
       <div layout="row">
         <mat-form-field flex>
           <input matInput placeholder="Billing Address 1" type="text" formControlName="billingAddress1">
-          <mat-error align="end">
-            <span *ngIf="billingAddress1.hasError('required')">Billing Address 1 is required</span>
+          <mat-error *ngIf="billingAddress1.errors && (billingAddress1.dirty || billingAddress1.touched)"
+                     align="end">
+            <p *ngIf="billingAddress1.hasError('required')">Billing Address 1 is required</p>
           </mat-error>
         </mat-form-field>
       </div>
@@ -180,6 +187,10 @@
       <div layout="row">
         <mat-form-field flex>
           <input matInput placeholder="Billing Address 2" type="text" formControlName="billingAddress2">
+          <mat-error *ngIf="billingAddress2.errors && (billingAddress2.dirty || billingAddress2.touched)"
+                     align="end">
+            <p *ngIf="billingAddress2.hasError('required')">Billing Address 2 is required</p>
+          </mat-error>
         </mat-form-field>
       </div>
       <br/>
@@ -188,8 +199,10 @@
       <div layout="row">
         <mat-form-field flex>
           <input matInput placeholder="Postal Code" type="text" formControlName="postalCode">
-          <mat-error align="end">
-            <span *ngIf="postalCode.hasError('required')">Postal code is required</span>
+          <mat-error *ngIf="postalCode.errors && (postalCode.dirty || postalCode.touched)" align="end">
+            <p *ngIf="postalCode.hasError('required')">Postal code is required</p>
+            <p *ngIf="!postalCode.hasError('required') && postalCode.hasError('invalidPostalCode')">
+              needs format - N1N-1N1</p>
           </mat-error>
         </mat-form-field>
       </div>
@@ -199,8 +212,10 @@
       <div layout="row">
         <mat-form-field flex>
           <input matInput placeholder="Phone Number" type="text" formControlName="phoneNumber">
-          <mat-error align="end">
-            <span *ngIf="phoneNumber.hasError('required')">Phone number is required</span>
+          <mat-error *ngIf="phoneNumber.errors && (phoneNumber.dirty || phoneNumber.touched)" align="end">
+            <p *ngIf="phoneNumber.hasError('required')">Phone number is required</p>
+            <p *ngIf="!phoneNumber.hasError('required') && phoneNumber.hasError('invalidPhone')">
+              needs format - (###)###-####</p>
           </mat-error>
         </mat-form-field>
       </div>
