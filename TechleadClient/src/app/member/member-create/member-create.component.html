@@ -10,7 +10,7 @@
       <br/>
       <!-- User name Input -->
       <div layout="row">
-        <mat-form-field flex>
+        <mat-form-field>
           <input matInput placeholder="User Name" type="text" formControlName="userName">
           <mat-error flex *ngIf="userName.errors && (userName.dirty || userName.touched)" align="end" >
             <p *ngIf="userName.hasError('required')">User Name is required.</p>
@@ -18,10 +18,9 @@
         </mat-form-field>
       </div>
       <br/>
-      <br/>
       <!-- Password Input -->
       <div layout="row">
-        <mat-form-field flex>
+        <mat-form-field>
           <input matInput placeholder="Password" type="password" formControlName="password">
           <mat-error *ngIf="password.errors && (password.dirty || password.touched)" align="end" >
             <p *ngIf="password.hasError('required')">Password is required</p>
@@ -29,10 +28,9 @@
         </mat-form-field>
       </div>
       <br/>
-      <br/>
       <!-- Email Input -->
       <div layout="row">
-        <mat-form-field flex>
+        <mat-form-field>
           <input matInput placeholder="Email" type="email" formControlName="email">
           <mat-error flex *ngIf="email.errors && (email.dirty || email.touched)" align="end" >
             <p *ngIf="email.hasError('required')">Email is required</p>
@@ -41,9 +39,9 @@
           </mat-error>
         </mat-form-field>
       </div>
+      <br/>
     </mat-expansion-panel>
   </mat-accordion>
-  <br/>
   <br/>
   <!-- Payment Information accordion -->
   <mat-accordion>
@@ -71,35 +69,31 @@
         </mat-form-field>
       </div>
       <br/>
-      <br/>
       <!-- Card Number input -->
       <div layout="row">
-        <mat-form-field flex>
+        <mat-form-field>
           <input matInput placeholder="Card Number" type="text" formControlName="cardNumber">
           <mat-error *ngIf="cardNumber.errors && (cardNumber.dirty || cardNumber.touched)" align="end">
             <p *ngIf="cardNumber.hasError('required')">Card Number is required</p>
             <p *ngIf="!cardNumber.hasError('required') && cardNumber.hasError('invalidCardNum')">
-              only numbers and needs format - xxxxxxxxxxxxxxxx</p>
+              The card's number is 16 digits</p>
           </mat-error>
         </mat-form-field>
       </div>
       <br/>
-      <br/>
       <!-- Card Expiry Date input -->
-      <mat-label>Card Expiry Date</mat-label>
       <div layout="row">
-        <mat-form-field flex>
-          <input matInput type="date" formControlName="expiryDate">
+        <mat-form-field>
+          <input matInput type="date" placeholder="Expiry Date" formControlName="expiryDate">
           <mat-error *ngIf="expiryDate.errors && (expiryDate.dirty || expiryDate.touched)" align="end">
             <p *ngIf="expiryDate.hasError('required')">Expiry Date is required</p>
           </mat-error>
         </mat-form-field>
       </div>
       <br/>
-      <br/>
       <!-- Security Code input -->
       <div layout="row">
-        <mat-form-field flex>
+        <mat-form-field>
           <input matInput placeholder="Security Code" type="text" formControlName="securityCode">
           <mat-error *ngIf="securityCode.errors && (securityCode.dirty || securityCode.touched)" align="end">
             <p *ngIf="securityCode.hasError('required')">Security Code is required</p>
@@ -109,10 +103,9 @@
         </mat-form-field>
       </div>
       <br/>
-      <br/>
       <!-- First Name input -->
       <div layout="row">
-        <mat-form-field flex>
+        <mat-form-field>
           <input matInput placeholder="Holder's First Name" type="text" formControlName="holdersFirstName">
           <mat-error *ngIf="holdersFirstName.errors && (holdersFirstName.dirty || holdersFirstName.touched)"
                      align="end">
@@ -121,10 +114,9 @@
         </mat-form-field>
       </div>
       <br/>
-      <br/>
       <!-- Last Name input -->
       <div layout="row">
-        <mat-form-field flex>
+        <mat-form-field>
           <input matInput placeholder="Holder's Last Name" type="text" formControlName="holdersLastName">
           <mat-error *ngIf="holdersLastName.errors && (holdersLastName.dirty || holdersLastName.touched)"
                      align="end">
@@ -133,17 +125,15 @@
         </mat-form-field>
       </div>
       <br/>
-      <br/>
       <!-- City input -->
       <div layout="row">
-        <mat-form-field flex>
+        <mat-form-field>
           <input matInput placeholder="City" type="text" formControlName="city">
           <mat-error *ngIf="city.errors && (city.dirty || city.touched)" align="end">
             <p *ngIf="city.hasError('required')">City is required</p>
           </mat-error>
         </mat-form-field>
       </div>
-      <br/>
       <br/>
       <!-- Province input -->
       <div layout="row">
@@ -170,10 +160,9 @@
         </mat-form-field>
       </div>
       <br/>
-      <br/>
       <!-- Billing Address 1 input -->
       <div layout="row">
-        <mat-form-field flex>
+        <mat-form-field>
           <input matInput placeholder="Billing Address 1" type="text" formControlName="billingAddress1">
           <mat-error *ngIf="billingAddress1.errors && (billingAddress1.dirty || billingAddress1.touched)"
                      align="end">
@@ -182,10 +171,9 @@
         </mat-form-field>
       </div>
       <br/>
-      <br/>
       <!-- Billing Address 2 input -->
       <div layout="row">
-        <mat-form-field flex>
+        <mat-form-field>
           <input matInput placeholder="Billing Address 2" type="text" formControlName="billingAddress2">
           <mat-error *ngIf="billingAddress2.errors && (billingAddress2.dirty || billingAddress2.touched)"
                      align="end">
@@ -194,10 +182,9 @@
         </mat-form-field>
       </div>
       <br/>
-      <br/>
       <!-- Postal Code input -->
       <div layout="row">
-        <mat-form-field flex>
+        <mat-form-field>
           <input matInput placeholder="Postal Code" type="text" formControlName="postalCode">
           <mat-error *ngIf="postalCode.errors && (postalCode.dirty || postalCode.touched)" align="end">
             <p *ngIf="postalCode.hasError('required')">Postal code is required</p>
@@ -207,10 +194,9 @@
         </mat-form-field>
       </div>
       <br/>
-      <br/>
       <!-- Phone Number input -->
       <div layout="row">
-        <mat-form-field flex>
+        <mat-form-field>
           <input matInput placeholder="Phone Number" type="text" formControlName="phoneNumber">
           <mat-error *ngIf="phoneNumber.errors && (phoneNumber.dirty || phoneNumber.touched)" align="end">
             <p *ngIf="phoneNumber.hasError('required')">Phone number is required</p>
@@ -219,10 +205,13 @@
           </mat-error>
         </mat-form-field>
       </div>
+      <br/>
+      <br/>
     </mat-expansion-panel>
   </mat-accordion>
-  <br/>
   <span>
-<button mat-raised-button [disabled]="!createAccountForm.valid" type="button">Save</button>
-</span>
+    <br/>
+    <br/>
+    <button mat-raised-button [disabled]="!createAccountForm.valid" type="button">Save</button>
+  </span>
 </form>

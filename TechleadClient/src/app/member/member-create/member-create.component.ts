@@ -40,7 +40,7 @@ export class MemberCreateComponent implements OnInit {
     this.city = new FormControl('', Validators.compose([Validators.required]));
     this.province = new FormControl('', Validators.compose([Validators.required]));
     this.billingAddress1 = new FormControl('', Validators.compose([Validators.required]));
-    this.billingAddress2 = new FormControl('');
+    this.billingAddress2 = new FormControl('', Validators.compose([Validators.required]));
     this.postalCode = new FormControl('', Validators.compose([Validators.required, ValidatePostalCode]));
     this.phoneNumber = new FormControl('', Validators.compose([Validators.required, ValidatePhone]));
   }
