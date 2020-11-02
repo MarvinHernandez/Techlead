@@ -214,3 +214,5 @@ C:\Users\G Gorgeouslettice\Desktop\managing project\Techlead\TechLead\obj\Debug\
 C:\Users\G Gorgeouslettice\Desktop\managing project\Techlead\TechLead\obj\Debug\netcoreapp3.1\TechLead.csproj.CopyComplete
 C:\Users\G Gorgeouslettice\Desktop\managing project\Techlead\TechLead\obj\Debug\netcoreapp3.1\TechLead.dll
 C:\Users\G Gorgeouslettice\Desktop\managing project\Techlead\TechLead\obj\Debug\netcoreapp3.1\TechLead.pdb
+C:\Users\G Gorgeouslettice\Desktop\managing project\Techlead\TechLead\obj\Debug\netcoreapp3.1\TechLead.csproj.CoreCompileInputs.cache
+C:\Users\G Gorgeouslettice\Desktop\managing project\Techlead\TechLead\obj\Debug\netcoreapp3.1\TechLead.genruntimeconfig.cache
