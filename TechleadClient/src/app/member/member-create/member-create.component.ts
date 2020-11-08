@@ -13,6 +13,7 @@ export class MemberCreateComponent implements OnInit, OnDestroy {
   subscription: Subscription;
   createAccountForm: FormGroup;
   members: Member[];
+  member: Member;
   userName: FormControl;
   password: FormControl;
 
@@ -28,7 +29,12 @@ export class MemberCreateComponent implements OnInit, OnDestroy {
       password: this.password
     });
     // populate the members array
-    this.subscription = this.memberService.getAll().subscribe(members => this.members = members);
+    this.subscription = this.memberService.getAll().subscribe(members => {
+      this.members = members;
+    }, error => {
+      this.members = [];
+      this.msg = `A connection error occurred`;
+    });
   }
 
   ngOnDestroy(): void {
@@ -37,9 +43,8 @@ export class MemberCreateComponent implements OnInit, OnDestroy {
 
   // Creates a member and stores it into the database
   createMember(): void {
-    const member: Member = {id: '', username: this.userName.value, password: this.password.value};
-
-    this.memberService.add(member).subscribe( payload => {
+    this.member = {id: '', username: this.userName.value, password: this.password.value};
+    this.memberService.add(this.member).subscribe( payload => {
         if (payload.id !== '') {
             this.msg = 'Member account created';
         } else {
@@ -47,10 +52,11 @@ export class MemberCreateComponent implements OnInit, OnDestroy {
         }
       },
       err => {
-        this.msg = 'An error occurred while creating the account' + err.msg;
+        this.msg = 'An error occurred while creating the account';
       });
   }
-  userNameUsedValidator(control) {
+  // Validator that checks if the user name is used
+  userNameUsedValidator(control): {userNameUsed: boolean} {
     if (this.members){
       return this.members.find(member => member.username === this.userName.value) ?
         {userNameUsed: true} : null;
