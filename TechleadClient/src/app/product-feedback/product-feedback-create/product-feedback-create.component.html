@@ -1,0 +1,20 @@
+<form [formGroup]="createFeedbackForm">
+  <mat-card>
+    <mat-card-header>
+      <h2>Create Product Feedback</h2>
+    </mat-card-header>
+    <mat-card-content>
+      <!--Rating-->
+      <div layout="row">
+        <mat-label>Rating</mat-label>
+        <br/>
+          <mat-slider formControlName="rating" min="0.5" max="5" step="0.5" tickInterval="0.5"
+                      thumbLabel="thumbLabel"></mat-slider>
+        <!-- TODO: See if the error handling will still work without mat-form-field -->
+          <mat-error flex *ngIf="rating.errors && (rating.dirty || rating.touched)" align="end" >
+            <p *ngIf="rating.hasError('required')">Rating is required.</p>
+          </mat-error>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</form>
