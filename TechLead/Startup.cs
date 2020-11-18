@@ -51,8 +51,11 @@ namespace TechLead
                 sp.GetRequiredService<IOptions<TechLeadDatabaseSettings>>().Value);
 
             services.AddSingleton<MemberService>();
-
+            services.AddSingleton<PcService>();
+            services.AddSingleton<LaptopService>();
+            services.AddSingleton<PhoneService>();
             services.AddControllers().AddNewtonsoftJson(options => options.UseMemberCasing());
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
