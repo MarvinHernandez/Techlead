@@ -1,36 +1,42 @@
 <form [formGroup]="createAccountForm" novalidate>
-  <h1>Create an account</h1>
-  <!-- User name Input -->
-  <div layout="row">
-    <mat-form-field>
-      <input matInput placeholder="User Name" type="text" formControlName="userName">
-      <mat-error flex *ngIf="userName.errors && (userName.dirty || userName.touched)" align="end" >
-        <p *ngIf="userName.hasError('required')">User Name is required.</p>
-        <p *ngIf="!userName.hasError('required') && userName.hasError('userNameUsed')">
-          User Name is used.</p>
-      </mat-error>
-    </mat-form-field>
-  </div>
-  <br/>
-  <!-- Password Input -->
-  <div layout="row">
-    <mat-form-field>
-      <input matInput placeholder="Password" type="password" formControlName="password">
-      <mat-error *ngIf="password.errors && (password.dirty || password.touched)" align="end" >
-        <p *ngIf="password.hasError('required')">Password is required</p>
-      </mat-error>
-    </mat-form-field>
-  </div>
-  <br/>
-  <span>
-    <br/>
-    <br/>
-    <button mat-raised-button [disabled]="!createAccountForm.valid" (click)="createMember()" type="button">
-      Create Account</button>
-  </span>
-  <br/>
-  <br/>
-  <mat-card-footer align="left" class="my-accent-text">
-    <span style="padding-left: 2vw;">{{msg}}</span>
-  </mat-card-footer>
+  <mat-card>
+    <mat-card-header>
+      <h1>Create an account</h1>
+    </mat-card-header>
+    <mat-card-content>
+      <!-- User name Input -->
+      <div layout="row">
+        <mat-form-field>
+          <input matInput placeholder="User Name" type="text" formControlName="userName">
+          <mat-error flex *ngIf="userName.errors && (userName.dirty || userName.touched)" align="end">
+            <p *ngIf="userName.hasError('required')">User Name is required.</p>
+            <p *ngIf="!userName.hasError('required') && userName.hasError('userNameUsed')">
+              User Name is used.</p>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <br/>
+      <!-- Password Input -->
+      <div layout="row">
+        <mat-form-field>
+          <input matInput placeholder="Password" type="password" formControlName="password">
+          <mat-error *ngIf="password.errors && (password.dirty || password.touched)" align="end">
+            <p *ngIf="password.hasError('required')">Password is required</p>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <br/>
+      <span>
+        <br/>
+        <br/>
+        <button mat-raised-button [disabled]="!createAccountForm.valid" (click)="createMember()" type="button">
+          Create Account</button>
+      </span>
+      <br/>
+      <br/>
+    </mat-card-content>
+    <mat-card-footer align="left" class="my-accent-text">
+      <span style="padding-left: 2vw;">{{msg}}</span>
+    </mat-card-footer>
+  </mat-card>
 </form>
