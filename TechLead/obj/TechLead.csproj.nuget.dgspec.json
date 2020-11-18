@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\SoftwareMGMT\\Techlead\\TechLead\\TechLead.csproj": {}
+    "C:\\Users\\Anas\\Desktop\\School\\SoftwareManagement\\Code\\Techlead\\TechLead\\TechLead.csproj": {}
   },
   "projects": {
-    "C:\\SoftwareMGMT\\Techlead\\TechLead\\TechLead.csproj": {
+    "C:\\Users\\Anas\\Desktop\\School\\SoftwareManagement\\Code\\Techlead\\TechLead\\TechLead.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\SoftwareMGMT\\Techlead\\TechLead\\TechLead.csproj",
+        "projectUniqueName": "C:\\Users\\Anas\\Desktop\\School\\SoftwareManagement\\Code\\Techlead\\TechLead\\TechLead.csproj",
         "projectName": "TechLead",
-        "projectPath": "C:\\SoftwareMGMT\\Techlead\\TechLead\\TechLead.csproj",
+        "projectPath": "C:\\Users\\Anas\\Desktop\\School\\SoftwareManagement\\Code\\Techlead\\TechLead\\TechLead.csproj",
         "packagesPath": "C:\\Users\\Anas\\.nuget\\packages\\",
-        "outputPath": "C:\\SoftwareMGMT\\Techlead\\TechLead\\obj\\",
+        "outputPath": "C:\\Users\\Anas\\Desktop\\School\\SoftwareManagement\\Code\\Techlead\\TechLead\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Anas\\AppData\\Roaming\\NuGet\\NuGet.Config",
