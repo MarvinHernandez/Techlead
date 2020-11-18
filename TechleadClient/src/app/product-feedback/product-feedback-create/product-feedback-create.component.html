@@ -4,43 +4,58 @@
       <h2>Create Product Feedback</h2>
     </mat-card-header>
     <mat-card-content>
-      <!-- TODO: Figure out how the member will be inputted (talk to the group) -->
-      <div layout="row">
-
-      </div>
-      <!-- Product Selection -->
-      <!-- TODO: Get The selection populated with the products (wait for the products code to be implemented) -->
+      <!--Product Type-->
       <div layout="row">
         <mat-form-field>
-          <mat-select matInput placeholder="Select Product" formControlName="productSelection">
-
+          <mat-select matInput placeholder="Select Product Type" formControlName="productTypeSelection"
+                      value="productType" (valueChange)="onChangeProductType()">
+            <mat-option [value]="" disabled selected>Product Type</mat-option>
+            <mat-option [value]="'phone'">Phone</mat-option>
+            <mat-option [value]="'pc'">PC</mat-option>
+            <mat-option [value]="'laptop'">Laptop</mat-option>
           </mat-select>
-          <mat-error flex *ngIf="productSelection.errors && (productSelection.dirty || productSelection.touched)"
-                     align="end" >
-            <p *ngIf="productSelection.hasError('required')">Product is required.</p>
+          <mat-error flex *ngIf="productTypeSelection.errors &&
+          (productTypeSelection.dirty || productTypeSelection.touched)" align="end">
+            <p *ngIf="productTypeSelection.hasError('required')">Product Type is required</p>
           </mat-error>
         </mat-form-field>
       </div>
-      <br/>
-      <!--Rating-->
-      <div layout="row">
-        <mat-label>Rating</mat-label>
+      <!--Feedback info appears after a product type is selected-->
+      <div layout="row" *ngIf="selectedProductType">
+        <!--Product Selection-->
+        <!-- TODO: Get The selection populated with the products (wait for the products code to be implemented) -->
+        <div layout="row">
+          <mat-form-field>
+            <mat-select matInput placeholder="Select Product" formControlName="productSelection" value="selectedProduct">
+
+            </mat-select>
+            <mat-error flex *ngIf="productSelection.errors && (productSelection.dirty || productSelection.touched)"
+                       align="end" >
+              <p *ngIf="productSelection.hasError('required')">Product is required.</p>
+            </mat-error>
+          </mat-form-field>
+        </div>
         <br/>
+        <!--Rating-->
+        <div layout="row">
+          <mat-label>Rating</mat-label>
+          <br/>
           <mat-slider formControlName="rating" min="0.5" max="5" step="0.5" tickInterval="0.5"
                       thumbLabel="thumbLabel"></mat-slider>
-        <!-- TODO: See if the error handling will still work without mat-form-field -->
+          <!-- TODO: See if the error handling will still work without mat-form-field -->
           <mat-error flex *ngIf="rating.errors && (rating.dirty || rating.touched)" align="end" >
             <p *ngIf="rating.hasError('required')">Rating is required.</p>
           </mat-error>
-      </div>
-      <!-- Feedback text -->
-      <div layout="row">
-        <mat-form-field>
-          <textarea matInput formControlName="feedbackField" placeholder="Enter Feedback" cols="40" rows="5"></textarea>
-          <mat-error flex *ngIf="feedbackField.errors && (feedbackField.dirty || feedbackField.touched)" align="end" >
-            <p *ngIf="feedbackField.hasError('required')">Feedback is required.</p>
-          </mat-error>
-        </mat-form-field>
+        </div>
+        <!--Feedback text-->
+        <div layout="row">
+          <mat-form-field>
+            <textarea matInput formControlName="feedbackField" placeholder="Enter Feedback" cols="40" rows="5"></textarea>
+            <mat-error flex *ngIf="feedbackField.errors && (feedbackField.dirty || feedbackField.touched)" align="end" >
+              <p *ngIf="feedbackField.hasError('required')">Feedback is required.</p>
+            </mat-error>
+          </mat-form-field>
+        </div>
       </div>
       <span>
         <br/>
