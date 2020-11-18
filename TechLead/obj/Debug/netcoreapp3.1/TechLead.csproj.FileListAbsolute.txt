@@ -106,6 +106,7 @@ D:\SKOOL\SEM 6\INFO 5103 Managing Software Projects\prj\TechTockers\TechLead\bin
 D:\SKOOL\SEM 6\INFO 5103 Managing Software Projects\prj\TechTockers\TechLead\bin\Debug\netcoreapp3.1\System.Web.Http.dll
 D:\SKOOL\SEM 6\INFO 5103 Managing Software Projects\prj\TechTockers\TechLead\bin\Debug\netcoreapp3.1\System.Web.Http.Cors.dll
 D:\SKOOL\SEM 6\INFO 5103 Managing Software Projects\prj\TechTockers\TechLead\obj\Debug\netcoreapp3.1\TechLead.MvcApplicationPartsAssemblyInfo.cache
+<<<<<<< HEAD
 C:\Users\G Gorgeouslettice\Desktop\managing project\Techlead\TechLead\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Users\G Gorgeouslettice\Desktop\managing project\Techlead\TechLead\bin\Debug\netcoreapp3.1\appsettings.json
 C:\Users\G Gorgeouslettice\Desktop\managing project\Techlead\TechLead\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
@@ -216,6 +217,8 @@ C:\Users\G Gorgeouslettice\Desktop\managing project\Techlead\TechLead\obj\Debug\
 C:\Users\G Gorgeouslettice\Desktop\managing project\Techlead\TechLead\obj\Debug\netcoreapp3.1\TechLead.pdb
 C:\Users\G Gorgeouslettice\Desktop\managing project\Techlead\TechLead\obj\Debug\netcoreapp3.1\TechLead.csproj.CoreCompileInputs.cache
 C:\Users\G Gorgeouslettice\Desktop\managing project\Techlead\TechLead\obj\Debug\netcoreapp3.1\TechLead.genruntimeconfig.cache
+=======
+>>>>>>> refs/remotes/origin/AH_branch
 C:\SoftwareMGMT\Techlead\TechLead\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\SoftwareMGMT\Techlead\TechLead\bin\Debug\netcoreapp3.1\appsettings.json
 C:\SoftwareMGMT\Techlead\TechLead\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
@@ -314,6 +317,10 @@ C:\SoftwareMGMT\Techlead\TechLead\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.Code
 C:\SoftwareMGMT\Techlead\TechLead\bin\Debug\netcoreapp3.1\runtimes\win\native\libzstd.dll
 C:\SoftwareMGMT\Techlead\TechLead\bin\Debug\netcoreapp3.1\runtimes\win\native\snappy32.dll
 C:\SoftwareMGMT\Techlead\TechLead\bin\Debug\netcoreapp3.1\runtimes\win\native\snappy64.dll
+<<<<<<< HEAD
+=======
+C:\SoftwareMGMT\Techlead\TechLead\obj\Debug\netcoreapp3.1\TechLead.csprojAssemblyReference.cache
+>>>>>>> refs/remotes/origin/AH_branch
 C:\SoftwareMGMT\Techlead\TechLead\obj\Debug\netcoreapp3.1\TechLead.AssemblyInfoInputs.cache
 C:\SoftwareMGMT\Techlead\TechLead\obj\Debug\netcoreapp3.1\TechLead.AssemblyInfo.cs
 C:\SoftwareMGMT\Techlead\TechLead\obj\Debug\netcoreapp3.1\TechLead.csproj.CoreCompileInputs.cache
@@ -325,4 +332,7 @@ C:\SoftwareMGMT\Techlead\TechLead\obj\Debug\netcoreapp3.1\staticwebassets\TechLe
 C:\SoftwareMGMT\Techlead\TechLead\obj\Debug\netcoreapp3.1\TechLead.dll
 C:\SoftwareMGMT\Techlead\TechLead\obj\Debug\netcoreapp3.1\TechLead.pdb
 C:\SoftwareMGMT\Techlead\TechLead\obj\Debug\netcoreapp3.1\TechLead.genruntimeconfig.cache
+<<<<<<< HEAD
 C:\SoftwareMGMT\Techlead\TechLead\obj\Debug\netcoreapp3.1\TechLead.csprojAssemblyReference.cache
+=======
+>>>>>>> refs/remotes/origin/AH_branch

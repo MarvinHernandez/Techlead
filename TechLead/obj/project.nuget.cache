@@ -1,8 +1,14 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "tkM5zmabJLqbtUncvhXTFqgmOyy5fTvHy/8rd1pAZdN/369kd+R6twgj3G+lKA6udNCKT/PR2H+nvCxn5fmnWA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Anas\\Desktop\\School\\SoftwareManagement\\Code\\Techlead\\TechLead\\TechLead.csproj",
+=======
+  "dgSpecHash": "FbbP9uTY4sKozfdR6IJmAAa8FBcl/Q9QXqgJQhkx+fVCK+KgaE46Ymbfqwn9XqcUcn3RvsrEnYv91PeJf+DNQQ==",
+  "success": true,
+  "projectFilePath": "C:\\SoftwareMGMT\\Techlead\\TechLead\\TechLead.csproj",
+>>>>>>> refs/remotes/origin/AH_branch
   "expectedPackageFiles": [
     "C:\\Users\\Anas\\.nuget\\packages\\dnsclient\\1.3.1\\dnsclient.1.3.1.nupkg.sha512",
     "C:\\Users\\Anas\\.nuget\\packages\\microsoft.aspnet.cors\\5.2.7\\microsoft.aspnet.cors.5.2.7.nupkg.sha512",
