@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import {FormControl, FormGroup, FormBuilder, Validators, Form, FormsModule} from '@angular/forms';
 import {ProductFeedbackService} from '../../services/product-feedback.service';
-import {Subscription} from 'rxjs';
+import {Observable, Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-product-feedback-create',
@@ -33,6 +33,8 @@ export class ProductFeedbackCreateComponent implements OnInit, OnDestroy {
     });
     this.selectedProductType = false;
     this.subscriptions = new Subscription();
+
+    // TODO: Populate a products array with the products depending on the users product type dropdown selection
   }// ngOnInit
 
   // Creates the feedback

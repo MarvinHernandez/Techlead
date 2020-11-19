@@ -27,7 +27,7 @@
         <div layout="row">
           <mat-form-field>
             <mat-select matInput placeholder="Select Product" formControlName="productSelection" value="selectedProduct">
-
+              <mat-option *ngFor="let product of products$ | async" [value]="product">{{product.name}}</mat-option>
             </mat-select>
             <mat-error flex *ngIf="productSelection.errors && (productSelection.dirty || productSelection.touched)"
                        align="end" >
