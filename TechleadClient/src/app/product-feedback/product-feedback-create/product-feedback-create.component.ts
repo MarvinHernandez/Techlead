@@ -35,6 +35,8 @@ export class ProductFeedbackCreateComponent implements OnInit, OnDestroy {
     this.subscriptions = new Subscription();
 
     // TODO: Populate a products array with the products depending on the users product type dropdown selection
+    // TODO: Test the services to see if I can get the products from the server properly
+
   }// ngOnInit
 
   // Creates the feedback

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {BASEURL} from '../constants';
 import {GenericHttpService} from './generic-http.service';
-import {ProductFeedback} from '../models/ProductFeedback';
+import {ProductFeedback} from '../models/productFeedback';
 
 @Injectable({
   providedIn: 'root'
