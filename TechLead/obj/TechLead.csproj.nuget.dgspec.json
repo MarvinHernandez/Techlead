@@ -1,23 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\SKOOL\\SEM 6\\INFO 5103 Managing Software Projects\\prj\\TechTockers\\TechLead\\TechLead.csproj": {}
+    "C:\\Users\\yulii\\Desktop\\cpa\\6th_semester\\INFO5103_Managing_Softare_Prjs\\prj\\Techlead\\TechLead\\TechLead.csproj": {}
   },
   "projects": {
-    "D:\\SKOOL\\SEM 6\\INFO 5103 Managing Software Projects\\prj\\TechTockers\\TechLead\\TechLead.csproj": {
+    "C:\\Users\\yulii\\Desktop\\cpa\\6th_semester\\INFO5103_Managing_Softare_Prjs\\prj\\Techlead\\TechLead\\TechLead.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\SKOOL\\SEM 6\\INFO 5103 Managing Software Projects\\prj\\TechTockers\\TechLead\\TechLead.csproj",
+        "projectUniqueName": "C:\\Users\\yulii\\Desktop\\cpa\\6th_semester\\INFO5103_Managing_Softare_Prjs\\prj\\Techlead\\TechLead\\TechLead.csproj",
         "projectName": "TechLead",
-        "projectPath": "D:\\SKOOL\\SEM 6\\INFO 5103 Managing Software Projects\\prj\\TechTockers\\TechLead\\TechLead.csproj",
-        "packagesPath": "C:\\Users\\owner\\.nuget\\packages\\",
-        "outputPath": "D:\\SKOOL\\SEM 6\\INFO 5103 Managing Software Projects\\prj\\TechTockers\\TechLead\\obj\\",
+        "projectPath": "C:\\Users\\yulii\\Desktop\\cpa\\6th_semester\\INFO5103_Managing_Softare_Prjs\\prj\\Techlead\\TechLead\\TechLead.csproj",
+        "packagesPath": "C:\\Users\\yulii\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\yulii\\Desktop\\cpa\\6th_semester\\INFO5103_Managing_Softare_Prjs\\prj\\Techlead\\TechLead\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\owner\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\yulii\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -44,6 +41,10 @@
             "Microsoft.AspNet.WebApi.Cors": {
               "target": "Package",
               "version": "[5.2.7, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[3.1.10, )"
             },
             "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
               "target": "Package",
@@ -84,7 +85,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
         }
       }
     }
