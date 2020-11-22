@@ -106,6 +106,7 @@ D:\SKOOL\SEM 6\INFO 5103 Managing Software Projects\prj\TechTockers\TechLead\bin
 D:\SKOOL\SEM 6\INFO 5103 Managing Software Projects\prj\TechTockers\TechLead\bin\Debug\netcoreapp3.1\System.Web.Http.dll
 D:\SKOOL\SEM 6\INFO 5103 Managing Software Projects\prj\TechTockers\TechLead\bin\Debug\netcoreapp3.1\System.Web.Http.Cors.dll
 D:\SKOOL\SEM 6\INFO 5103 Managing Software Projects\prj\TechTockers\TechLead\obj\Debug\netcoreapp3.1\TechLead.MvcApplicationPartsAssemblyInfo.cache
+<<<<<<< HEAD
 C:\Users\G Gorgeouslettice\Desktop\managing project\Techlead\TechLead\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Users\G Gorgeouslettice\Desktop\managing project\Techlead\TechLead\bin\Debug\netcoreapp3.1\appsettings.json
 C:\Users\G Gorgeouslettice\Desktop\managing project\Techlead\TechLead\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
@@ -216,3 +217,122 @@ C:\Users\G Gorgeouslettice\Desktop\managing project\Techlead\TechLead\obj\Debug\
 C:\Users\G Gorgeouslettice\Desktop\managing project\Techlead\TechLead\obj\Debug\netcoreapp3.1\TechLead.pdb
 C:\Users\G Gorgeouslettice\Desktop\managing project\Techlead\TechLead\obj\Debug\netcoreapp3.1\TechLead.csproj.CoreCompileInputs.cache
 C:\Users\G Gorgeouslettice\Desktop\managing project\Techlead\TechLead\obj\Debug\netcoreapp3.1\TechLead.genruntimeconfig.cache
+=======
+>>>>>>> refs/remotes/origin/AH_branch
+C:\SoftwareMGMT\Techlead\TechLead\bin\Debug\netcoreapp3.1\appsettings.Development.json
+C:\SoftwareMGMT\Techlead\TechLead\bin\Debug\netcoreapp3.1\appsettings.json
+C:\SoftwareMGMT\Techlead\TechLead\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
+C:\SoftwareMGMT\Techlead\TechLead\bin\Debug\netcoreapp3.1\TechLead.exe
+C:\SoftwareMGMT\Techlead\TechLead\bin\Debug\netcoreapp3.1\TechLead.deps.json
+C:\SoftwareMGMT\Techlead\TechLead\bin\Debug\netcoreapp3.1\TechLead.runtimeconfig.json
+C:\SoftwareMGMT\Techlead\TechLead\bin\Debug\netcoreapp3.1\TechLead.runtimeconfig.dev.json
+C:\SoftwareMGMT\Techlead\TechLead\bin\Debug\netcoreapp3.1\TechLead.dll
+C:\SoftwareMGMT\Techlead\TechLead\bin\Debug\netcoreapp3.1\TechLead.pdb
+C:\SoftwareMGMT\Techlead\TechLead\bin\Debug\netcoreapp3.1\DnsClient.dll
+C:\SoftwareMGMT\Techlead\TechLead\bin\Debug\netcoreapp3.1\System.Web.Cors.dll
+C:\SoftwareMGMT\Techlead\TechLead\bin\Debug\netcoreapp3.1\System.Net.Http.Formatting.dll
+C:\SoftwareMGMT\Techlead\TechLead\bin\Debug\netcoreapp3.1\System.Web.Http.dll
+C:\SoftwareMGMT\Techlead\TechLead\bin\Debug\netcoreapp3.1\System.Web.Http.Cors.dll
+C:\SoftwareMGMT\Techlead\TechLead\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
+C:\SoftwareMGMT\Techlead\TechLead\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\SoftwareMGMT\Techlead\TechLead\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Razor.Language.dll
+C:\SoftwareMGMT\Techlead\TechLead\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.dll
+C:\SoftwareMGMT\Techlead\TechLead\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.CSharp.dll
+C:\SoftwareMGMT\Techlead\TechLead\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+C:\SoftwareMGMT\Techlead\TechLead\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.Razor.dll
+C:\SoftwareMGMT\Techlead\TechLead\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.Workspaces.dll
+C:\SoftwareMGMT\Techlead\TechLead\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.dll
+C:\SoftwareMGMT\Techlead\TechLead\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.Contracts.dll
+C:\SoftwareMGMT\Techlead\TechLead\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.Core.dll
+C:\SoftwareMGMT\Techlead\TechLead\bin\Debug\netcoreapp3.1\dotnet-aspnet-codegenerator-design.dll
+C:\SoftwareMGMT\Techlead\TechLead\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore.dll
+C:\SoftwareMGMT\Techlead\TechLead\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.Templating.dll
+C:\SoftwareMGMT\Techlead\TechLead\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll
+C:\SoftwareMGMT\Techlead\TechLead\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
+C:\SoftwareMGMT\Techlead\TechLead\bin\Debug\netcoreapp3.1\MongoDB.Bson.dll
+C:\SoftwareMGMT\Techlead\TechLead\bin\Debug\netcoreapp3.1\MongoDB.Driver.dll
+C:\SoftwareMGMT\Techlead\TechLead\bin\Debug\netcoreapp3.1\MongoDB.Driver.Core.dll
+C:\SoftwareMGMT\Techlead\TechLead\bin\Debug\netcoreapp3.1\MongoDB.Libmongocrypt.dll
+C:\SoftwareMGMT\Techlead\TechLead\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\SoftwareMGMT\Techlead\TechLead\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
+C:\SoftwareMGMT\Techlead\TechLead\bin\Debug\netcoreapp3.1\NuGet.Frameworks.dll
+C:\SoftwareMGMT\Techlead\TechLead\bin\Debug\netcoreapp3.1\SharpCompress.dll
+C:\SoftwareMGMT\Techlead\TechLead\bin\Debug\netcoreapp3.1\System.Composition.AttributedModel.dll
+C:\SoftwareMGMT\Techlead\TechLead\bin\Debug\netcoreapp3.1\System.Composition.Convention.dll
+C:\SoftwareMGMT\Techlead\TechLead\bin\Debug\netcoreapp3.1\System.Composition.Hosting.dll
+C:\SoftwareMGMT\Techlead\TechLead\bin\Debug\netcoreapp3.1\System.Composition.Runtime.dll
+C:\SoftwareMGMT\Techlead\TechLead\bin\Debug\netcoreapp3.1\System.Composition.TypedParts.dll
+C:\SoftwareMGMT\Techlead\TechLead\bin\Debug\netcoreapp3.1\cs\Microsoft.CodeAnalysis.resources.dll
+C:\SoftwareMGMT\Techlead\TechLead\bin\Debug\netcoreapp3.1\de\Microsoft.CodeAnalysis.resources.dll
+C:\SoftwareMGMT\Techlead\TechLead\bin\Debug\netcoreapp3.1\es\Microsoft.CodeAnalysis.resources.dll
+C:\SoftwareMGMT\Techlead\TechLead\bin\Debug\netcoreapp3.1\fr\Microsoft.CodeAnalysis.resources.dll
+C:\SoftwareMGMT\Techlead\TechLead\bin\Debug\netcoreapp3.1\it\Microsoft.CodeAnalysis.resources.dll
+C:\SoftwareMGMT\Techlead\TechLead\bin\Debug\netcoreapp3.1\ja\Microsoft.CodeAnalysis.resources.dll
+C:\SoftwareMGMT\Techlead\TechLead\bin\Debug\netcoreapp3.1\ko\Microsoft.CodeAnalysis.resources.dll
+C:\SoftwareMGMT\Techlead\TechLead\bin\Debug\netcoreapp3.1\pl\Microsoft.CodeAnalysis.resources.dll
+C:\SoftwareMGMT\Techlead\TechLead\bin\Debug\netcoreapp3.1\pt-BR\Microsoft.CodeAnalysis.resources.dll
+C:\SoftwareMGMT\Techlead\TechLead\bin\Debug\netcoreapp3.1\ru\Microsoft.CodeAnalysis.resources.dll
+C:\SoftwareMGMT\Techlead\TechLead\bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.resources.dll
+C:\SoftwareMGMT\Techlead\TechLead\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+C:\SoftwareMGMT\Techlead\TechLead\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+C:\SoftwareMGMT\Techlead\TechLead\bin\Debug\netcoreapp3.1\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\SoftwareMGMT\Techlead\TechLead\bin\Debug\netcoreapp3.1\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\SoftwareMGMT\Techlead\TechLead\bin\Debug\netcoreapp3.1\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\SoftwareMGMT\Techlead\TechLead\bin\Debug\netcoreapp3.1\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\SoftwareMGMT\Techlead\TechLead\bin\Debug\netcoreapp3.1\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\SoftwareMGMT\Techlead\TechLead\bin\Debug\netcoreapp3.1\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\SoftwareMGMT\Techlead\TechLead\bin\Debug\netcoreapp3.1\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\SoftwareMGMT\Techlead\TechLead\bin\Debug\netcoreapp3.1\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\SoftwareMGMT\Techlead\TechLead\bin\Debug\netcoreapp3.1\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\SoftwareMGMT\Techlead\TechLead\bin\Debug\netcoreapp3.1\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\SoftwareMGMT\Techlead\TechLead\bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\SoftwareMGMT\Techlead\TechLead\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\SoftwareMGMT\Techlead\TechLead\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\SoftwareMGMT\Techlead\TechLead\bin\Debug\netcoreapp3.1\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\SoftwareMGMT\Techlead\TechLead\bin\Debug\netcoreapp3.1\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\SoftwareMGMT\Techlead\TechLead\bin\Debug\netcoreapp3.1\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\SoftwareMGMT\Techlead\TechLead\bin\Debug\netcoreapp3.1\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\SoftwareMGMT\Techlead\TechLead\bin\Debug\netcoreapp3.1\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\SoftwareMGMT\Techlead\TechLead\bin\Debug\netcoreapp3.1\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\SoftwareMGMT\Techlead\TechLead\bin\Debug\netcoreapp3.1\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\SoftwareMGMT\Techlead\TechLead\bin\Debug\netcoreapp3.1\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\SoftwareMGMT\Techlead\TechLead\bin\Debug\netcoreapp3.1\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\SoftwareMGMT\Techlead\TechLead\bin\Debug\netcoreapp3.1\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\SoftwareMGMT\Techlead\TechLead\bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\SoftwareMGMT\Techlead\TechLead\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\SoftwareMGMT\Techlead\TechLead\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\SoftwareMGMT\Techlead\TechLead\bin\Debug\netcoreapp3.1\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\SoftwareMGMT\Techlead\TechLead\bin\Debug\netcoreapp3.1\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\SoftwareMGMT\Techlead\TechLead\bin\Debug\netcoreapp3.1\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\SoftwareMGMT\Techlead\TechLead\bin\Debug\netcoreapp3.1\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\SoftwareMGMT\Techlead\TechLead\bin\Debug\netcoreapp3.1\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\SoftwareMGMT\Techlead\TechLead\bin\Debug\netcoreapp3.1\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\SoftwareMGMT\Techlead\TechLead\bin\Debug\netcoreapp3.1\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\SoftwareMGMT\Techlead\TechLead\bin\Debug\netcoreapp3.1\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\SoftwareMGMT\Techlead\TechLead\bin\Debug\netcoreapp3.1\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\SoftwareMGMT\Techlead\TechLead\bin\Debug\netcoreapp3.1\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\SoftwareMGMT\Techlead\TechLead\bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\SoftwareMGMT\Techlead\TechLead\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\SoftwareMGMT\Techlead\TechLead\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\SoftwareMGMT\Techlead\TechLead\bin\Debug\netcoreapp3.1\runtimes\win\native\libzstd.dll
+C:\SoftwareMGMT\Techlead\TechLead\bin\Debug\netcoreapp3.1\runtimes\win\native\snappy32.dll
+C:\SoftwareMGMT\Techlead\TechLead\bin\Debug\netcoreapp3.1\runtimes\win\native\snappy64.dll
+<<<<<<< HEAD
+=======
+C:\SoftwareMGMT\Techlead\TechLead\obj\Debug\netcoreapp3.1\TechLead.csprojAssemblyReference.cache
+>>>>>>> refs/remotes/origin/AH_branch
+C:\SoftwareMGMT\Techlead\TechLead\obj\Debug\netcoreapp3.1\TechLead.AssemblyInfoInputs.cache
+C:\SoftwareMGMT\Techlead\TechLead\obj\Debug\netcoreapp3.1\TechLead.AssemblyInfo.cs
+C:\SoftwareMGMT\Techlead\TechLead\obj\Debug\netcoreapp3.1\TechLead.csproj.CoreCompileInputs.cache
+C:\SoftwareMGMT\Techlead\TechLead\obj\Debug\netcoreapp3.1\TechLead.MvcApplicationPartsAssemblyInfo.cache
+C:\SoftwareMGMT\Techlead\TechLead\obj\Debug\netcoreapp3.1\TechLead.RazorTargetAssemblyInfo.cache
+C:\SoftwareMGMT\Techlead\TechLead\obj\Debug\netcoreapp3.1\TechLead.csproj.CopyComplete
+C:\SoftwareMGMT\Techlead\TechLead\obj\Debug\netcoreapp3.1\staticwebassets\TechLead.StaticWebAssets.Manifest.cache
+C:\SoftwareMGMT\Techlead\TechLead\obj\Debug\netcoreapp3.1\staticwebassets\TechLead.StaticWebAssets.xml
+C:\SoftwareMGMT\Techlead\TechLead\obj\Debug\netcoreapp3.1\TechLead.dll
+C:\SoftwareMGMT\Techlead\TechLead\obj\Debug\netcoreapp3.1\TechLead.pdb
+C:\SoftwareMGMT\Techlead\TechLead\obj\Debug\netcoreapp3.1\TechLead.genruntimeconfig.cache
+<<<<<<< HEAD
+C:\SoftwareMGMT\Techlead\TechLead\obj\Debug\netcoreapp3.1\TechLead.csprojAssemblyReference.cache
+=======
+>>>>>>> refs/remotes/origin/AH_branch

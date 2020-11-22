@@ -1,23 +1,34 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\G Gorgeouslettice\\Desktop\\managing project\\Techlead\\TechLead\\TechLead.csproj": {}
+<<<<<<< HEAD
+    "C:\\Users\\Anas\\Desktop\\School\\SoftwareManagement\\Code\\Techlead\\TechLead\\TechLead.csproj": {}
   },
   "projects": {
-    "C:\\Users\\G Gorgeouslettice\\Desktop\\managing project\\Techlead\\TechLead\\TechLead.csproj": {
+    "C:\\Users\\Anas\\Desktop\\School\\SoftwareManagement\\Code\\Techlead\\TechLead\\TechLead.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\G Gorgeouslettice\\Desktop\\managing project\\Techlead\\TechLead\\TechLead.csproj",
+        "projectUniqueName": "C:\\Users\\Anas\\Desktop\\School\\SoftwareManagement\\Code\\Techlead\\TechLead\\TechLead.csproj",
         "projectName": "TechLead",
-        "projectPath": "C:\\Users\\G Gorgeouslettice\\Desktop\\managing project\\Techlead\\TechLead\\TechLead.csproj",
-        "packagesPath": "C:\\Users\\G Gorgeouslettice\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\G Gorgeouslettice\\Desktop\\managing project\\Techlead\\TechLead\\obj\\",
+        "projectPath": "C:\\Users\\Anas\\Desktop\\School\\SoftwareManagement\\Code\\Techlead\\TechLead\\TechLead.csproj",
+        "packagesPath": "C:\\Users\\Anas\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Anas\\Desktop\\School\\SoftwareManagement\\Code\\Techlead\\TechLead\\obj\\",
+=======
+    "C:\\SoftwareMGMT\\Techlead\\TechLead\\TechLead.csproj": {}
+  },
+  "projects": {
+    "C:\\SoftwareMGMT\\Techlead\\TechLead\\TechLead.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\SoftwareMGMT\\Techlead\\TechLead\\TechLead.csproj",
+        "projectName": "TechLead",
+        "projectPath": "C:\\SoftwareMGMT\\Techlead\\TechLead\\TechLead.csproj",
+        "packagesPath": "C:\\Users\\Anas\\.nuget\\packages\\",
+        "outputPath": "C:\\SoftwareMGMT\\Techlead\\TechLead\\obj\\",
+>>>>>>> refs/remotes/origin/AH_branch
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\G Gorgeouslettice\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Anas\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -84,7 +95,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
         }
       }
     }
