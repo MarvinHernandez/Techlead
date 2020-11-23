@@ -76,5 +76,9 @@ namespace TechLead.models
         [BsonElement("Storage")]
         [BsonRepresentation(BsonType.String)]
         public string? Storage { get; set; }
+
+        [BsonElement("ProductType")]
+        [BsonRepresentation(BsonType.String)]
+        public string? ProductType { get; set; }
     }
 }

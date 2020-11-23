@@ -30,6 +30,9 @@ namespace TechLead.services
 
         public Member Get(string id) =>
             _members.Find<Member>(member => member.Id == id).FirstOrDefault();
+        
+        public Member GetByUsername(string username) =>
+            _members.Find<Member>(member => member.username == username).FirstOrDefault();
 
         public Member Create(Member member)
         {
