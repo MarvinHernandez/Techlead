@@ -29,5 +29,9 @@ namespace TechLead.models
         [BsonElement("Specs")]
         public pcSpecs Specs { get; set; }
 
+        [BsonElement("ProductType")]
+        [BsonRepresentation(BsonType.String)]
+        public string? ProductType { get; set; }
+
     }
 }

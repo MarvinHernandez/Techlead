@@ -55,5 +55,9 @@ namespace TechLead.models
         [BsonRepresentation(BsonType.String)]
         public string? FiveGSupport { get; set; }
 
+        [BsonElement("ProductType")]
+        [BsonRepresentation(BsonType.String)]
+        public string? ProductType { get; set; }
+
     }
 }
