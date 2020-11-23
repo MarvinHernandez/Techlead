@@ -70,8 +70,12 @@ namespace TechLead
 
             services.AddSingleton<MemberService>();
             services.AddSingleton<LoginService>();
-
+            services.AddSingleton<PcService>();
+            services.AddSingleton<LaptopService>();
+            services.AddSingleton<PhoneService>();
             services.AddControllers().AddNewtonsoftJson(options => options.UseMemberCasing());
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -89,7 +93,6 @@ namespace TechLead
             app.UseCors();
 
             app.UseAuthorization();
-            //app.UseMvc();
 
             app.UseEndpoints(endpoints =>
             {
