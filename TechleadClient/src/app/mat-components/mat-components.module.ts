@@ -11,6 +11,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatTableModule} from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { MatSelectModule } from '@angular/material/select';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatSliderModule} from '@angular/material/slider';
+import {MatSlider} from '@angular/material/slider';
 
 const MaterialComponents = [MatButtonModule,
   MatCardModule,
@@ -22,7 +25,10 @@ const MaterialComponents = [MatButtonModule,
   MatToolbarModule,
   MatTableModule,
   MatSortModule,
-  MatSelectModule
+  MatSelectModule,
+  MatExpansionModule,
+  MatSliderModule,
+  MatSlider
 ];
 @NgModule({
   imports: [MatButtonModule,
@@ -33,7 +39,9 @@ const MaterialComponents = [MatButtonModule,
     MatInputModule,
     MatListModule,
     MatToolbarModule,
-    MatSelectModule
+    MatSelectModule,
+    MatExpansionModule,
+    MatSliderModule
   ],
   exports: [MatButtonModule,
     MatCardModule,
@@ -45,7 +53,10 @@ const MaterialComponents = [MatButtonModule,
     MatToolbarModule,
     MatTableModule,
     MatSortModule,
-    MatSelectModule
+    MatSelectModule,
+    MatExpansionModule,
+    MatSliderModule,
+    MatSlider
   ]
 })
 export class MatComponentsModule { }
