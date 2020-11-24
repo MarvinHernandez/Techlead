@@ -1,16 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Laptop } from '../models/laptop';
 
 @Component({
   selector: 'app-laptop-list',
-  templateUrl: './laptop-list.component.html',
-  styles: [
-  ]
+  template:
+    `
+    <mat-list-item *ngFor="let laptop of laptops" (click)="selected.emit(laptop)">
+      {{ laptop.name }} - {{ laptop.price | currency}}
+    </mat-list-item>
+  `
 })
-export class LaptopListComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+export class LaptopListComponent {
+  @Input() laptops: Laptop[];
+  @Output() selected = new EventEmitter();
 }

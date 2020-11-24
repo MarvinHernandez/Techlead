@@ -9,14 +9,22 @@ import {MatComponentsModule} from './mat-components/mat-components.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { HomeComponent } from './home/home.component';
 
-// import {PcDialogComponent} from './detailsdialog/pc-dialog.component';
-// import {LaptopDialogComponent} from './detailsdialog/laptop-dialog.component';
-// import {PhoneDialogComponent} from './detailsdialog/phone-dialog.component';
+import { PcDialogComponent } from './detailsdialog/pc-dialog.component';
+import { LaptopDialogComponent } from './detailsdialog/laptop-dialog.component';
+import { PhoneDialogComponent } from './detailsdialog/phone-dialog.component';
+
+
+// ? for home component
+import { ReactiveFormsModule } from '@angular/forms';
+import {ProductModule} from './product/product.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    PcDialogComponent,
+    LaptopDialogComponent,
+    PhoneDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -25,9 +33,11 @@ import { HomeComponent } from './home/home.component';
     HttpClientModule,
     MatComponentsModule,
     BrowserAnimationsModule,
-    ProductFeedbackModule
+    ProductFeedbackModule,
+    ReactiveFormsModule,
+    ProductModule
   ],
-  //entryComponents: [PcDialogComponent, LaptopDialogComponent, PhoneDialogComponent],
+  entryComponents: [PcDialogComponent, LaptopDialogComponent, PhoneDialogComponent],
   providers: [],
   bootstrap: [AppComponent]
 })

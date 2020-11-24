@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-phone-list',
-  templateUrl: './phone-list.component.html',
+  template: '<p>',
   styles: [
   ]
 })

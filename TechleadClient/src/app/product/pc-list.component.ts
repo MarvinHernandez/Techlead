@@ -5,12 +5,14 @@ import { Pc } from '../models/pc';
   selector: 'app-pc-list',
   template:
   `
-    <mat-list-item *ngFor="let pc of pcs" (click)="openDetailsModalPc(pc)">
-      {{ pc.nickName }} - {{ pc.price}}
+    <mat-list-item *ngFor="let pc of pcs" (click)="selected.emit(pc)">
+      "{{ pc.NickName }}" - {{ pc.price | currency}}
     </mat-list-item>
   `
 })
 export class PcListComponent {
   @Input() pcs: Pc[];
-  // @Output() selected = new EventEmitter();
+  @Output() selected = new EventEmitter();
 }
+
+// (click)="openDetailsModalPc(pc)

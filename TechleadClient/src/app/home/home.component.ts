@@ -6,10 +6,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  // showProducts: boolean;
 
-  constructor() { }
+  // add budget and usage fields for filtering using router parameters
+
+  constructor() {
+    // this.showProducts = false;
+   }
 
   ngOnInit(): void {
   }
+
+  // DisplayProducts(): void {
+  //   this.showProducts = true;
+  // }
 
 }

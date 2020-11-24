@@ -14,9 +14,9 @@ import {catchError, map} from 'rxjs/operators';
 // details dialogs
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 
-import { DeleteDialogComponent } from '../deletedialog/delete-dialog.component';
-import { DeleteDialogComponent } from '../deletedialog/delete-dialog.component';
-import { DeleteDialogComponent } from '../deletedialog/delete-dialog.component';
+import { PcDialogComponent } from '../detailsdialog/pc-dialog.component';
+import { LaptopDialogComponent } from '../detailsdialog/laptop-dialog.component';
+import { PhoneDialogComponent } from '../detailsdialog/phone-dialog.component';
 
 @Component({
   selector: 'app-product-home',
@@ -25,17 +25,21 @@ import { DeleteDialogComponent } from '../deletedialog/delete-dialog.component';
 export class ProductHomeComponent implements OnInit {
   // will need individual observables for different product types
   // each of them will need to load separately
+  // add booleans for which type is selected when page opens
+  // so html can render the correct list
   pcs$: Observable<Pc[]>;
-  pc: Pc;
+  // pc: Pc;
   laptops$: Observable<Laptop[]>;
-  laptop: Laptop;
+  // laptop: Laptop;
   phones$: Observable<Phone[]>;
-  phone: Phone;
+  // phone: Phone;
   msg: string;
 
-  constructor(public productPcService: ProductPcService, 
-              public productLaptopService: ProductLaptopService, 
-              public productPhoneService: ProductPhoneService, 
+
+
+  constructor(public productPcService: ProductPcService,
+              public productLaptopService: ProductLaptopService,
+              public productPhoneService: ProductPhoneService,
               private dialog: MatDialog) { }
 
   ngOnInit(): void {
@@ -51,7 +55,7 @@ export class ProductHomeComponent implements OnInit {
       })
     );
 
-    /// load laptop data
+    // load laptop data
     this.laptops$ = this.productLaptopService.getAll().pipe(
       catchError(error => {
         if (error.error instanceof ErrorEvent) {
@@ -83,7 +87,7 @@ export class ProductHomeComponent implements OnInit {
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = false;
     dialogConfig.data = {
-      title: `${selectedProduct.nickName}`,
+      title: `${selectedProduct.NickName}`,
       entityname: 'pc'
     };
     dialogConfig.panelClass = 'custommodal';
@@ -94,12 +98,46 @@ export class ProductHomeComponent implements OnInit {
         // i assume there would need to be away to recognize which user is signed in
         // and you would add it to them
         // i don't currently know if members have a wishlist[] field that you could add to
-        // i also don't think it's currently set up to have a member selected 
+        // i also don't think it's currently set up to have a member selected
 
-        // this.deleted.emit(this.selectedVendor);
       }
     });
   }
 
+  // list of specifications for desired laptop
+  openDetailsModalLaptop(selectedProduct: Laptop): void {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = false;
+    dialogConfig.data = {
+      title: `${selectedProduct.name}`,
+      entityname: 'laptop'
+    };
+    dialogConfig.panelClass = 'custommodal';
+    const dialogRef = this.dialog.open(LaptopDialogComponent, dialogConfig);
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+
+      }
+    });
+  }
+
+  // list of specifications for desired phone
+  openDetailsModalPhone(selectedProduct: Phone): void {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = false;
+    dialogConfig.data = {
+      title: `${selectedProduct.name}`,
+      entityname: 'phone'
+    };
+    dialogConfig.panelClass = 'custommodal';
+    const dialogRef = this.dialog.open(PhoneDialogComponent, dialogConfig);
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+
+      }
+    });
+  }
 
 }
