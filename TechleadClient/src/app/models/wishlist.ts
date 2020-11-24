@@ -1,3 +1,5 @@
+import {WishlistProduct} from './wishlistProduct';
+
 /**
  * wishlist - interface for wishlists
  */
