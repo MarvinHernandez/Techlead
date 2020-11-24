@@ -2,15 +2,16 @@
  * Phone - interface for a phone entity
  */
 export interface Phone {
-  id: string;
-  company: string;
-  name: string;
-  type: string;
-  positive: string[];
-  price: string;
-  mainUsage: string;
-  cpu: string;
-  ram: string;
-  screenSize: string;
-  fiveGSupport: string;
+  Id: string;
+  Company: string;
+  Name: string;
+  Type: string;
+  positve: string[];
+  Price: string;
+  MainUsage: string;
+  Cpu: string;
+  Ram: string;
+  ScreenSize: string;
+  FiveGSupport: string;
+  ProductType: string;
 }

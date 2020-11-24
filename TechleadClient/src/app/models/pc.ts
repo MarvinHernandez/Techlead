@@ -6,7 +6,8 @@ import {PcSpecs} from './pcSpecs';
 export interface Pc {
   id: string;
   price: string;
-  nickName: string;
-  usage: string;
-  pcSpecs: PcSpecs;
+  NickName: string;
+  Usage: string;
+  Specs: PcSpecs;
+  ProductType: string;
 }

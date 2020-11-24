@@ -22,16 +22,36 @@
       </div>
       <!--Feedback info appears after a product type is selected-->
       <div layout="row" *ngIf="selectedProductType">
-        <!--Product Selection-->
-        <!-- TODO: Get The selection populated with the products (wait for the products code to be implemented) -->
+        <!--Product selection-->
         <div layout="row">
-          <mat-form-field>
-            <mat-select matInput placeholder="Select Product" formControlName="productSelection" value="selectedProduct">
-              <mat-option *ngFor="let product of products$ | async" [value]="product">{{product.name}}</mat-option>
+          <!-- Phone type selection -->
+          <mat-form-field *ngIf="phoneTypeSelected">
+            <mat-select matInput placeholder="Select Phone" formControlName="productSelection" value="selectedProduct">
+              <mat-option *ngFor="let phone of phones" [value]="phone">{{phone.Name}}</mat-option>
             </mat-select>
             <mat-error flex *ngIf="productSelection.errors && (productSelection.dirty || productSelection.touched)"
                        align="end" >
-              <p *ngIf="productSelection.hasError('required')">Product is required.</p>
+              <p *ngIf="productSelection.hasError('required')">Phone is required.</p>
+            </mat-error>
+          </mat-form-field>
+          <!-- Pc type selection -->
+          <mat-form-field *ngIf="pcTypeSelected">
+            <mat-select matInput placeholder="Select Pc" formControlName="productSelection" value="selectedProduct">
+              <mat-option *ngFor="let pc of pcs" [value]="pc">{{pc.NickName}}</mat-option>
+            </mat-select>
+            <mat-error flex *ngIf="productSelection.errors && (productSelection.dirty || productSelection.touched)"
+                       align="end" >
+              <p *ngIf="productSelection.hasError('required')">Pc is required.</p>
+            </mat-error>
+          </mat-form-field>
+          <!-- Laptop type selection -->
+          <mat-form-field *ngIf="laptopTypeSelected">
+            <mat-select matInput placeholder="Select Laptop" formControlName="productSelection" value="selectedProduct">
+              <mat-option *ngFor="let laptop of laptops" [value]="laptop">{{laptop.Name}}</mat-option>
+            </mat-select>
+            <mat-error flex *ngIf="productSelection.errors && (productSelection.dirty || productSelection.touched)"
+                       align="end" >
+              <p *ngIf="productSelection.hasError('required')">Laptop is required.</p>
             </mat-error>
           </mat-form-field>
         </div>
