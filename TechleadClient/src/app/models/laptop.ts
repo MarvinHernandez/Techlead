@@ -2,20 +2,21 @@
  * Laptop - interface for a laptop entity
  */
 export interface Laptop {
-  Id: string;
-  Company: string;
-  Name: string;
-  OS: string;
-  Usage: string[];
-  ScreenSize: string;
-  Gpu: string;
-  Cpu: string;
-  CpuProvider: string;
-  ScreenResolution: string;
-  Touch: string;
-  TwoInOne: string;
-  BuildQuality: string;
+  id: string;
+  company: string;
+  name: string;
+  os: string;
+  usage: string[];
+  screenSize: string;
+  gpu: string;
+  cpu: string;
+  cpuProvider: string;
+  screenResolution: string;
+  touch: string;
+  twoInOne: string;
+  buildQuality: string;
   price: string;
-  Ram: string;
-  Storage: string;
+  ram: string;
+  storage: string;
+  type: string; // laptop
 }

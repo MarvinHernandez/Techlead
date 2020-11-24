@@ -9,4 +9,5 @@ export interface Pc {
   nickName: string;
   usage: string;
   pcSpecs: PcSpecs;
+  type: string; // PC
 }

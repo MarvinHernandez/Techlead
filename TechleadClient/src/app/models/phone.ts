@@ -5,12 +5,12 @@ export interface Phone {
   id: string;
   company: string;
   name: string;
-  type: string;
   positive: string[];
   price: string;
-  mainUsage: string;
+  usage: string;
   cpu: string;
   ram: string;
   screenSize: string;
   fiveGSupport: string;
+  type: string; // phone
 }

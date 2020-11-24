@@ -124,6 +124,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "TechleadClient"
+    }
+  },
+  "defaultProject": "TechleadClient",
+  "cli": {
+    "analytics": false
+  }
 }
