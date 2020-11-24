@@ -10,6 +10,6 @@ import {BASEURL} from '../constants';
 export class ProductPhoneService extends GenericHttpService<Phone> {
 
   constructor(public http: HttpClient) {
-    super(http, `${BASEURL}/api/phone`);
+    super(http, `${BASEURL}/api/phones`);
   } // constructor
 }// ProductPhoneService
