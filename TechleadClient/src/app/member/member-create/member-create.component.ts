@@ -3,6 +3,10 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import {Member} from '../../models/member';
 import {MemberService} from '../../services/member.service';
 import {Subscription} from 'rxjs';
+import { ToastrService } from 'ngx-toastr';
+import {Router} from "@angular/router";
+import { AuthenticationService} from '../../services/authentication.service';
+import {first} from 'rxjs/operators';
 
 @Component({
   selector: 'app-create-account-page',
@@ -16,11 +20,14 @@ export class MemberCreateComponent implements OnInit, OnDestroy {
   member: Member;
   userName: FormControl;
   password: FormControl;
+  loginStatus: boolean;
 
-  constructor(private builder: FormBuilder, public memberService: MemberService) {
+  constructor(private builder: FormBuilder, public memberService: MemberService, private toastr: ToastrService, private router: Router, private appcontext: AuthenticationService) {
     this.userName = new FormControl('', Validators.compose([Validators.required,
     this.userNameUsedValidator.bind(this)]));
     this.password = new FormControl('', Validators.compose([Validators.required]));
+
+
   }
 
   ngOnInit(): void {
@@ -35,6 +42,10 @@ export class MemberCreateComponent implements OnInit, OnDestroy {
       this.members = [];
       this.msg = `A connection error occurred`;
     });
+
+    if (this.appcontext.currentUserValue) {
+      this.loginStatus = true;
+    }
   }
 
   ngOnDestroy(): void {
@@ -46,13 +57,22 @@ export class MemberCreateComponent implements OnInit, OnDestroy {
     this.member = {id: '', username: this.userName.value, password: this.password.value};
     this.memberService.add(this.member).subscribe( payload => {
         if (payload.id !== '') {
-            this.msg = 'Member account created';
+          this.toastr.success("Account Created. Redirecting to home");
+          this.appcontext.login(this.userName.value, this.password.value)
+            .pipe(first())
+            .subscribe(
+              data => {
+                this.router.navigate(['/']);
+              },
+              error => {
+
+              });
         } else {
-          this.msg = 'Member account not created';
+          this.toastr.error("Unable to create the account");
         }
       },
       err => {
-        this.msg = 'An error occurred while creating the account';
+        this.toastr.error(err);
       });
   }
   // Validator that checks if the user name is used

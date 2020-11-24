@@ -103,7 +103,6 @@ C:\Users\G Gorgeouslettice\Desktop\managing project\Techlead\TechLead\bin\Debug\
 C:\Users\G Gorgeouslettice\Desktop\managing project\Techlead\TechLead\bin\Debug\netcoreapp3.1\runtimes\win\native\libzstd.dll
 C:\Users\G Gorgeouslettice\Desktop\managing project\Techlead\TechLead\bin\Debug\netcoreapp3.1\runtimes\win\native\snappy32.dll
 C:\Users\G Gorgeouslettice\Desktop\managing project\Techlead\TechLead\bin\Debug\netcoreapp3.1\runtimes\win\native\snappy64.dll
-C:\Users\G Gorgeouslettice\Desktop\managing project\Techlead\TechLead\obj\Debug\netcoreapp3.1\TechLead.csprojAssemblyReference.cache
 C:\Users\G Gorgeouslettice\Desktop\managing project\Techlead\TechLead\obj\Debug\netcoreapp3.1\TechLead.AssemblyInfoInputs.cache
 C:\Users\G Gorgeouslettice\Desktop\managing project\Techlead\TechLead\obj\Debug\netcoreapp3.1\TechLead.AssemblyInfo.cs
 C:\Users\G Gorgeouslettice\Desktop\managing project\Techlead\TechLead\obj\Debug\netcoreapp3.1\TechLead.csproj.CoreCompileInputs.cache
