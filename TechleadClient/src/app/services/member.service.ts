@@ -10,4 +10,4 @@ export class MemberService extends GenericHttpService<Member> {
   constructor(public http: HttpClient) {
     super(http, `${BASEURL}/api/members`);
   } // constructor
-} // EmployeeService
+} // member

@@ -42,9 +42,9 @@ namespace TechLead.services
 
             if (user != null)
             {
-                if (login.password == user.password)
+                if (login.password != user.password)
                 {
-                    user = login;
+                    user = null;
                 }
             }
 

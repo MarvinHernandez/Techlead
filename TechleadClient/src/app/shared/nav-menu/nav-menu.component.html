@@ -1,0 +1,15 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Techlead</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-link"[routerLink]="['/memberhome']">member home</a>
+      <a class="nav-link"[routerLink]="['/createaccount']">create account</a>
+      <a class="nav-link" [routerLink]="['/createproductfeedback']">Create Product Feedback</a>
+      <a class="nav-link" *ngIf="!MemberLoginStatus" [routerLink]="['/login']">Login</a>
+      <a class="nav-link" *ngIf="MemberLoginStatus" (click)="logout()">Logout</a>
+    </div>
+  </div>
+</nav>

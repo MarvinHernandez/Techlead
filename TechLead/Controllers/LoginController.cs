@@ -37,7 +37,7 @@ namespace TechLead.Controllers
             if (user != null)
             {
                 var tokenString = _loginService.GenerateJSONWebToken(user, _config);
-                response = Ok(new { token = tokenString });
+                response = Ok(new { token = tokenString, username = user.username, id = user.Id });
             }
 
             return response;

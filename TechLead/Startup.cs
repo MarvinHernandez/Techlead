@@ -73,6 +73,7 @@ namespace TechLead
             services.AddSingleton<PcService>();
             services.AddSingleton<LaptopService>();
             services.AddSingleton<PhoneService>();
+            services.AddSingleton<WishlistService>();
             services.AddControllers().AddNewtonsoftJson(options => options.UseMemberCasing());
 
 
