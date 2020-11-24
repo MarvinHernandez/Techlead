@@ -22,17 +22,30 @@ namespace TechLead.Controllers
             _pcService.Get();
 
 
-        [HttpGet("{NickName}", Name = "GetNickName")]
-        public ActionResult<pc> Get(string nickname)
-        {
-            var a_Pc = _pcService.Get(nickname);
+        //[HttpGet("{NickName}", Name = "GetNickName")]
+        //public ActionResult<pc> Get(string nickname)
+        //{
+        //    var a_Pc = _pcService.Get(nickname);
 
-            if (a_Pc == null)
+        //    if (a_Pc == null)
+        //    {
+        //        return NotFound();
+        //    }
+
+        //    return a_Pc;
+        //}
+
+        [HttpGet("{id}")]
+        public ActionResult<pc> Get(string id)
+        {
+            var pc = _pcService.GetById(id);
+
+            if (pc == null)
             {
                 return NotFound();
             }
 
-            return a_Pc;
+            return pc;
         }
 
     }

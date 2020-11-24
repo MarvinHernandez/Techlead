@@ -3,22 +3,26 @@ import {Wishlist} from '../../models/wishlist';
 import {WishlistService} from '../../services/wishlist.service'
 import { Observable, of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
+import {AuthenticationService} from "../../services/authentication.service";
+import { WishlistListComponent } from "../wishlist-list/wishlist-list.component";
 
 @Component({
   selector: 'app-wishlist-home',
   templateUrl: './wishlist-home.component.html',
-  styles: [
-  ]
+  styleUrls: ['./wishlist-home.component.scss']
 })
 export class WishlistHomeComponent implements OnInit {
   wishlists: Wishlist[];
   wishlists$: Observable<Wishlist[]>;
   msg: string;
+  loginStatus: boolean;
+  membername: string;
+  selectedWishlist: Wishlist;
 
-  constructor(public wishlistService: WishlistService) { }
+  constructor(public wishlistService: WishlistService, private appcontext: AuthenticationService) { }
 
   ngOnInit(): void {
-    this.wishlists$ = this.wishlistService.getByUserId('5fbaf38f5b714f147d12a246').pipe(
+    this.wishlists$ = this.wishlistService.getByUserId(this.appcontext.currentUserValue.id).pipe(
       catchError(error => {
         if (error.error instanceof ErrorEvent) {
           this.msg = `Error: ${error.error.message}`;
@@ -28,19 +32,13 @@ export class WishlistHomeComponent implements OnInit {
         return of([]);
       })
     );
-  //   let templist = null;
-  //   this.wishlistService.getByUserId('5fbaf38f5b714f147d12a246').subscribe( payload => {
-  //     if (payload !== null) {
-  //       templist = payload;
-  //     } else {
-  //       this.msg = 'No wishlists found!';
-  //     }
-  //   },
-  // err => {
-  //     this.msg = `Error - getByUserId - ${err.status} - ${err.statusText}`;
-  //   });
-  //   this.wishlists = templist;
-    this.msg = '0';
+    this.membername = this.appcontext.currentUserValue.username;
+    if (this.appcontext.currentUserValue) {
+      this.loginStatus = true;
+    }
   }
 
+  receiveSelectedWishlist($event) {
+    this.selectedWishlist = $event;
+  }
 }

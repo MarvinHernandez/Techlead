@@ -7,6 +7,7 @@
     <div class="navbar-nav">
       <a class="nav-link"[routerLink]="['/memberhome']">member home</a>
       <a class="nav-link"[routerLink]="['/createaccount']">create account</a>
+      <a class="nav-link"[routerLink]="['/wishlisthome']">wishlist</a>
       <a class="nav-link" [routerLink]="['/createproductfeedback']">Create Product Feedback</a>
       <a class="nav-link" *ngIf="!MemberLoginStatus" [routerLink]="['/login']">Login</a>
       <a class="nav-link" *ngIf="MemberLoginStatus" (click)="logout()">Logout</a>

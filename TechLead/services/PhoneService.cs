@@ -23,11 +23,12 @@ namespace TechLead.services
             catch (Exception ex)
             {
                 System.Console.WriteLine(ex);
-
             }
 
         }
         public List<phones> Get() => _phones.Find(p => true).ToList();
         public phones Get(string Name) => _phones.Find<phones>(l => l.Name == Name).FirstOrDefault();
+        public phones GetById(string id) =>
+            _phones.Find<phones>(p => p.Id == id).FirstOrDefault();
     }
 }

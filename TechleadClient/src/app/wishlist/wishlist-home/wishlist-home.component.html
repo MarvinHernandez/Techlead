@@ -1,6 +1,11 @@
-<p>wishlist-home works!</p>
-<p>{{msg}}</p>
-<div class="mat-app-background basic-container">
-  <app-wishlist-list [wishlists]="wishlists$ | async"></app-wishlist-list>
+<app-nav-menu [MemberLoginStatus]="loginStatus"></app-nav-menu>
+<h1 id="main-header">Welcome {{membername}}, to your wishlist menu</h1>
+<div *ngIf="selectedWishlist !== null && selectedWishlist !== undefined">
+  <h2>You have selected {{selectedWishlist.wishlistName}} wishlist</h2>
+</div>
+
+<div class="mat-app-background basic-container" id="to-center">
+  <app-wishlist-list [wishlists]="wishlists$ | async" (event)="receiveSelectedWishlist($event)"></app-wishlist-list>
+  <app-wishlist-detail [selectedWishlist]="selectedWishlist" *ngIf="selectedWishlist !== null && selectedWishlist !== undefined"></app-wishlist-detail>
 </div>
 
