@@ -1,20 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\SoftwareMGMT\\Techlead\\TechLead\\TechLead.csproj": {}
+    "D:\\SKOOL\\SEM 6\\INFO 5103 Managing Software Projects\\GIT\\.git\\Techlead\\TechLead\\TechLead.csproj": {}
   },
   "projects": {
-    "C:\\SoftwareMGMT\\Techlead\\TechLead\\TechLead.csproj": {
+    "D:\\SKOOL\\SEM 6\\INFO 5103 Managing Software Projects\\GIT\\.git\\Techlead\\TechLead\\TechLead.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\SoftwareMGMT\\Techlead\\TechLead\\TechLead.csproj",
+        "projectUniqueName": "D:\\SKOOL\\SEM 6\\INFO 5103 Managing Software Projects\\GIT\\.git\\Techlead\\TechLead\\TechLead.csproj",
         "projectName": "TechLead",
-        "projectPath": "C:\\SoftwareMGMT\\Techlead\\TechLead\\TechLead.csproj",
-        "packagesPath": "C:\\Users\\Anas\\.nuget\\packages\\",
-        "outputPath": "C:\\SoftwareMGMT\\Techlead\\TechLead\\obj\\",
+        "projectPath": "D:\\SKOOL\\SEM 6\\INFO 5103 Managing Software Projects\\GIT\\.git\\Techlead\\TechLead\\TechLead.csproj",
+        "packagesPath": "C:\\Users\\owner\\.nuget\\packages\\",
+        "outputPath": "D:\\SKOOL\\SEM 6\\INFO 5103 Managing Software Projects\\GIT\\.git\\Techlead\\TechLead\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Anas\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\owner\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -85,7 +88,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
         }
       }
     }
