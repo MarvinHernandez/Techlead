@@ -7,10 +7,12 @@ import {ProductFeedbackModule} from './product-feedback/product-feedback.module'
 import { HttpClientModule } from '@angular/common/http';
 import {MatComponentsModule} from './mat-components/mat-components.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
