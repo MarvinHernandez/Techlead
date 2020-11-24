@@ -32,6 +32,12 @@ export class LoginComponent implements OnInit {
   get f() { return this.loginForm.controls; }
 
   login(): void {
+    this.submitted = true;
+
+    // stop here if form is invalid
+    if (this.loginForm.invalid) {
+      return;
+    }
     this.appcontext.login(this.f.username.value, this.f.password.value)
       .pipe(first())
       .subscribe(
@@ -39,7 +45,7 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['/memberhome']);
         },
         error => {
-
+          this.submitted = false;
         });
   }
 }
