@@ -1,1 +1,6 @@
 <p>wishlist-home works!</p>
+<p>{{msg}}</p>
+
+<mat-grid-list cols="2" *ngFor="let wishlist of wishlists">
+  <mat-grid-tile>{{wishlist.wishlistName}}</mat-grid-tile>
+</mat-grid-list>

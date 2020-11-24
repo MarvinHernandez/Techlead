@@ -229,3 +229,4 @@ C:\Users\yulii\Desktop\cpa\6th_semester\INFO5103_Managing_Softare_Prjs\prj\Techl
 C:\Users\yulii\Desktop\cpa\6th_semester\INFO5103_Managing_Softare_Prjs\prj\Techlead\TechLead\obj\Debug\netcoreapp3.1\TechLead.dll
 C:\Users\yulii\Desktop\cpa\6th_semester\INFO5103_Managing_Softare_Prjs\prj\Techlead\TechLead\obj\Debug\netcoreapp3.1\TechLead.pdb
 C:\Users\yulii\Desktop\cpa\6th_semester\INFO5103_Managing_Softare_Prjs\prj\Techlead\TechLead\obj\Debug\netcoreapp3.1\TechLead.genruntimeconfig.cache
+C:\Users\yulii\Desktop\cpa\6th_semester\INFO5103_Managing_Softare_Prjs\prj\Techlead\TechLead\obj\Debug\netcoreapp3.1\TechLead.csprojAssemblyReference.cache

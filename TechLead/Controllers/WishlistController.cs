@@ -25,10 +25,11 @@ namespace TechLead.Controllers
         public ActionResult<List<Wishlist>> Get() =>
             _wishlistService.Get();
 
-        [HttpGet("{id}", Name = "GetWishlist")]
-        public ActionResult<Wishlist> Get(string id)
+        //[HttpGet("{id}", Name = "GetWishlist")]
+        [HttpGet("{id}")]
+        public ActionResult<List<Wishlist>> Get(string id)
         {
-            var Wishlist = _wishlistService.Get(id);
+            var Wishlist = _wishlistService.GetByMemberId(id);
 
             if (Wishlist == null)
             {
