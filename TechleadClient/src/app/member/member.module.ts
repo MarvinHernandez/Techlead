@@ -4,7 +4,7 @@ import { MemberListComponent } from './member-list/member-list.component';
 import { MatComponentsModule } from '../mat-components/mat-components.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MemberHomeComponent } from './member-home/member-home.component';
-import {MemberCreateComponent} from './member-create/member-create.component';
+import { MemberCreateComponent } from './member-create/member-create.component';
 
 @NgModule({
   declarations: [MemberListComponent, MemberHomeComponent, MemberCreateComponent],
