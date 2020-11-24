@@ -9,6 +9,10 @@ import {MatComponentsModule} from './mat-components/mat-components.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { HomeComponent } from './home/home.component';
 
+// import {PcDialogComponent} from './detailsdialog/pc-dialog.component';
+// import {LaptopDialogComponent} from './detailsdialog/laptop-dialog.component';
+// import {PhoneDialogComponent} from './detailsdialog/phone-dialog.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,6 +27,7 @@ import { HomeComponent } from './home/home.component';
     BrowserAnimationsModule,
     ProductFeedbackModule
   ],
+  //entryComponents: [PcDialogComponent, LaptopDialogComponent, PhoneDialogComponent],
   providers: [],
   bootstrap: [AppComponent]
 })

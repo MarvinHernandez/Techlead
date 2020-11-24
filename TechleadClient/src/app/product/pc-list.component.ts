@@ -3,9 +3,14 @@ import { Pc } from '../models/pc';
 
 @Component({
   selector: 'app-pc-list',
-  templateUrl: './pc-list.component.html'
+  template:
+  `
+    <mat-list-item *ngFor="let pc of pcs" (click)="openDetailsModalPc(pc)">
+      {{ pc.nickName }} - {{ pc.price}}
+    </mat-list-item>
+  `
 })
 export class PcListComponent {
-  @Input() vendors: Pc[];
-  @Output() selected = new EventEmitter();
+  @Input() pcs: Pc[];
+  // @Output() selected = new EventEmitter();
 }

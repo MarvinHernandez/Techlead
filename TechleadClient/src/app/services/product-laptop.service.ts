@@ -6,7 +6,7 @@ import {Laptop} from '../models/laptop';
 @Injectable({
   providedIn: 'root'
 })
-export class LaptopService extends GenericHttpService<Laptop> {
+export class ProductLaptopService extends GenericHttpService<Laptop> {
   constructor(public http: HttpClient) {
     super(http, `${BASEURL}/api/laptop`);
   } // constructor

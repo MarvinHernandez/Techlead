@@ -15,6 +15,8 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatSliderModule} from '@angular/material/slider';
 import {MatSlider} from '@angular/material/slider';
 
+import { MatDialogModule } from '@angular/material/dialog';
+
 const MaterialComponents = [MatButtonModule,
   MatCardModule,
   MatFormFieldModule,
@@ -28,7 +30,8 @@ const MaterialComponents = [MatButtonModule,
   MatSelectModule,
   MatExpansionModule,
   MatSliderModule,
-  MatSlider
+  MatSlider,
+  MatDialogModule
 ];
 @NgModule({
   imports: [MatButtonModule,
@@ -41,7 +44,8 @@ const MaterialComponents = [MatButtonModule,
     MatToolbarModule,
     MatSelectModule,
     MatExpansionModule,
-    MatSliderModule
+    MatSliderModule,
+    MatDialogModule
   ],
   exports: [MatButtonModule,
     MatCardModule,
@@ -56,7 +60,8 @@ const MaterialComponents = [MatButtonModule,
     MatSelectModule,
     MatExpansionModule,
     MatSliderModule,
-    MatSlider
+    MatSlider,
+    MatDialogModule
   ]
 })
 export class MatComponentsModule { }
