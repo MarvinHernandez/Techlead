@@ -28,6 +28,7 @@ export class WishlistHomeComponent implements OnInit {
       this.msg = `Error - getByUserId - ${err.status} - ${err.statusText}`;
     });
     let debug = this.wishlists.length;
+    this.msg = debug.toString();
   }
 
 }
