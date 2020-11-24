@@ -3,11 +3,12 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MemberModule } from './member/member.module';
-import { DebugModule } from './Debuglogin/debug.module';
+import { LoginModule } from './login/login.module';
 import {ProductFeedbackModule} from './product-feedback/product-feedback.module';
 import { HttpClientModule } from '@angular/common/http';
 import {MatComponentsModule} from './mat-components/mat-components.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {SharedModule} from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     MatComponentsModule,
     BrowserAnimationsModule,
     ProductFeedbackModule,
-    DebugModule
+    LoginModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

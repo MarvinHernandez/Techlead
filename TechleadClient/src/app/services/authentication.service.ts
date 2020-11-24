@@ -21,20 +21,12 @@ export class AuthenticationService {
 
   // tslint:disable-next-line:typedef
   login(username: string, password: string) {
-    const user: Member = null;
     return this.http.post<any>(`${BASEURL}/api/login`, { username, password })
       .pipe(map(token => {
         // store user details and jwt token in local storage to keep user logged in between page refreshes
-        const res = JSON.parse(token);
-        if(res !== null && res !== undefined){
-          if(res.token !== null && res.token !== undefined ){
-            user.username = res.username;
-            user.id = res.id;
-          }
-        }
-        localStorage.setItem('currentUser', JSON.stringify(user));
-        this.currentUserSubject.next(user);
-        return user;
+        localStorage.setItem('currentUser', JSON.stringify(token));
+        this.currentUserSubject.next(token);
+        return true;
       }));
   }
 
