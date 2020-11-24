@@ -29,7 +29,8 @@ export class ProductHomeComponent implements OnInit {
   // so html can render the correct list
   pcs$: Observable<Pc[]>;
   // pc: Pc;
-  laptops$: Observable<Laptop[]>;
+  // laptops$: Observable<Laptop[]>;
+  laptops: Laptop[];
   // laptop: Laptop;
   phones$: Observable<Phone[]>;
   // phone: Phone;
@@ -56,16 +57,19 @@ export class ProductHomeComponent implements OnInit {
     );
 
     // load laptop data
-    this.laptops$ = this.productLaptopService.getAll().pipe(
-      catchError(error => {
-        if (error.error instanceof ErrorEvent) {
-          this.msg = `Error: ${error.error.message}`;
-        } else {
-          this.msg = `Error: ${error.message}`;
-        }
-        return of([]);
-      })
-    );
+    // this.laptops$ = this.productLaptopService.getAll().pipe(
+    //   catchError(error => {
+    //     if (error.error instanceof ErrorEvent) {
+    //       this.msg = `Error: ${error.error.message}`;
+    //     } else {
+    //       this.msg = `Error: ${error.message}`;
+    //     }
+    //     return of([]);
+    //   })
+    // );
+    this.productLaptopService.getAll().subscribe( laptops => {
+      this.laptops = laptops;
+    });
 
     // load phone data
     this.phones$ = this.productPhoneService.getAll().pipe(
@@ -110,7 +114,7 @@ export class ProductHomeComponent implements OnInit {
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = false;
     dialogConfig.data = {
-      title: `${selectedProduct.name}`,
+      title: `${selectedProduct.Name}`,
       entityname: 'laptop'
     };
     dialogConfig.panelClass = 'custommodal';
@@ -128,7 +132,7 @@ export class ProductHomeComponent implements OnInit {
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = false;
     dialogConfig.data = {
-      title: `${selectedProduct.name}`,
+      title: `${selectedProduct.Name}`,
       entityname: 'phone'
     };
     dialogConfig.panelClass = 'custommodal';

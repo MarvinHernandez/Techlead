@@ -11,9 +11,9 @@
     </mat-card-header>
     <mat-list flex>
         <!-- make sure its written as the actual selector -->
-<!--      <app-pc-list [pcs]="pcs$ | async" (selected)="openDetailsModalPc($event)"> </app-pc-list>-->
-      <app-laptop-list [laptops]="laptops$ | async" (selected)="openDetailsModalLaptop($event)"> </app-laptop-list>
-<!--      <app-phone-list-list [phones]="phones$ | async" (selected)="openDetailsModalPhone($event)"> </app-phone-list-list>-->
+      <app-pc-list [pcs]="pcs$ | async" (selected)="openDetailsModalPc($event)"> </app-pc-list>
+      <app-laptop-list [laptops]="laptops" (selected)="openDetailsModalLaptop($event)"> </app-laptop-list>
+      <app-phone-list [phones]="phones$ | async" (selected)="openDetailsModalPhone($event)"> </app-phone-list>
     </mat-list>
   </mat-card-content>
 </mat-card>

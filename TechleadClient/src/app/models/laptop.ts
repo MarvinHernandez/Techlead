@@ -4,7 +4,7 @@
 export interface Laptop {
   id: string;
   company: string;
-  name: string;
+  Name: string;
   os: string;
   usage: string[];
   screenSize: string;

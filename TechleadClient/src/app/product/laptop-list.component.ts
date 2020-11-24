@@ -6,7 +6,8 @@ import { Laptop } from '../models/laptop';
   template:
     `
     <mat-list-item *ngFor="let laptop of laptops" (click)="selected.emit(laptop)">
-      {{ laptop.name }} - {{ laptop.price | currency}}
+      {{ laptop.Name }} - &#36;{{ laptop.price}}
+<!--      | currency   (after price)-->
     </mat-list-item>
   `
 })
