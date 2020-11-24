@@ -13,7 +13,7 @@ import {first} from 'rxjs/operators';
   templateUrl: './member-create.component.html'
 })
 export class MemberCreateComponent implements OnInit, OnDestroy {
-  msg: string;
+  error: string;
   subscription: Subscription;
   createAccountForm: FormGroup;
   members: Member[];
@@ -21,13 +21,13 @@ export class MemberCreateComponent implements OnInit, OnDestroy {
   userName: FormControl;
   password: FormControl;
   loginStatus: boolean;
+  submitted = false;
+  loading = false;
 
   constructor(private builder: FormBuilder, public memberService: MemberService, private toastr: ToastrService, private router: Router, private appcontext: AuthenticationService) {
     this.userName = new FormControl('', Validators.compose([Validators.required,
     this.userNameUsedValidator.bind(this)]));
     this.password = new FormControl('', Validators.compose([Validators.required]));
-
-
   }
 
   ngOnInit(): void {
@@ -40,13 +40,17 @@ export class MemberCreateComponent implements OnInit, OnDestroy {
       this.members = members;
     }, error => {
       this.members = [];
-      this.msg = `A connection error occurred`;
+      this.error = `A connection error occurred`;
     });
 
     if (this.appcontext.currentUserValue) {
       this.loginStatus = true;
     }
   }
+
+  // convenience getter for easy access to form fields
+  // tslint:disable-next-line:typedef
+  get f() { return this.createAccountForm.controls; }
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
@@ -55,6 +59,14 @@ export class MemberCreateComponent implements OnInit, OnDestroy {
   // Creates a member and stores it into the database
   createMember(): void {
     this.member = {id: '', username: this.userName.value, password: this.password.value};
+    this.submitted = true;
+
+    // stop here if form is invalid
+    if (this.createAccountForm.invalid) {
+      return;
+    }
+
+    this.loading = true;
     this.memberService.add(this.member).subscribe( payload => {
         if (payload.id !== '') {
           this.toastr.success("Account Created. Redirecting to home");
@@ -65,7 +77,8 @@ export class MemberCreateComponent implements OnInit, OnDestroy {
                 this.router.navigate(['/']);
               },
               error => {
-
+                this.submitted = false;
+                this.loading = false;
               });
         } else {
           this.toastr.error("Unable to create the account");
@@ -73,6 +86,8 @@ export class MemberCreateComponent implements OnInit, OnDestroy {
       },
       err => {
         this.toastr.error(err);
+        this.submitted = false;
+        this.loading = false;
       });
   }
   // Validator that checks if the user name is used
