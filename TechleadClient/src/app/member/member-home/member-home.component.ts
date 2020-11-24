@@ -3,6 +3,7 @@ import {Member} from '../../models/member';
 import {MemberService} from '../../services/member.service';
 import {Observable, of} from 'rxjs';
 import {catchError, map} from 'rxjs/operators';
+import {AuthenticationService} from "../../services/authentication.service";
 
 @Component({
   selector: 'app-member-home',
@@ -13,10 +14,10 @@ export class MemberHomeComponent implements OnInit {
   members$: Observable<Member[]>;
   member: Member;
   msg: string;
-  hideEditForm: boolean;
+  loginStatus: boolean;
   todo: string;
 
-  constructor(public memberService: MemberService) {} // constructor
+  constructor(public memberService: MemberService, private appcontext: AuthenticationService) {} // constructor
   ngOnInit(): void {
     this.msg = `Member's loaded`;
     this.members$ = this.memberService.getAll().pipe(
@@ -28,7 +29,11 @@ export class MemberHomeComponent implements OnInit {
         }
         return of([]);
       })
+
     );
+    if (this.appcontext.currentUserValue) {
+      this.loginStatus = true;
+    }
   } // ngOnInit
 
 

@@ -1,7 +1,13 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import {FormControl, FormGroup, FormBuilder, Validators, Form, FormsModule} from '@angular/forms';
 import {ProductFeedbackService} from '../../services/product-feedback.service';
-import {Observable, Subscription} from 'rxjs';
+import {Subscription} from 'rxjs';
+import {Phone} from '../../models/phone';
+import {ProductPhoneService} from '../../services/product-phone.service';
+import {Laptop} from '../../models/laptop';
+import {ProductLaptopService} from '../../services/product-laptop.service';
+import {Pc} from '../../models/pc';
+import {ProductPcService} from '../../services/product-pc.service';
 
 @Component({
   selector: 'app-product-feedback-create',
@@ -16,8 +22,17 @@ export class ProductFeedbackCreateComponent implements OnInit, OnDestroy {
   productTypeSelection: FormControl;
   selectedProductType: boolean;
   subscriptions: Subscription;
+  // arrays for the products
+  phones: Phone[];
+  laptops: Laptop[];
+  pcs: Pc[];
 
-  constructor(private builder: FormBuilder, public feedbackService: ProductFeedbackService) {
+  // booleans for the selected product type
+  phoneTypeSelected: boolean;
+  laptopTypeSelected: boolean;
+  pcTypeSelected: boolean;
+  constructor(private builder: FormBuilder, private feedbackService: ProductFeedbackService, private phoneService: ProductPhoneService,
+              private laptopService: ProductLaptopService, private pcService: ProductPcService) {
     this.rating = new FormControl('', Validators.compose([Validators.required]));
     this.feedbackField = new FormControl('', Validators.compose([Validators.required]));
     this.productSelection = new FormControl('', Validators.compose([Validators.required]));
@@ -34,21 +49,52 @@ export class ProductFeedbackCreateComponent implements OnInit, OnDestroy {
     this.selectedProductType = false;
     this.subscriptions = new Subscription();
 
-    // TODO: Populate a products array with the products depending on the users product type dropdown selection
-    // TODO: Test the services to see if I can get the products from the server properly
-
+    // TODO: MAKE SURE THE PROPERTIES CAN BE ACCESSED PROPERLY FOR EACH TYPE
+    // Get the phones from the server
+    this.phoneService.getAll().subscribe(phones => {
+        this.phones = phones;
+    });
+    // Get the laptops from the server
+    this.laptopService.getAll().subscribe(laptops => {
+      this.laptops = laptops;
+    });
+    // Get the pcs from the server
+    this.pcService.getAll().subscribe(pcs => {
+      this.pcs = pcs;
+    });
   }// ngOnInit
 
   // Creates the feedback
   createFeedback(): void {
-    //TODO: Inplement the create feedback method
+    // TODO: Implement the create feedback method
   }// createFeedback
 
   // When the product type is changed
   onChangeProductType(): void {
     const xSubscription = this.createFeedbackForm.get('productTypeSelection').valueChanges.subscribe(value => {
-      console.log(value);
       this.selectedProductType = true;
+
+      // checks which type was selected
+      switch (value){
+        case 'phone': {
+          this.phoneTypeSelected = true;
+          this.laptopTypeSelected = false;
+          this.pcTypeSelected = false;
+          break;
+        }
+        case 'pc': {
+          this.phoneTypeSelected = false;
+          this.laptopTypeSelected = false;
+          this.pcTypeSelected = true;
+          break;
+        }
+        case 'laptop': {
+          this.phoneTypeSelected = false;
+          this.laptopTypeSelected = true;
+          this.pcTypeSelected = false;
+          break;
+        }
+      }
     });
 
     this.subscriptions.add(xSubscription);

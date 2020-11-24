@@ -7,7 +7,7 @@ export interface Pc {
   id: string;
   price: string;
   NickName: string;
-  usage: string;
-  pcSpecs: PcSpecs;
-  type: string; // PC
+  Usage: string;
+  Specs: PcSpecs;
+  ProductType: string;
 }
