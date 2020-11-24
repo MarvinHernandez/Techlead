@@ -13,10 +13,22 @@ import {SharedModule} from './shared/shared.module';
 import { HomeComponent } from './home/home.component';
 import { ToastrModule } from 'ngx-toastr';
 
+import { PcDialogComponent } from './detailsdialog/pc-dialog.component';
+import { LaptopDialogComponent } from './detailsdialog/laptop-dialog.component';
+import { PhoneDialogComponent } from './detailsdialog/phone-dialog.component';
+
+
+// ? for home component
+import { ReactiveFormsModule } from '@angular/forms';
+import {ProductModule} from './product/product.module';
+
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    PcDialogComponent,
+    LaptopDialogComponent,
+    PhoneDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -27,6 +39,8 @@ import { ToastrModule } from 'ngx-toastr';
     BrowserAnimationsModule,
     ProductFeedbackModule,
     WishlistModule,
+    ProductModule,
+    ReactiveFormsModule,
     LoginModule,
     SharedModule,
     ToastrModule.forRoot({

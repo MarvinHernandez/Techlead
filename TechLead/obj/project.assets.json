@@ -3780,7 +3780,6 @@
       "path": "system.composition.attributedmodel/1.0.31",
       "files": [
         ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/netstandard1.0/System.Composition.AttributedModel.dll",
@@ -3795,6 +3794,7 @@
       "path": "system.composition.convention/1.0.31",
       "files": [
         ".nupkg.metadata",
+        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/netstandard1.0/System.Composition.Convention.dll",
@@ -3837,6 +3837,7 @@
       "path": "system.composition.typedparts/1.0.31",
       "files": [
         ".nupkg.metadata",
+        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/netstandard1.0/System.Composition.TypedParts.dll",
@@ -5069,7 +5070,6 @@
       "path": "system.reflection.emit/4.3.0",
       "files": [
         ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -5105,7 +5105,6 @@
       "path": "system.reflection.emit.ilgeneration/4.3.0",
       "files": [
         ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -6768,23 +6767,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\G Gorgeouslettice\\.nuget\\packages\\": {},
+    "C:\\Users\\lukek\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\G Gorgeouslettice\\Desktop\\managing project\\Techlead\\TechLead\\TechLead.csproj",
+      "projectUniqueName": "D:\\$ CPA Semester 6\\INFO-5103 - Software Projects\\Techlead\\TechLead\\TechLead.csproj",
       "projectName": "TechLead",
-      "projectPath": "C:\\Users\\G Gorgeouslettice\\Desktop\\managing project\\Techlead\\TechLead\\TechLead.csproj",
-      "packagesPath": "C:\\Users\\G Gorgeouslettice\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\G Gorgeouslettice\\Desktop\\managing project\\Techlead\\TechLead\\obj\\",
+      "projectPath": "D:\\$ CPA Semester 6\\INFO-5103 - Software Projects\\Techlead\\TechLead\\TechLead.csproj",
+      "packagesPath": "C:\\Users\\lukek\\.nuget\\packages\\",
+      "outputPath": "D:\\$ CPA Semester 6\\INFO-5103 - Software Projects\\Techlead\\TechLead\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\G Gorgeouslettice\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\lukek\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -6855,7 +6854,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
       }
     }
   },

@@ -1,78 +1,86 @@
 <app-nav-menu [MemberLoginStatus]="loginStatus"></app-nav-menu>
-  <br>
 
-  <div class="row">
-    <div class="col-lg-4">
-      <img src="assets/images/laptopImg.jpg" alt="Generic placeholder image"
-        width="500" height="600">
-      <h3>
-        Want help Choosing a Laptop?
-      </h3>
-      <hr>
-      <h4>Usage</h4>
-      <select class="form-control">
-        <option>Gamming</option>
-        <option>Browisng</option>
-        <option>Business</option>
-      </select>
-      <br>
-      <h4>Budget</h4>
-      <select class="form-control">
-        <option>Less than 1000</option>
-        <option>1000-3000</option>
-        <option>More than 3000</option>
-      </select>
-      <br>
-      <button type="button" class="btn btn-primary btn-lg">Find</button>
+<br />
 
-    </div>
-    <div class="col-lg-4">
-      <img  src="assets/images/phoneImg.png"
-        alt="Generic placeholder image" width="500" height="600">
-      <h3>
-        Want help Choosing a Phone?
-      </h3>
-      <hr>
-      <h4>Usage</h4>
-      <select class="form-control">
-        <option>Gamming</option>
-        <option>Browisng</option>
-        <option>Business</option>
-      </select>
-      <br>
-      <h4>Budget</h4>
-      <select class="form-control">
-        <option>Less than 1000</option>
-        <option>1000-3000</option>
-        <option>More than 3000</option>
-      </select>
-      <br>
-        <button type="button" class="btn btn-primary btn-lg">Find</button>
-    </div>
-
-    <div class="col-lg-4">
-      <img src="assets/images/pcImg.jpg" alt="Generic placeholder image"
-      width="500" height="600">
-      <h3>
-        Want help Choosing a PC?
-      </h3>
-      <hr>
-      <h4>Usage</h4>
-      <select class="form-control">
-        <option>Gamming</option>
-        <option>Browisng</option>
-        <option>Business</option>
-      </select>
-      <br>
-      <h4>Budget</h4>
-      <select class="form-control">
-        <option>Less than 1000</option>
-        <option>1000-3000</option>
-        <option>More than 3000</option>
-      </select>
-      <br>
-        <button type="button" class="btn btn-primary btn-lg">Find</button>
-
-    </div>
-
+<div class="row">
+  <div class="col-lg-4">
+    <img
+      src="assets/images/laptopImg.jpg"
+      alt="Generic placeholder image"
+      width="500"
+      height="600"
+    />
+    <h3>Want help Choosing a Laptop?</h3>
+    <hr />
+    <h4>Usage</h4>
+    <select class="form-control">
+      <option>Gaming</option>
+      <option>Browisng</option>
+      <option>Business</option>
+    </select>
+    <br />
+    <h4>Budget</h4>
+    <select class="form-control">
+      <option>Less than 1000</option>
+      <option>1000-3000</option>
+      <option>More than 3000</option>
+    </select>
+    <br />
+    <button type="button" [routerLink]="['producthome']" id="findLaptop" class="btn btn-primary btn-lg">Find</button>
   </div>
+  <div class="col-lg-4">
+    <img
+      src="assets/images/phoneImg.png"
+      alt="Generic placeholder image"
+      width="500"
+      height="600"
+    />
+    <h3>Want help Choosing a Phone?</h3>
+    <hr />
+    <h4>Usage</h4>
+    <select class="form-control">
+      <option>Gaming</option>
+      <option>Browisng</option>
+      <option>Business</option>
+    </select>
+    <br />
+    <h4>Budget</h4>
+    <select class="form-control">
+      <option>Less than 1000</option>
+      <option>1000-3000</option>
+      <option>More than 3000</option>
+    </select>
+    <br />
+    <button type="button" [routerLink]="['producthome']" id="findPhone" class="btn btn-primary btn-lg">Find</button>
+  </div>
+
+  <div class="col-lg-4">
+    <img
+      src="assets/images/pcImg.jpg"
+      alt="Generic placeholder image"
+      width="500"
+      height="600"
+    />
+    <h3>Want help Choosing a PC?</h3>
+    <hr />
+    <h4>Usage</h4>
+    <select class="form-control">
+      <option>Gaming</option>
+      <option>Browisng</option>
+      <option>Business</option>
+    </select>
+    <br />
+    <h4>Budget</h4>
+    <select class="form-control">
+      <option>Less than 1000</option>
+      <option>1000-3000</option>
+      <option>More than 3000</option>
+    </select>
+    <br />
+    <button [routerLink]="['producthome']" id="findPc" class="btn btn-primary btn-lg">
+      <!-- type="button"
+      (click)="DisplayProducts()" -->
+      Find
+    </button>
+  </div>
+</div>

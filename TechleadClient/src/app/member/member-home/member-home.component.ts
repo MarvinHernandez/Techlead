@@ -3,7 +3,7 @@ import {Member} from '../../models/member';
 import {MemberService} from '../../services/member.service';
 import {Observable, of} from 'rxjs';
 import {catchError, map} from 'rxjs/operators';
-import {AuthenticationService} from "../../services/authentication.service";
+import {AuthenticationService} from '../../services/authentication.service';
 
 @Component({
   selector: 'app-member-home',

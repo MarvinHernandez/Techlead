@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {AuthenticationService} from "../services/authentication.service";
+import {AuthenticationService} from '../services/authentication.service';
 
 @Component({
   selector: 'app-home',
@@ -8,6 +8,7 @@ import {AuthenticationService} from "../services/authentication.service";
 })
 export class HomeComponent implements OnInit {
   loginStatus: boolean;
+// add budget and usage fields for filtering using router parameters
   constructor(private appcontext: AuthenticationService) { }
 
   ngOnInit(): void {
