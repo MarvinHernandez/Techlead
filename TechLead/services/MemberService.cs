@@ -25,14 +25,23 @@ namespace TechLead.services
 
         }
 
-        public List<Member> Get() =>
-            _members.Find(member => true).ToList();
+        public List<Member> Get()
+        {
+            var member = _members.Find(member => true).ToList();
+            int debug = 0;
+            return member;
+        }
 
         public Member Get(string id) =>
             _members.Find<Member>(member => member.Id == id).FirstOrDefault();
         
-        public Member GetByUsername(string username) =>
-            _members.Find<Member>(member => member.username == username).FirstOrDefault();
+        public Member GetByUsername(string username)
+        {
+            var member = _members.Find<Member>(member => member.username == username).FirstOrDefault();
+            int debug = 0;
+            return member;
+        }
+            
 
         public Member Create(Member member)
         {

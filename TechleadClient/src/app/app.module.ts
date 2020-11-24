@@ -4,14 +4,19 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MemberModule } from './member/member.module';
 import { WishlistModule } from './wishlist/wishlist.module';
+import { LoginModule } from './login/login.module';
 import {ProductFeedbackModule} from './product-feedback/product-feedback.module';
 import { HttpClientModule } from '@angular/common/http';
 import {MatComponentsModule} from './mat-components/mat-components.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {SharedModule} from './shared/shared.module';
+import { HomeComponent } from './home/home.component';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -21,7 +26,13 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     MatComponentsModule,
     BrowserAnimationsModule,
     ProductFeedbackModule,
-    WishlistModule
+    WishlistModule,
+    LoginModule,
+    SharedModule,
+    ToastrModule.forRoot({
+      timeOut: 3500,
+      positionClass: 'toast-bottom-right',
+      preventDuplicates: true})
   ],
   providers: [],
   bootstrap: [AppComponent]
