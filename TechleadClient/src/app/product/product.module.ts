@@ -8,15 +8,17 @@ import { ProductHomeComponent } from './product-home.component';
 import { PcListComponent } from './pc-list.component';
 import { LaptopListComponent } from './laptop-list.component';
 import { PhoneListComponent } from './phone-list.component';
+import {SharedModule} from '../shared/shared.module';
 
 
 
 @NgModule({
   declarations: [ProductHomeComponent, PcListComponent, LaptopListComponent, PhoneListComponent],
-  imports: [
-    CommonModule,
-    ReactiveFormsModule,
-    MatComponentsModule
-  ]
+    imports: [
+        CommonModule,
+        ReactiveFormsModule,
+        MatComponentsModule,
+        SharedModule
+    ]
 })
 export class ProductModule { }

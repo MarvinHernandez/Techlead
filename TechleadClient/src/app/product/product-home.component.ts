@@ -18,6 +18,8 @@ import { PcDialogComponent } from '../detailsdialog/pc-dialog.component';
 import { LaptopDialogComponent } from '../detailsdialog/laptop-dialog.component';
 import { PhoneDialogComponent } from '../detailsdialog/phone-dialog.component';
 
+import {AuthenticationService} from '../services/authentication.service';
+
 @Component({
   selector: 'app-product-home',
   templateUrl: './product-home.component.html'
@@ -35,13 +37,14 @@ export class ProductHomeComponent implements OnInit {
   phones$: Observable<Phone[]>;
   // phone: Phone;
   msg: string;
+  loginStatus: boolean;
 
 
-
-  constructor(public productPcService: ProductPcService,
-              public productLaptopService: ProductLaptopService,
-              public productPhoneService: ProductPhoneService,
-              private dialog: MatDialog) { }
+  constructor(private productPcService: ProductPcService,
+              private productLaptopService: ProductLaptopService,
+              private productPhoneService: ProductPhoneService,
+              private dialog: MatDialog,
+              private appcontext: AuthenticationService) { }
 
   ngOnInit(): void {
     // load pc data
@@ -82,6 +85,10 @@ export class ProductHomeComponent implements OnInit {
         return of([]);
       })
     );
+
+    if (this.appcontext.currentUserValue) {
+      this.loginStatus = true;
+    }
   } // ngOnInit
 
   // open modals for each type of product
