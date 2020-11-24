@@ -34,8 +34,8 @@ namespace TechLead.services
         public Wishlist Get(string id) =>
             _wishlists.Find<Wishlist>(wishlist => wishlist.Id == id).FirstOrDefault();
 
-        public Wishlist GetByMemberId(string memberID) =>
-            _wishlists.Find<Wishlist>(wishlist => wishlist.memberId == memberID).FirstOrDefault();
+        public List<Wishlist> GetByMemberId(string memberID) =>
+            _wishlists.Find<Wishlist>(wishlist => wishlist.memberId == memberID).ToList();
 
         public Wishlist Create(Wishlist wishlist)
         {

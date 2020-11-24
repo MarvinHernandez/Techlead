@@ -1,0 +1,22 @@
+<div id="to-center" *ngIf="!hideForm">
+  <mat-grid-list cols="2" rowHeight="3:1">
+    <div *ngFor="let wishlist of wishlists" id="tile">
+      <mat-grid-tile>
+        <table>
+          <tr>
+            <td>
+              <img src="../../../assets/images/wishlist_icon.png" height="50" width="50"/></td>
+          </tr>
+          <tr>
+            <td>{{wishlist.wishlistName}}</td>
+          </tr>
+          <tr>
+            <td>
+              <button type="button" (click)="viewDetails(wishlist)">View Details</button>
+            </td>
+          </tr>
+        </table>
+      </mat-grid-tile>
+    </div>
+  </mat-grid-list>
+</div>

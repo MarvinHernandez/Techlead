@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MemberModule } from './member/member.module';
+import { WishlistModule } from './wishlist/wishlist.module';
 import { LoginModule } from './login/login.module';
 import {ProductFeedbackModule} from './product-feedback/product-feedback.module';
 import { HttpClientModule } from '@angular/common/http';
@@ -25,6 +26,7 @@ import { ToastrModule } from 'ngx-toastr';
     MatComponentsModule,
     BrowserAnimationsModule,
     ProductFeedbackModule,
+    WishlistModule,
     LoginModule,
     SharedModule,
     ToastrModule.forRoot({

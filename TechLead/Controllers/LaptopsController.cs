@@ -23,17 +23,30 @@ namespace TechLead.Controllers
         public ActionResult<List<laptops>> Get() =>
             _laptopService.Get();
 
-        [HttpGet("{Name}", Name = "GetLaptopName")]
-        public ActionResult<laptops> Get(string nickname)
-        {
-            var lap = _laptopService.Get(nickname);
+        //[HttpGet("{Name}", Name = "GetLaptopName")]
+        //public ActionResult<laptops> Get(string nickname)
+        //{
+        //    var lap = _laptopService.Get(nickname);
 
-            if (lap == null)
+        //    if (lap == null)
+        //    {
+        //        return NotFound();
+        //    }
+
+        //    return lap;
+        //}
+
+        [HttpGet("{id}")]
+        public ActionResult<laptops> Get(string id)
+        {
+            var laptop = _laptopService.GetById(id);
+
+            if (laptop == null)
             {
                 return NotFound();
             }
 
-            return lap;
+            return laptop;
         }
     }
 }

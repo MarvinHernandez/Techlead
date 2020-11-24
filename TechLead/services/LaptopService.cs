@@ -29,5 +29,7 @@ namespace TechLead.services
         }
         public List<laptops> Get() => _laptops.Find(p => true).ToList();
         public laptops Get(string Name) => _laptops.Find<laptops>(l => l.Name == Name).FirstOrDefault();
+        public laptops GetById(string id) =>
+            _laptops.Find<laptops>(l => l.Id == id).FirstOrDefault();
     }
 }

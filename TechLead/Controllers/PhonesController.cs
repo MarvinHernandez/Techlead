@@ -24,17 +24,30 @@ namespace TechLead.Controllers
         public ActionResult<List<phones>> Get() =>
             _phoneService.Get();
 
-        [HttpGet("{Name}", Name = "GetPhoneName")]
-        public ActionResult<phones> Get(string name)
-        {
-            var pho = _phoneService.Get(name);
+        //[HttpGet("{Name}", Name = "GetPhoneName")]
+        //public ActionResult<phones> Get(string name)
+        //{
+        //    var pho = _phoneService.Get(name);
 
-            if (pho == null)
+        //    if (pho == null)
+        //    {
+        //        return NotFound();
+        //    }
+
+        //    return pho;
+        //}
+
+        [HttpGet("{id}")]
+        public ActionResult<phones> Get(string id)
+        {
+            var phone = _phoneService.GetById(id);
+
+            if (phone == null)
             {
                 return NotFound();
             }
 
-            return pho;
+            return phone;
         }
     }
 }
