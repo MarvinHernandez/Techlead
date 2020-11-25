@@ -24,7 +24,8 @@ export class MemberCreateComponent implements OnInit, OnDestroy {
   submitted = false;
   loading = false;
 
-  constructor(private builder: FormBuilder, public memberService: MemberService, private toastr: ToastrService, private router: Router, private appcontext: AuthenticationService) {
+  constructor(private builder: FormBuilder, public memberService: MemberService,
+              private toastr: ToastrService, private router: Router, private appcontext: AuthenticationService) {
     this.userName = new FormControl('', Validators.compose([Validators.required,
     this.userNameUsedValidator.bind(this)]));
     this.password = new FormControl('', Validators.compose([Validators.required]));

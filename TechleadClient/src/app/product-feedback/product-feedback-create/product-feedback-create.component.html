@@ -1,88 +1,87 @@
-<form [formGroup]="createFeedbackForm">
-  <mat-card>
-    <mat-card-header>
-      <h2>Create Product Feedback</h2>
-    </mat-card-header>
-    <mat-card-content>
-      <!--Product Type-->
-      <div layout="row">
-        <mat-form-field>
-          <mat-select matInput placeholder="Select Product Type" formControlName="productTypeSelection"
-                      value="productType" (valueChange)="onChangeProductType()">
-            <mat-option [value]="" disabled selected>Product Type</mat-option>
-            <mat-option [value]="'phone'">Phone</mat-option>
-            <mat-option [value]="'pc'">PC</mat-option>
-            <mat-option [value]="'laptop'">Laptop</mat-option>
-          </mat-select>
-          <mat-error flex *ngIf="productTypeSelection.errors &&
-          (productTypeSelection.dirty || productTypeSelection.touched)" align="end">
-            <p *ngIf="productTypeSelection.hasError('required')">Product Type is required</p>
-          </mat-error>
-        </mat-form-field>
-      </div>
-      <!--Feedback info appears after a product type is selected-->
-      <div layout="row" *ngIf="selectedProductType">
-        <!--Product selection-->
-        <div layout="row">
-          <!-- Phone type selection -->
-          <mat-form-field *ngIf="phoneTypeSelected">
-            <mat-select matInput placeholder="Select Phone" formControlName="productSelection" value="selectedProduct">
-              <mat-option *ngFor="let phone of phones" [value]="phone">{{phone.Name}}</mat-option>
-            </mat-select>
-            <mat-error flex *ngIf="productSelection.errors && (productSelection.dirty || productSelection.touched)"
-                       align="end" >
-              <p *ngIf="productSelection.hasError('required')">Phone is required.</p>
-            </mat-error>
-          </mat-form-field>
-          <!-- Pc type selection -->
-          <mat-form-field *ngIf="pcTypeSelected">
-            <mat-select matInput placeholder="Select Pc" formControlName="productSelection" value="selectedProduct">
-              <mat-option *ngFor="let pc of pcs" [value]="pc">{{pc.NickName}}</mat-option>
-            </mat-select>
-            <mat-error flex *ngIf="productSelection.errors && (productSelection.dirty || productSelection.touched)"
-                       align="end" >
-              <p *ngIf="productSelection.hasError('required')">Pc is required.</p>
-            </mat-error>
-          </mat-form-field>
-          <!-- Laptop type selection -->
-          <mat-form-field *ngIf="laptopTypeSelected">
-            <mat-select matInput placeholder="Select Laptop" formControlName="productSelection" value="selectedProduct">
-              <mat-option *ngFor="let laptop of laptops" [value]="laptop">{{laptop.Name}}</mat-option>
-            </mat-select>
-            <mat-error flex *ngIf="productSelection.errors && (productSelection.dirty || productSelection.touched)"
-                       align="end" >
-              <p *ngIf="productSelection.hasError('required')">Laptop is required.</p>
-            </mat-error>
-          </mat-form-field>
+<app-nav-menu [MemberLoginStatus]="loginStatus"></app-nav-menu>
+<div class="col-md-6 offset-md-3 mt-5">
+  <div class="card">
+    <h4 class="card-header">Techlead Create Feedback</h4>
+    <div class="card-body">
+      <form [formGroup]="createFeedbackForm" (ngSubmit)="createFeedback()">
+        <!--Product Type-->
+        <div class="form-group">
+          <label for="productTypeSelection">Product Type</label>
+          <select class="form-control" formControlName="productTypeSelection"
+                  value="productType" (change)="onChangeProductType()"
+                  [ngClass]="{ 'is-invalid': submitted && f.productTypeSelection.errors }">
+            <option value="" disabled selected>Product Type</option>
+            <option value="phone">Phone</option>
+            <option value="pc">PC</option>
+            <option value="laptop">Laptop</option>
+          </select>
+          <div *ngIf="submitted && f.productTypeSelection.errors" class="invalid-feedback">
+            <div *ngIf="f.productTypeSelection.errors.required">Product type is required</div>
+          </div>
         </div>
         <br/>
-        <!--Rating-->
-        <div layout="row">
-          <mat-label>Rating</mat-label>
+        <!--Feedback info appears after a product type is selected-->
+        <div class="form-group" *ngIf="selectedProductType">
+          <div *ngIf="phoneTypeSelected">
+            <label for="productSelection">Product</label>
+            <select class="form-control" formControlName="productSelection"
+                    value="selectedProduct" [ngClass]="{ 'is-invalid': submitted && f.productSelection.errors }">
+              <option *ngFor="let phone of phones" [value]="phone">{{phone.Name}}</option>
+            </select>
+            <div *ngIf="submitted && f.productSelection.errors" class="invalid-feedback">
+              <div *ngIf="f.productSelection.errors.required">Phone is required</div>
+            </div>
+          </div>
+          <div *ngIf="pcTypeSelected">
+            <label for="productSelection">Product</label>
+            <select class="form-control" formControlName="productSelection"
+                    value="selectedProduct" [ngClass]="{ 'is-invalid': submitted && f.productSelection.errors }">
+              <option *ngFor="let pc of pcs" [value]="pc">{{pc.NickName}}</option>
+            </select>
+            <div *ngIf="submitted && f.productSelection.errors" class="invalid-feedback">
+              <div *ngIf="f.productSelection.errors.required">Pc is required</div>
+            </div>
+          </div>
+          <div *ngIf="laptopTypeSelected">
+            <label for="productSelection">Product</label>
+            <select class="form-control" formControlName="productSelection"
+                    value="selectedProduct" [ngClass]="{ 'is-invalid': submitted && f.productSelection.errors }">
+              <option *ngFor="let laptop of laptops" [value]="laptop">{{laptop.Name}}</option>
+            </select>
+            <div *ngIf="submitted && f.productSelection.errors" class="invalid-feedback">
+              <div *ngIf="f.productSelection.errors.required">Laptop is required</div>
+            </div>
+          </div>
           <br/>
-          <mat-slider formControlName="rating" min="0.5" max="5" step="0.5" tickInterval="0.5"
-                      thumbLabel="thumbLabel"></mat-slider>
-          <!-- TODO: See if the error handling will still work without mat-form-field -->
-          <mat-error flex *ngIf="rating.errors && (rating.dirty || rating.touched)" align="end" >
-            <p *ngIf="rating.hasError('required')">Rating is required.</p>
-          </mat-error>
+          <!--Rating-->
+          <div layout="row">
+            <label for="rating">Rating</label>
+            <br/>
+            <mat-slider formControlName="rating" min="0.5" max="5" step="0.5" tickInterval="0.5"
+                   thumbLabel="thumbLabel"></mat-slider>
+          </div>
+          <br/>
+          <!--Feedback text-->
+          <div layout="row">
+            <label for="feedbackField">Feedback Text</label>
+            <br/>
+            <textarea formControlName="feedbackField" placeholder="Enter Feedback" cols="40" rows="5"
+                      [ngClass]="{ 'is-invalid': submitted && f.feedbackField.errors }"></textarea>
+            <div *ngIf="submitted && f.feedbackField.errors" class="invalid-feedback">
+              <div *ngIf="f.feedbackField.errors.required">Feedback is required</div>
+            </div>
+          </div>
         </div>
-        <!--Feedback text-->
-        <div layout="row">
-          <mat-form-field>
-            <textarea matInput formControlName="feedbackField" placeholder="Enter Feedback" cols="40" rows="5"></textarea>
-            <mat-error flex *ngIf="feedbackField.errors && (feedbackField.dirty || feedbackField.touched)" align="end" >
-              <p *ngIf="feedbackField.hasError('required')">Feedback is required.</p>
-            </mat-error>
-          </mat-form-field>
-        </div>
-      </div>
-      <span>
+        <br/>
+        <span>
         <br/>
         <br/>
-        <button mat-raised-button [disabled]="!createFeedbackForm.valid" (click)="createFeedback()" type="button">
-          Create Account</button>
+       <button [disabled]="loading" class="btn btn-primary">
+          <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+          Submit Feedback
+        </button>
       </span>
-    </mat-card-content>
-  </mat-card>
-</form>
+      </form>
+    </div>
+  </div>
+</div>
