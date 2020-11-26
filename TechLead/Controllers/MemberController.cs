@@ -27,7 +27,7 @@ namespace TechLead.Controllers
         }
             //_memberService.Get();
 
-        [HttpGet("{id}", Name = "GetMember")]
+        [HttpGet("{id}")]
         public ActionResult<Member> Get(string id)
         {
             var member = _memberService.Get(id);

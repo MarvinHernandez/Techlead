@@ -12,6 +12,7 @@ namespace TechLead.models
         public string PcCollectionName { get; set; }
         public string LaptopsCollectionName { get; set; }
         public string PhoneCollectionName { get; set; }
+        public string ProductFeedbackCollectionName { get; set; }
         public string ConnectionString { get; set; }
         public string DatabaseName { get; set; }
     }
@@ -23,6 +24,7 @@ namespace TechLead.models
         string PcCollectionName { get; set; }
         public string LaptopsCollectionName { get; set; }
         public string PhoneCollectionName { get; set; }
+        public string ProductFeedbackCollectionName { get; set; }
         string ConnectionString { get; set; }
         string DatabaseName { get; set; }
     }
