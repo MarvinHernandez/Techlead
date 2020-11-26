@@ -51,5 +51,11 @@ namespace TechLead.services
 
         public void Remove(string id) =>
             _wishlists.DeleteOne(wishlist => wishlist.Id == id);
+
+        public void Remove(string id, string productId) {
+            var update = Builders<Wishlist>.Update.PullFilter(wl => wl.products,
+                                                wlp => wlp.productID == productId);
+            var result = _wishlists.FindOneAndUpdateAsync(p => p.Id == id, update).Result;
+        }
     }
 }

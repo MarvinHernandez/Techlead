@@ -76,5 +76,20 @@ namespace TechLead.Controllers
 
             return NoContent();
         }
+
+        [HttpDelete("{id}/{productId}")]
+        public IActionResult Delete(string id, string productId)
+        {
+            var Wishlist = _wishlistService.Get(id);
+
+            if (Wishlist == null)
+            {
+                return NotFound();
+            }
+
+            _wishlistService.Remove(Wishlist.Id, productId);
+
+            return NoContent();
+        }
     }
 }
