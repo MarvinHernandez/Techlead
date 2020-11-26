@@ -46,6 +46,15 @@ namespace TechLead.services
         public void Update(string id, Wishlist wishlist) =>
             _wishlists.ReplaceOne(wishlist => wishlist.Id == id, wishlist);
 
+        public void Update(string id, string productId, string productType) {
+            WishlistProduct newProd = new WishlistProduct();
+            newProd.productID = productId;
+            newProd.productType = productType;
+            var filter = Builders<Wishlist>.Filter.Eq(e => e.Id, id);
+            var update = Builders<Wishlist>.Update.Push<WishlistProduct>(e => e.products, newProd);
+            var result =  _wishlists.FindOneAndUpdateAsync(filter, update);
+        }
+
         public void Remove(Wishlist wishlist) =>
             _wishlists.DeleteOne(wishlist => wishlist.Id == wishlist.Id);
 

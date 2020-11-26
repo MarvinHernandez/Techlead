@@ -62,6 +62,21 @@ namespace TechLead.Controllers
             return NoContent();
         }
 
+        [HttpPut("{id}/{productId}/{productType}")]
+        public IActionResult Update(string id, string productId, string productType)
+        {
+            var Wishlist = _wishlistService.Get(id);
+
+            if (Wishlist == null)
+            {
+                return NotFound();
+            }
+
+            _wishlistService.Update(id, productId, productType);
+
+            return NoContent();
+        }
+
         [HttpDelete("{id}")]
         public IActionResult Delete(string id)
         {
