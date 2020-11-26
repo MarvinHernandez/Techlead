@@ -28,7 +28,26 @@ namespace TechLead.services
         }
         public List<phones> Get() => _phones.Find(p => true).ToList();
         public phones Get(string Name) => _phones.Find<phones>(l => l.Name == Name).FirstOrDefault();
-        public phones GetById(string id) =>
-            _phones.Find<phones>(p => p.Id == id).FirstOrDefault();
+        
+        public phones GetById(string id)
+        {
+            try
+            {
+                phones phone = null;
+                foreach (var _phone in Get())
+                {
+                    if(_phone.Id == id)
+                    {
+                        phone = _phone;
+                    }
+                }
+                //phone = _phones.Find<phones>((p) =>(p.Id == id.TrimEnd())).FirstOrDefault();
+                return phone;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

@@ -8,37 +8,14 @@ import {map} from "rxjs/operators";
 @Component({
   selector: 'app-wishlist-detail',
   templateUrl: './wishlist-detail.component.html',
-  styles: [
-  ]
+  styleUrls: ['./wishlist-detail.component.scss']
 })
 export class WishlistDetailComponent implements OnInit {
-  @Input() selectedWishlist: Wishlist;
-
-  products: any[] = [];
-  product: any;
+  @Input() selectedWishlistProducts: any[];
 
   constructor(private wishlistService: WishlistService) {}
 
   ngOnInit(): void {
-    for(var product of this.selectedWishlist.products){
-      if(product.productType === 'pc'){
-        this.product = this.wishlistService.getPcByProductId(product.productId);
-        this.products.push(this.product);
-      }else if(product.productType === 'phone'){
-        this.wishlistService.getPhoneByProductId(product.productId);
-        //   .pipe(
-        //   map(res => {
-        //     this.product = res;
-        //   })
-        // );
-        // this.wishlistService.getPhoneByProductId(product.productId).subscribe(p => this.product = p);
-        this.products.push(this.product);
-      }else{
-        this.product = this.wishlistService.getLaptopByProductId(product.productId);
-        this.products.push(this.product);
-      }
-    }
-    let debug = this.products.length;
-  }
 
+  }
 }

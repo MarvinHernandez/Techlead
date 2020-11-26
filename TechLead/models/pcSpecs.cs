@@ -20,7 +20,7 @@ namespace TechLead.models
 
         [BsonElement("MotherBoard")]
         [BsonRepresentation(BsonType.String)]
-        public string? MoatherBoared { get; set; }
+        public string? Motherboard { get; set; }
 
 
         [BsonElement("Ram")]

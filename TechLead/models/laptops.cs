@@ -47,9 +47,9 @@ namespace TechLead.models
         [BsonRepresentation(BsonType.String)]
         public string? CpuProvider { get; set; }
 
-        [BsonElement("ScreenResoluotion")]
+        [BsonElement("ScreenResolution")]
         [BsonRepresentation(BsonType.String)]
-        public string? ScreenResoluotion { get; set; }
+        public string? ScreenResolution { get; set; }
 
         [BsonElement("touch")]
         [BsonRepresentation(BsonType.String)]
