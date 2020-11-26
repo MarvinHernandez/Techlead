@@ -46,13 +46,22 @@ namespace TechLead.services
         public void Update(string id, Wishlist wishlist) =>
             _wishlists.ReplaceOne(wishlist => wishlist.Id == id, wishlist);
 
-        public void Update(string id, string productId, string productType) {
-            WishlistProduct newProd = new WishlistProduct();
-            newProd.productID = productId;
-            newProd.productType = productType;
-            var filter = Builders<Wishlist>.Filter.Eq(e => e.Id, id);
-            var update = Builders<Wishlist>.Update.Push<WishlistProduct>(e => e.products, newProd);
-            var result =  _wishlists.FindOneAndUpdateAsync(filter, update);
+        public int Update(string id, string productId, string productType) {
+
+            var testfilter = Builders<Wishlist>.Filter.ElemMatch(x => x.products, x => x.productID == productId);
+            var res =  _wishlists.Find(testfilter).FirstOrDefault();
+            if (res == null)
+            {
+                WishlistProduct newProd = new WishlistProduct();
+                newProd.productID = productId;
+                newProd.productType = productType;
+                var filter = Builders<Wishlist>.Filter.Eq(e => e.Id, id);
+                var update = Builders<Wishlist>.Update.Push<WishlistProduct>(e => e.products, newProd);
+                var result = _wishlists.FindOneAndUpdateAsync(filter, update);
+                return 1;
+            }
+            return 0;
+ 
         }
 
         public void Remove(Wishlist wishlist) =>
@@ -62,8 +71,7 @@ namespace TechLead.services
             _wishlists.DeleteOne(wishlist => wishlist.Id == id);
 
         public void Remove(string id, string productId) {
-            var update = Builders<Wishlist>.Update.PullFilter(wl => wl.products,
-                                                wlp => wlp.productID == productId);
+            var update = Builders<Wishlist>.Update.PullFilter(wl => wl.products, wlp => wlp.productID == productId);
             var result = _wishlists.FindOneAndUpdateAsync(p => p.Id == id, update).Result;
         }
     }

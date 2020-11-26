@@ -72,8 +72,11 @@ namespace TechLead.Controllers
                 return NotFound();
             }
 
-            _wishlistService.Update(id, productId, productType);
-
+            int res = _wishlistService.Update(id, productId, productType);
+            if (res == 0)
+            {
+                return NotFound();
+            }
             return NoContent();
         }
 
