@@ -27,7 +27,7 @@ namespace TechLead.models
         public string? Type { get; set; }
 
         [BsonElement("positve")]
-        public List<string> positve { get; set; }
+        public List<string> positive { get; set; }
 
         [BsonElement("Price")]
         [BsonRepresentation(BsonType.String)]

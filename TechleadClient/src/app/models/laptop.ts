@@ -18,5 +18,5 @@ export interface Laptop {
   price: string;
   ram: string;
   storage: string;
-  type: string; // laptop
+  ProductType: string; // laptop
 }

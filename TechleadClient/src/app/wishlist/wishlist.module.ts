@@ -6,6 +6,8 @@ import { WishlistListComponent } from './wishlist-list/wishlist-list.component';
 import {MatTableModule} from '@angular/material/table';
 import {MatGridListModule} from "@angular/material/grid-list";
 import {SharedModule} from "../shared/shared.module";
+import {MatExpansionModule} from "@angular/material/expansion";
+import {MatFormFieldModule} from "@angular/material/form-field";
 
 
 
@@ -15,11 +17,13 @@ import {SharedModule} from "../shared/shared.module";
   exports: [
     WishlistHomeComponent
   ],
-    imports: [
-        CommonModule,
-        MatTableModule,
-        MatGridListModule,
-        SharedModule
-    ]
+  imports: [
+    CommonModule,
+    MatTableModule,
+    MatGridListModule,
+    SharedModule,
+    MatExpansionModule,
+    MatFormFieldModule
+  ]
 })
 export class WishlistModule { }

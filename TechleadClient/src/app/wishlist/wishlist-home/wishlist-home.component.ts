@@ -17,7 +17,8 @@ export class WishlistHomeComponent implements OnInit {
   msg: string;
   loginStatus: boolean;
   membername: string;
-  selectedWishlist: Wishlist;
+  selectedWName: string;
+  products: any[] = [];
 
   constructor(public wishlistService: WishlistService, private appcontext: AuthenticationService) { }
 
@@ -38,7 +39,11 @@ export class WishlistHomeComponent implements OnInit {
     }
   }
 
-  receiveSelectedWishlist($event) {
-    this.selectedWishlist = $event;
+  receiveWishlistProducts($event) {
+    this.products = $event;
+  }
+
+  receiveSelectedWName($event){
+    this.selectedWName = $event;
   }
 }

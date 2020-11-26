@@ -6,7 +6,7 @@ export interface Phone {
   Company: string;
   Name: string;
   Type: string;
-  positve: string[];
+  positive: string[];
   Price: string;
   MainUsage: string;
   Cpu: string;
