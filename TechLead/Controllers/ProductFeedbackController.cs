@@ -29,9 +29,9 @@ namespace TechLead.Controllers
         //_productFeedbackService.Get();
 
         [HttpGet("{id}")]
-        public ActionResult<ProductFeedback> Get(string id)
+        public ActionResult<List<ProductFeedback>> Get(string id)
         {
-            var productFeedback = _productFeedbackService.Get(id);
+            var productFeedback = _productFeedbackService.GetByProductId(id);
 
             if (productFeedback == null)
             {

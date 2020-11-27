@@ -37,9 +37,9 @@ namespace TechLead.services
         public ProductFeedback Get(string id) =>
             _productFeedback.Find<ProductFeedback>(productFeedback => productFeedback.Id == id).FirstOrDefault();
 
-        public ProductFeedback GetByMemberId(string memberId)
+        public List<ProductFeedback> GetByProductId(string memberId)
         {
-            var productFeedback = _productFeedback.Find<ProductFeedback>(productFeedback => productFeedback.memberId == memberId).FirstOrDefault();
+            var productFeedback = _productFeedback.Find<ProductFeedback>(productFeedback => productFeedback.memberId == memberId).ToList();
             int debug = 0;
             return productFeedback;
         }
