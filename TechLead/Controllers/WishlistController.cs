@@ -62,6 +62,24 @@ namespace TechLead.Controllers
             return NoContent();
         }
 
+        [HttpPut("{id}/{productId}/{productType}")]
+        public IActionResult Update(string id, string productId, string productType)
+        {
+            var Wishlist = _wishlistService.Get(id);
+
+            if (Wishlist == null)
+            {
+                return NotFound();
+            }
+
+            int res = _wishlistService.Update(id, productId, productType);
+            if (res == 0)
+            {
+                return NotFound();
+            }
+            return NoContent();
+        }
+
         [HttpDelete("{id}")]
         public IActionResult Delete(string id)
         {
@@ -73,6 +91,21 @@ namespace TechLead.Controllers
             }
 
             _wishlistService.Remove(Wishlist.Id);
+
+            return NoContent();
+        }
+
+        [HttpDelete("{id}/{productId}")]
+        public IActionResult Delete(string id, string productId)
+        {
+            var Wishlist = _wishlistService.Get(id);
+
+            if (Wishlist == null)
+            {
+                return NotFound();
+            }
+
+            _wishlistService.Remove(Wishlist.Id, productId);
 
             return NoContent();
         }
