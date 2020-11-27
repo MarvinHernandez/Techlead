@@ -14,10 +14,10 @@ import {AuthenticationService} from '../../services/authentication.service';
 
 @Component({
   selector: 'app-product-feedback-create',
-  templateUrl: './product-feedback-create.component.html',
-  styleUrls: ['./product-feedback-create.component.scss']
+  templateUrl: './product-feedback.component.html',
+  styleUrls: ['./product-feedback.component.scss']
 })
-export class ProductFeedbackCreateComponent implements OnInit, OnDestroy {
+export class ProductFeedbackComponent implements OnInit, OnDestroy {
   error: string;
   loginStatus: boolean;
   submitted = false;
@@ -128,4 +128,4 @@ export class ProductFeedbackCreateComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.subscriptions.unsubscribe();
   }// ngOnDestroy
-}// ProductFeedbackCreateComponent
+}// ProductFeedbackComponent
