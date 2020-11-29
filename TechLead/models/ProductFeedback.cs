@@ -25,7 +25,7 @@ namespace TechLead.models
 
         [BsonElement("rating")]
         [BsonRepresentation(BsonType.Int64)]
-        public int password { get; set; }
+        public int rating { get; set; }
 
         [BsonElement("text")]
         [BsonRepresentation(BsonType.String)]

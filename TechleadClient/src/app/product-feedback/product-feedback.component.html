@@ -5,60 +5,13 @@
     <div class="card-body">
       <form [formGroup]="createFeedbackForm" (ngSubmit)="createFeedback()">
         <!--Product Type-->
-        <div class="form-group">
-          <label for="productTypeSelection">Product Type</label>
-          <select class="form-control" formControlName="productTypeSelection"
-                  value="productType" (change)="onChangeProductType()"
-                  [ngClass]="{ 'is-invalid': submitted && f.productTypeSelection.errors }">
-            <option value="" disabled selected>Product Type</option>
-            <option value="phone">Phone</option>
-            <option value="pc">PC</option>
-            <option value="laptop">Laptop</option>
-          </select>
-          <div *ngIf="submitted && f.productTypeSelection.errors" class="invalid-feedback">
-            <div *ngIf="f.productTypeSelection.errors.required">Product type is required</div>
-          </div>
-        </div>
-        <br/>
-        <!--Feedback info appears after a product type is selected-->
-        <div class="form-group" *ngIf="selectedProductType">
-          <div *ngIf="phoneTypeSelected">
-            <label for="productSelection">Product</label>
-            <select class="form-control" formControlName="productSelection"
-                    value="selectedProduct" [ngClass]="{ 'is-invalid': submitted && f.productSelection.errors }">
-              <option *ngFor="let phone of phones" [value]="phone">{{phone.Name}}</option>
-            </select>
-            <div *ngIf="submitted && f.productSelection.errors" class="invalid-feedback">
-              <div *ngIf="f.productSelection.errors.required">Phone is required</div>
-            </div>
-          </div>
-          <div *ngIf="pcTypeSelected">
-            <label for="productSelection">Product</label>
-            <select class="form-control" formControlName="productSelection"
-                    value="selectedProduct" [ngClass]="{ 'is-invalid': submitted && f.productSelection.errors }">
-              <option *ngFor="let pc of pcs" [value]="pc">{{pc.NickName}}</option>
-            </select>
-            <div *ngIf="submitted && f.productSelection.errors" class="invalid-feedback">
-              <div *ngIf="f.productSelection.errors.required">Pc is required</div>
-            </div>
-          </div>
-          <div *ngIf="laptopTypeSelected">
-            <label for="productSelection">Product</label>
-            <select class="form-control" formControlName="productSelection"
-                    value="selectedProduct" [ngClass]="{ 'is-invalid': submitted && f.productSelection.errors }">
-              <option *ngFor="let laptop of laptops" [value]="laptop">{{laptop.Name}}</option>
-            </select>
-            <div *ngIf="submitted && f.productSelection.errors" class="invalid-feedback">
-              <div *ngIf="f.productSelection.errors.required">Laptop is required</div>
-            </div>
-          </div>
-          <br/>
+        <div class="form-group" >
           <!--Rating-->
           <div layout="row">
             <label for="rating">Rating</label>
             <br/>
-            <mat-slider formControlName="rating" min="0.5" max="5" step="0.5" tickInterval="0.5"
-                   thumbLabel="thumbLabel"></mat-slider>
+            <mat-slider formControlName="rating" min="0" max="5" step="1" tickInterval="1"
+                        thumbLabel="thumbLabel" class="form-control"></mat-slider>
           </div>
           <br/>
           <!--Feedback text-->
@@ -66,7 +19,7 @@
             <label for="feedbackField">Feedback Text</label>
             <br/>
             <textarea formControlName="feedbackField" placeholder="Enter Feedback" cols="40" rows="5"
-                      [ngClass]="{ 'is-invalid': submitted && f.feedbackField.errors }"></textarea>
+                      [ngClass]="{ 'is-invalid': submitted && f.feedbackField.errors }" class="form-control"></textarea>
             <div *ngIf="submitted && f.feedbackField.errors" class="invalid-feedback">
               <div *ngIf="f.feedbackField.errors.required">Feedback is required</div>
             </div>
@@ -75,12 +28,25 @@
         <br/>
         <span>
         <br/>
-        <br/>
        <button [disabled]="loading" class="btn btn-primary">
           <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
           Submit Feedback
         </button>
       </span>
+        <br/>
+        <br/>
+        <!-- Feedback output table-->
+        <table *ngIf="showFeedbackTable">
+          <tr>
+            <th style="text-align: center;width:5%;border:1px solid #000000">Rating</th>
+            <th style="text-align: center;width:95%;border:1px solid #000000">Feedback Text</th>
+          </tr>
+          <tr *ngFor="let feedback of selectedProductFeedbacks">
+            <td style="text-align: center;width:5%;border:1px solid #000000">{{feedback.rating}}</td>
+            <td style="text-align: center;width:95%;border:1px solid #000000">{{feedback.text}}</td>
+          </tr>
+        </table>
+        <div *ngIf="showNoFeedback">There is no feedback to display</div>
       </form>
     </div>
   </div>

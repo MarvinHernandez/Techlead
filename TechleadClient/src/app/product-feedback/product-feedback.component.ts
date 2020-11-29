@@ -1,58 +1,41 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import {FormControl, FormGroup, FormBuilder, Validators, Form, FormsModule} from '@angular/forms';
-import {ProductFeedbackService} from '../../services/product-feedback.service';
+import {FormControl, FormGroup, FormBuilder, Validators} from '@angular/forms';
+import {ProductFeedbackService} from '../services/product-feedback.service';
 import {Subscription} from 'rxjs';
-import {Phone} from '../../models/phone';
-import {ProductPhoneService} from '../../services/product-phone.service';
-import {Laptop} from '../../models/laptop';
-import {ProductLaptopService} from '../../services/product-laptop.service';
-import {Pc} from '../../models/pc';
-import {ProductPcService} from '../../services/product-pc.service';
 import { ToastrService } from 'ngx-toastr';
 import {Router} from '@angular/router';
-import {AuthenticationService} from '../../services/authentication.service';
+import {AuthenticationService} from '../services/authentication.service';
+import {ProductFeedback} from '../models/productFeedback';
 
 @Component({
-  selector: 'app-product-feedback-create',
+  selector: 'app-product-feedback',
   templateUrl: './product-feedback.component.html',
   styleUrls: ['./product-feedback.component.scss']
 })
 export class ProductFeedbackComponent implements OnInit, OnDestroy {
   error: string;
+  showFeedbackTable: boolean;
+  showNoFeedback: boolean;
   loginStatus: boolean;
   submitted = false;
   loading = false;
   createFeedbackForm: FormGroup;
   rating: FormControl;
   feedbackField: FormControl;
-  productSelection: FormControl;
-  productTypeSelection: FormControl;
   selectedProductType: boolean;
   subscriptions: Subscription;
-  // arrays for the products
-  phones: Phone[];
-  laptops: Laptop[];
-  pcs: Pc[];
-  // booleans for the selected product type
-  phoneTypeSelected: boolean;
-  laptopTypeSelected: boolean;
-  pcTypeSelected: boolean;
+  selectedProductFeedbacks: ProductFeedback[];
+
   constructor(private builder: FormBuilder, private feedbackService: ProductFeedbackService,
-              private phoneService: ProductPhoneService, private toastr: ToastrService, private router: Router,
-              private appcontext: AuthenticationService, private laptopService: ProductLaptopService,
-              private pcService: ProductPcService) {
+              private toastr: ToastrService, private router: Router, private appcontext: AuthenticationService) {
     this.rating = new FormControl('');
     this.feedbackField = new FormControl('', Validators.compose([Validators.required]));
-    this.productSelection = new FormControl('', Validators.compose([Validators.required]));
-    this.productTypeSelection = new FormControl('', Validators.compose([Validators.required]));
   }// constructor
 
   ngOnInit(): void {
     this.createFeedbackForm = this.builder.group({
       rating: this.rating,
-      productSelection: this.productSelection,
       feedbackField: this.feedbackField,
-      productTypeSelection: this.productTypeSelection
     });
     this.selectedProductType = false;
     this.subscriptions = new Subscription();
@@ -60,20 +43,7 @@ export class ProductFeedbackComponent implements OnInit, OnDestroy {
     if (this.appcontext.currentUserValue) {
       this.loginStatus = true;
     }
-
-    // TODO: MAKE SURE THE PROPERTIES CAN BE ACCESSED PROPERLY FOR EACH TYPE
-    // Get the phones from the server
-    this.phoneService.getAll().subscribe(phones => {
-        this.phones = phones;
-    });
-    // Get the laptops from the server
-    this.laptopService.getAll().subscribe(laptops => {
-      this.laptops = laptops;
-    });
-    // Get the pcs from the server
-    this.pcService.getAll().subscribe(pcs => {
-      this.pcs = pcs;
-    });
+    this.loadFeedbackForProduct();
   }// ngOnInit
 
   // convenience getter for easy access to form fields
@@ -90,42 +60,52 @@ export class ProductFeedbackComponent implements OnInit, OnDestroy {
     }
 
     this.loading = true;
-    this.toastr.success("Button works");
-    // TODO: Implement the create feedback method
+
+    // TODO: Remove hardcoded product id and member id when the product is inputted and the get is done
+    //  and use the inputted product id
+    // TODO: Figure out the 500 error (when refreshing th add works but it seems like there is a 500 error on post)
+    const loggedInMemberId = this.appcontext.currentUserValue.id;
+    const feedback: ProductFeedback = {id: '', memberId: loggedInMemberId, productId: '5f889ac8c8d4cc8c0d305b00',
+      text: this.feedbackField.value, rating: this.rating.value};
+
+    this.feedbackService.add(feedback).subscribe( payload => {
+        if (payload.id !== '') {
+          this.toastr.success('Feedback submitted. Thank you!');
+          this.loadFeedbackForProduct();
+        } else {
+          this.toastr.error('Unable to submit the feedback');
+        }
+      });
   }// createFeedback
-
-  // When the product type is changed
-  onChangeProductType(): void {
-    const xSubscription = this.createFeedbackForm.get('productTypeSelection').valueChanges.subscribe(value => {
-      this.selectedProductType = true;
-
-      // checks which type was selected
-      switch (value){
-        case 'phone': {
-          this.phoneTypeSelected = true;
-          this.laptopTypeSelected = false;
-          this.pcTypeSelected = false;
-          break;
-        }
-        case 'pc': {
-          this.phoneTypeSelected = false;
-          this.laptopTypeSelected = false;
-          this.pcTypeSelected = true;
-          break;
-        }
-        case 'laptop': {
-          this.phoneTypeSelected = false;
-          this.laptopTypeSelected = true;
-          this.pcTypeSelected = false;
-          break;
-        }
-      }
-    });
-
-    this.subscriptions.add(xSubscription);
-  }// onChangeProductType
 
   ngOnDestroy(): void {
     this.subscriptions.unsubscribe();
   }// ngOnDestroy
-}// ProductFeedbackComponent
+
+  // loads the feedback for this product
+  loadFeedbackForProduct(): void {
+    // TODO: Remove hardcoded product id and replace it with the inputted product's id
+    // TODO: Figure out the error 500 when adding a feedback (the feedback adds but it still shows it)
+    //  seems like there is a server side exception when adding the feedback:
+    //  System.InvalidOperationException: No route matches the supplied values.
+    // TODO: Figure out how to update the page after a feedback is submitted (maybe just take the user back to the page)
+    // has no feedback: 5f889ac8c8d4cc8c0d305b00
+    // has feedback: 5f889ac8c8d4cc8c0d305b00
+    this.feedbackService.getByProductId('5f889ac8c8d4cc8c0d305b00').subscribe(feedbacks => {
+      if (feedbacks){
+        this.selectedProductFeedbacks = feedbacks;
+        if (feedbacks.length > 0){
+          this.showFeedbackTable = true;
+          this.showNoFeedback = false;
+        }
+        else{
+          this.showNoFeedback = true;
+          this.showFeedbackTable = false;
+        }
+      }
+      else{
+        this.selectedProductFeedbacks = [];
+      }
+    });
+  }// loadFeedbackForProduct
+}// ProductFeedbackCreateComponent
