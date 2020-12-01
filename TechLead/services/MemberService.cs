@@ -43,10 +43,20 @@ namespace TechLead.services
         }
             
 
-        public Member Create(Member member)
+        public int Create(Member member)
         {
-            _members.InsertOne(member);
-            return member;
+            try
+            {
+                _members.InsertOne(member);
+                return 1;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return 0;
+            }
+            return 0;
+            
         }
 
         public void Update(string id, Member member) =>

@@ -45,10 +45,18 @@ namespace TechLead.services
         }
 
 
-        public ProductFeedback Create(ProductFeedback productFeedback)
+        public int Create(ProductFeedback productFeedback)
         {
-            _productFeedback.InsertOne(productFeedback);
-            return productFeedback;
+            try
+            {
+                _productFeedback.InsertOne(productFeedback);
+                return 1;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return 0;
+            }
         }
 
         public void Update(string id, ProductFeedback productFeedback) =>

@@ -68,8 +68,8 @@ export class MemberCreateComponent implements OnInit, OnDestroy {
     }
 
     this.loading = true;
-    this.memberService.add(this.member).subscribe( payload => {
-        if (payload.id !== '') {
+    this.memberService.addMember(this.member).subscribe( payload => {
+        if (payload > 0) {
           this.toastr.success("Account Created. Redirecting to home");
           this.appcontext.login(this.userName.value, this.password.value)
             .pipe(first())
