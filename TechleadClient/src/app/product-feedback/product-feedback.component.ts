@@ -61,9 +61,7 @@ export class ProductFeedbackComponent implements OnInit, OnDestroy {
 
     this.loading = true;
 
-    // TODO: Remove hardcoded product id and member id when the product is inputted and the get is done
-    //  and use the inputted product id
-    // TODO: Figure out the 500 error (when refreshing th add works but it seems like there is a 500 error on post)
+    // TODO: Remove hardcoded product id and use the inputted product id
     const loggedInMemberId = this.appcontext.currentUserValue.id;
     const feedback: ProductFeedback = {id: '', memberId: loggedInMemberId, productId: '5f889ac8c8d4cc8c0d305b00',
       text: this.feedbackField.value, rating: this.rating.value};
@@ -86,12 +84,6 @@ export class ProductFeedbackComponent implements OnInit, OnDestroy {
   // loads the feedback for this product
   loadFeedbackForProduct(): void {
     // TODO: Remove hardcoded product id and replace it with the inputted product's id
-    // TODO: Figure out the error 500 when adding a feedback (the feedback adds but it still shows it)
-    //  seems like there is a server side exception when adding the feedback:
-    //  System.InvalidOperationException: No route matches the supplied values.
-    // TODO: Figure out how to update the page after a feedback is submitted (maybe just take the user back to the page)
-    // has no feedback: 5f889ac8c8d4cc8c0d305b00
-    // has feedback: 5f889ac8c8d4cc8c0d305b00
     this.feedbackService.getByProductId('5f889ac8c8d4cc8c0d305b00').subscribe(feedbacks => {
       if (feedbacks){
         this.selectedProductFeedbacks = feedbacks;
