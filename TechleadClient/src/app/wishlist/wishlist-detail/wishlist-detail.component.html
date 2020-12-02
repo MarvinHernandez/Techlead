@@ -53,7 +53,9 @@
           {{product.Price | currency}}
         </div>
 
-<!--        <button type="button" (click)="deleteProduct(product.id)">Delete from Wishlist</button>-->
+        <div layout="row" class="btndiv">
+          <button type="button" (click)="deleteProduct(product.Id)">Delete from Wishlist</button>
+        </div>
       </mat-expansion-panel>
     </div>
 
@@ -116,8 +118,11 @@
         </div>
 
         <div layout="row">
-          <a>Price: </a>
-          {{product.price | currency}}
+          <a>Price: </a>{{product.price | currency}}
+        </div>
+
+        <div layout="row" class="btndiv">
+          <button type="button" (click)="deleteProduct(product.Id)">Delete from Wishlist</button>
         </div>
       </mat-expansion-panel>
     </div>
@@ -199,7 +204,10 @@
           {{product.price | currency}}
         </div>
 
-        <!--        <button type="button" (click)="deleteProduct(product.id)">Delete from Wishlist</button>-->
+        <div layout="row" class="btndiv">
+          <button type="button" (click)="deleteProduct(product.Id)">Delete from Wishlist</button>
+        </div>
+
       </mat-expansion-panel>
     </div>
 

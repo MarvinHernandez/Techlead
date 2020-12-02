@@ -31,4 +31,8 @@ export class WishlistService extends GenericHttpService<Wishlist> {
   public getPhoneByProductId(id: string): Observable<Phone> {
     return this.http.get<Phone>(`${BASEURL}/api/phones/${id}`);
   } // getPhoneByProductId
+
+  public deleteByProductId(prodId: string, wishlistId: string): Observable<number>{
+    return this.http.delete<number>(`${BASEURL}/api/wishlist/${wishlistId}/${prodId}`);
+  } // deleteByProductId
 }

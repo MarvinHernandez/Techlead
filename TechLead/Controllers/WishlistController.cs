@@ -96,18 +96,12 @@ namespace TechLead.Controllers
         }
 
         [HttpDelete("{id}/{productId}")]
-        public IActionResult Delete(string id, string productId)
+        public ActionResult<int> Delete(string id, string productId)
         {
-            var Wishlist = _wishlistService.Get(id);
+            int res = 0;
+            res = _wishlistService.Remove(id, productId);
 
-            if (Wishlist == null)
-            {
-                return NotFound();
-            }
-
-            _wishlistService.Remove(Wishlist.Id, productId);
-
-            return NoContent();
+            return res;
         }
     }
 }

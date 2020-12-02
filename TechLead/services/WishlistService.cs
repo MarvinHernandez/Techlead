@@ -61,7 +61,6 @@ namespace TechLead.services
                 return 1;
             }
             return 0;
- 
         }
 
         public void Remove(Wishlist wishlist) =>
@@ -70,9 +69,17 @@ namespace TechLead.services
         public void Remove(string id) =>
             _wishlists.DeleteOne(wishlist => wishlist.Id == id);
 
-        public void Remove(string id, string productId) {
-            var update = Builders<Wishlist>.Update.PullFilter(wl => wl.products, wlp => wlp.productID == productId);
-            var result = _wishlists.FindOneAndUpdateAsync(p => p.Id == id, update).Result;
+        public int Remove(string id, string productId) {
+            var testfilter = Builders<Wishlist>.Filter.ElemMatch(x => x.products, x => x.productID == productId);
+            var res = _wishlists.Find(testfilter).FirstOrDefault();
+            if (res != null)
+            {
+                var update = Builders<Wishlist>.Update.PullFilter(wl => wl.products, wlp => wlp.productID == productId);
+                var result = _wishlists.FindOneAndUpdateAsync(p => p.Id == id, update).Result;
+                
+                return 1;
+            }
+            return 0;
         }
     }
 }

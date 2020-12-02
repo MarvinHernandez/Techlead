@@ -4,7 +4,7 @@ import {WishlistProduct} from './wishlistProduct';
  * wishlist - interface for wishlists
  */
 export interface Wishlist {
-  id: string;
+  Id: string;
   wishlistName: string;
   memberId: string;
   products: WishlistProduct[];

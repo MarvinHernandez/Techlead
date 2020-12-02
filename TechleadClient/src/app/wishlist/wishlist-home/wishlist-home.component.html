@@ -5,7 +5,7 @@
 </div>
 
 <div class="mat-app-background basic-container" id="to-center">
-  <app-wishlist-list [wishlists]="wishlists$ | async" (event)="receiveWishlistProducts($event)" (eventWName)="receiveSelectedWName($event)"></app-wishlist-list>
-  <app-wishlist-detail [selectedWishlistProducts]="products" *ngIf="products.length !== null && products !== undefined"></app-wishlist-detail>
+  <app-wishlist-list [wishlists]="wishlists$ | async" (event)="receiveWishlistProducts($event)" (eventWName)="receiveSelectedWName($event)" (eventWishlistId)="receiveSelectedWishlistId($event)"></app-wishlist-list>
+  <app-wishlist-detail [selectedWishlistProducts]="products" [selectedWishlistId]="wishlistId" *ngIf="products.length !== null && products !== undefined"></app-wishlist-detail>
 </div>
 

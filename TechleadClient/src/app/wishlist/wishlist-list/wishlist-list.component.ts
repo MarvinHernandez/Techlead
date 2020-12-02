@@ -18,6 +18,7 @@ export class WishlistListComponent {
   @Input() wishlists: Wishlist[];
   @Output() event = new EventEmitter<any[]>();
   @Output() eventWName = new EventEmitter<string>();
+  @Output() eventWishlistId = new EventEmitter<string>();
 
   async viewDetails(wishlist: Wishlist): Promise<void>{
     this.hideForm = true;
@@ -49,6 +50,7 @@ export class WishlistListComponent {
     let debug = this.products.length;
 
     this.eventWName.emit(this.selectedWishlist.wishlistName);
+    this.eventWishlistId.emit(this.selectedWishlist.Id);
     this.event.emit(this.products);
   }
 }
