@@ -14,7 +14,7 @@ const routes: Routes = [
   {path: 'memberhome', component: MemberHomeComponent, canActivate: [AuthGuard] },
   {path: 'createaccount', component: MemberCreateComponent},
   {path: '', component: HomeComponent},
-  {path: 'producthome', component: ProductHomeComponent},
+  {path: 'products/:type/:usage/:budget', component: ProductHomeComponent},
   {path: 'login', component: LoginComponent},
   {path: 'wishlisthome', component: WishlistHomeComponent, canActivate: [AuthGuard]},
   {path: 'productfeedback', component: ProductFeedbackComponent}

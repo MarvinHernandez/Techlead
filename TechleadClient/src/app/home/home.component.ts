@@ -8,6 +8,8 @@ import {AuthenticationService} from '../services/authentication.service';
 })
 export class HomeComponent implements OnInit {
   loginStatus: boolean;
+  usage = 'Gaming';
+  budget = '-1000';
 // add budget and usage fields for filtering using router parameters
   constructor(private appcontext: AuthenticationService) { }
 

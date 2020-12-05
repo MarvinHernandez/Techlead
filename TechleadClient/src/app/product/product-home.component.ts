@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,  } from '@angular/core';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 import {Pc} from '../models/pc';
 import {Laptop} from '../models/laptop';
@@ -38,15 +39,25 @@ export class ProductHomeComponent implements OnInit {
   // phone: Phone;
   msg: string;
   loginStatus: boolean;
+  usage: string;
+  budget: string;
+  type: string;
 
 
-  constructor(private productPcService: ProductPcService,
+  constructor(private route: ActivatedRoute,
+              private productPcService: ProductPcService,
               private productLaptopService: ProductLaptopService,
               private productPhoneService: ProductPhoneService,
               private dialog: MatDialog,
               private appcontext: AuthenticationService) { }
 
   ngOnInit(): void {
+    this.route.params.subscribe(params => {
+      this.type = params.type;
+      this.usage = params.usage;
+      this.budget = params.budget;
+    });
+
     // load pc data
     this.pcs$ = this.productPcService.getAll().pipe(
       catchError(error => {
@@ -89,6 +100,8 @@ export class ProductHomeComponent implements OnInit {
     if (this.appcontext.currentUserValue) {
       this.loginStatus = true;
     }
+
+    this.msg = this.type;
   } // ngOnInit
 
   // open modals for each type of product
