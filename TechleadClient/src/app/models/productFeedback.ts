@@ -2,9 +2,9 @@
  * ProductFeedback - interface for a ProductFeedback entity
  */
 export interface ProductFeedback {
-  id: number;
+  id: string;
   memberId: string;
-  productId: number;
+  productId: string;
   rating: number;
   text: string;
 }

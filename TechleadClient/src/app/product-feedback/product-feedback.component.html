@@ -1,0 +1,53 @@
+<app-nav-menu [MemberLoginStatus]="loginStatus"></app-nav-menu>
+<div class="col-md-6 offset-md-3 mt-5">
+  <div class="card">
+    <h4 class="card-header">Techlead Create Feedback</h4>
+    <div class="card-body">
+      <form [formGroup]="createFeedbackForm" (ngSubmit)="createFeedback()">
+        <!--Product Type-->
+        <div class="form-group" >
+          <!--Rating-->
+          <div layout="row">
+            <label for="rating">Rating</label>
+            <br/>
+            <mat-slider formControlName="rating" min="0" max="5" step="1" tickInterval="1"
+                        thumbLabel="thumbLabel" class="form-control"></mat-slider>
+          </div>
+          <br/>
+          <!--Feedback text-->
+          <div layout="row">
+            <label for="feedbackField">Feedback Text</label>
+            <br/>
+            <textarea formControlName="feedbackField" placeholder="Enter Feedback" cols="40" rows="5"
+                      [ngClass]="{ 'is-invalid': submitted && f.feedbackField.errors }" class="form-control"></textarea>
+            <div *ngIf="submitted && f.feedbackField.errors" class="invalid-feedback">
+              <div *ngIf="f.feedbackField.errors.required">Feedback is required</div>
+            </div>
+          </div>
+        </div>
+        <br/>
+        <span>
+        <br/>
+       <button [disabled]="loading" class="btn btn-primary">
+          <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+          Submit Feedback
+        </button>
+      </span>
+        <br/>
+        <br/>
+        <!-- Feedback output table-->
+        <table *ngIf="showFeedbackTable">
+          <tr>
+            <th style="text-align: center;width:5%;border:1px solid #000000">Rating</th>
+            <th style="text-align: center;width:95%;border:1px solid #000000">Feedback Text</th>
+          </tr>
+          <tr *ngFor="let feedback of selectedProductFeedbacks">
+            <td style="text-align: center;width:5%;border:1px solid #000000">{{feedback.rating}}</td>
+            <td style="text-align: center;width:95%;border:1px solid #000000">{{feedback.text}}</td>
+          </tr>
+        </table>
+        <div *ngIf="showNoFeedback">There is no feedback to display</div>
+      </form>
+    </div>
+  </div>
+</div>

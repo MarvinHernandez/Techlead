@@ -41,11 +41,11 @@ namespace TechLead.Controllers
         }
 
         [HttpPost]
-        public ActionResult<Member> Create(Member member)
+        public ActionResult<int> Create(Member member)
         {
-            _memberService.Create(member);
-
-            return CreatedAtRoute("GetMember", new { id = member.Id.ToString() }, member);
+            int res = 0;
+            res = _memberService.Create(member);
+            return res;
         }
 
         [HttpPut("{id}")]
