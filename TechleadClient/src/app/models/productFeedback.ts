@@ -3,7 +3,7 @@
  */
 export interface ProductFeedback {
   id: string;
-  memberId: string;
+  memberName: string;
   productId: string;
   rating: number;
   text: string;
