@@ -26,23 +26,18 @@ import {AuthenticationService} from '../services/authentication.service';
   templateUrl: './product-home.component.html'
 })
 export class ProductHomeComponent implements OnInit {
-  // will need individual observables for different product types
-  // each of them will need to load separately
-  // add booleans for which type is selected when page opens
-  // so html can render the correct list
   pcs$: Observable<Pc[]>;
-  // pc: Pc;
-  // laptops$: Observable<Laptop[]>;
-  laptops: Laptop[];
-  // laptop: Laptop;
+  laptops$: Observable<Laptop[]>;
   phones$: Observable<Phone[]>;
-  // phone: Phone;
+  currentList: any[];
   msg: string;
   loginStatus: boolean;
+  loadPcs: boolean;
+  loadLaptops: boolean;
+  loadPhones: boolean;
   usage: string;
-  budget: string;
+  budget: number;
   type: string;
-
 
   constructor(private route: ActivatedRoute,
               private productPcService: ProductPcService,
@@ -57,51 +52,67 @@ export class ProductHomeComponent implements OnInit {
       this.usage = params.usage;
       this.budget = params.budget;
     });
+    this.currentList = [];  // empty
 
-    // load pc data
-    this.pcs$ = this.productPcService.getAll().pipe(
-      catchError(error => {
-        if (error.error instanceof ErrorEvent) {
-          this.msg = `Error: ${error.error.message}`;
-        } else {
-          this.msg = `Error: ${error.message}`;
-        }
-        return of([]);
-      })
-    );
+    // load product data
+    if (this.type === 'PC')
+    {
+      this.pcs$ = this.productPcService.getAll().pipe(
+        catchError(error => {
+          if (error.error instanceof ErrorEvent) {
+            this.msg = `Error: ${error.error.message}`;
+          } else {
+            this.msg = `Error: ${error.message}`;
+          }
+          return of([]);
+        })
+      );
 
-    // load laptop data
-    // this.laptops$ = this.productLaptopService.getAll().pipe(
-    //   catchError(error => {
-    //     if (error.error instanceof ErrorEvent) {
-    //       this.msg = `Error: ${error.error.message}`;
-    //     } else {
-    //       this.msg = `Error: ${error.message}`;
-    //     }
-    //     return of([]);
-    //   })
-    // );
-    this.productLaptopService.getAll().subscribe( laptops => {
-      this.laptops = laptops;
-    });
+      // filter
+      this.filterPcs(this.pcs$);
+      this.loadPcs = true;
+    }
+    else if (this.type === 'Laptop')
+    {
+      this.laptops$ = this.productLaptopService.getAll().pipe(
+        catchError(error => {
+          if (error.error instanceof ErrorEvent) {
+            this.msg = `Error: ${error.error.message}`;
+          } else {
+            this.msg = `Error: ${error.message}`;
+          }
+          return of([]);
+        })
+      );
 
-    // load phone data
-    this.phones$ = this.productPhoneService.getAll().pipe(
-      catchError(error => {
-        if (error.error instanceof ErrorEvent) {
-          this.msg = `Error: ${error.error.message}`;
-        } else {
-          this.msg = `Error: ${error.message}`;
-        }
-        return of([]);
-      })
-    );
+      // filter
+      this.filterLaptops(this.laptops$);
+      this.loadLaptops = true;
+    }
+    else if (this.type === 'Phone')
+    {
+      this.phones$ = this.productPhoneService.getAll().pipe(
+        catchError(error => {
+          if (error.error instanceof ErrorEvent) {
+            this.msg = `Error: ${error.error.message}`;
+          } else {
+            this.msg = `Error: ${error.message}`;
+          }
+          return of([]);
+        })
+      );
+
+      // filter
+      this.filterPhones(this.phones$);
+      this.loadPhones = true;
+    }
 
     if (this.appcontext.currentUserValue) {
       this.loginStatus = true;
     }
 
-    this.msg = this.type;
+    this.msg = `${this.type} Inventory`;
+    this.msg = `${this.type} ${this.usage} ${this.budget}`;
   } // ngOnInit
 
   // open modals for each type of product
@@ -141,7 +152,7 @@ export class ProductHomeComponent implements OnInit {
     const dialogRef = this.dialog.open(LaptopDialogComponent, dialogConfig);
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-
+        // some code
       }
     });
   }
@@ -159,9 +170,35 @@ export class ProductHomeComponent implements OnInit {
     const dialogRef = this.dialog.open(PhoneDialogComponent, dialogConfig);
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-
+        // some code
       }
     });
   }
 
+  // filter products
+  // each type needs a separate function because price and usage properties are named/formatted differently
+  // I didn't want to try changing things and risking something else not working
+  filterPcs(products$: Observable<Pc[]>): void {
+    products$.pipe(map(products => products
+      .find(product => (parseInt(product.price, 10) <= this.budget && (product.Usage === this.usage || this.usage === 'All')))))
+      .subscribe(prod => {
+        this.currentList.push(prod);
+      });
+  }
+
+  filterLaptops(products$: Observable<Laptop[]>): void {
+    products$.pipe(map(products => products
+      .find(product => (parseInt(product.price, 10) <= this.budget && (product.Usage.indexOf(this.usage) > -1 || this.usage === 'All')))))
+      .subscribe(prod => {
+        this.currentList.push(prod);
+      });
+  }
+
+  filterPhones(products$: Observable<Phone[]>): void {
+    products$.pipe(map(products => products
+      .find(product => (parseInt(product.Price, 10) <= this.budget && (product.MainUsage === this.usage || this.usage === 'All')))))
+      .subscribe(prod => {
+        this.currentList.push(prod);
+      });
+  }
 }

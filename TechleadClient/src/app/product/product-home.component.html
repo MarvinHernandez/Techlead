@@ -9,9 +9,9 @@
     </mat-card-header>
     <mat-list flex>
         <!-- make sure its written as the actual selector -->
-      <app-pc-list [pcs]="pcs$ | async" (selected)="openDetailsModalPc($event)"> </app-pc-list>
-      <app-laptop-list [laptops]="laptops" (selected)="openDetailsModalLaptop($event)"> </app-laptop-list>
-      <app-phone-list [phones]="phones$ | async" (selected)="openDetailsModalPhone($event)"> </app-phone-list>
+      <app-pc-list *ngIf="loadPcs" [pcs]="currentList" (selected)="openDetailsModalPc($event)"> </app-pc-list>
+      <app-laptop-list *ngIf="loadLaptops" [laptops]="currentList" (selected)="openDetailsModalLaptop($event)"> </app-laptop-list>
+      <app-phone-list *ngIf="loadPhones" [phones]="currentList" (selected)="openDetailsModalPhone($event)"> </app-phone-list>
     </mat-list>
   </mat-card-content>
 </mat-card>
