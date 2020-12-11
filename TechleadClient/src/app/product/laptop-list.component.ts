@@ -5,8 +5,19 @@ import { Laptop } from '../models/laptop';
   selector: 'app-laptop-list',
   template:
     `
-    <mat-list-item *ngFor="let laptop of laptops" (click)="selected.emit(laptop)">
-      {{ laptop.Name }} - {{laptop.price | currency:'USD':'symbol':'1.2-2'}}
+    <mat-list-item *ngFor="let laptop of laptops" (click)="selected.emit(laptop)" style="padding-bottom: 4vh;
+                                                                                         display: inline-block;
+                                                                                         height: auto;
+                                                                                         width: auto;"
+    >
+      <table>
+        <tr style="font-weight: bold;">
+          {{ laptop.Name }}
+        </tr>
+        <tr style="color: green;">
+          {{laptop.price | currency:'USD':'symbol':'1.2-2'}}
+        </tr>
+      </table>
     </mat-list-item>
   `
 })

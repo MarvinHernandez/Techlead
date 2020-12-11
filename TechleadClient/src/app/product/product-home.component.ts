@@ -9,6 +9,8 @@ import {ProductPcService} from '../services/product-pc.service';
 import {ProductLaptopService} from '../services/product-laptop.service';
 import {ProductPhoneService} from '../services/product-phone.service';
 
+import {HomeComponent} from '../home/home.component';
+
 import {Observable, of} from 'rxjs';
 import {catchError, map} from 'rxjs/operators';
 
@@ -29,7 +31,7 @@ export class ProductHomeComponent implements OnInit {
   pcs$: Observable<Pc[]>;
   laptops$: Observable<Laptop[]>;
   phones$: Observable<Phone[]>;
-  currentList: any[];
+  currentList: any[] = [];
   msg: string;
   loginStatus: boolean;
   loadPcs: boolean;
@@ -53,7 +55,6 @@ export class ProductHomeComponent implements OnInit {
       this.budget = params.budget;
     });
     this.currentList = [];  // empty
-
     // load product data
     if (this.type === 'PC')
     {
@@ -111,8 +112,7 @@ export class ProductHomeComponent implements OnInit {
       this.loginStatus = true;
     }
 
-    this.msg = `${this.type} Inventory`;
-    this.msg = `${this.type} ${this.usage} ${this.budget}`;
+    this.msg = `${this.type} Results`;
   } // ngOnInit
 
   // open modals for each type of product
@@ -123,13 +123,18 @@ export class ProductHomeComponent implements OnInit {
     dialogConfig.autoFocus = false;
     dialogConfig.data = {
       title: `${selectedProduct.NickName}`,
-      entityname: 'pc'
+      entityname: 'pc',
+
+      id: selectedProduct.Id,
+      price: selectedProduct.price,
+      usage: selectedProduct.Usage,
+      specs: selectedProduct.Specs
     };
     dialogConfig.panelClass = 'custommodal';
     const dialogRef = this.dialog.open(PcDialogComponent, dialogConfig);
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        // this is where i would add the item to a wishlist ///////////////////////////////////////////////// julia
+        // this is where i would add the item to a wishlist /////////////////////////////////////////////////
         // i assume there would need to be away to recognize which user is signed in
         // and you would add it to them
         // i don't currently know if members have a wishlist[] field that you could add to
@@ -146,7 +151,22 @@ export class ProductHomeComponent implements OnInit {
     dialogConfig.autoFocus = false;
     dialogConfig.data = {
       title: `${selectedProduct.Name}`,
-      entityname: 'laptop'
+      entityname: 'laptop',
+
+      id: selectedProduct.Id,
+      company: selectedProduct.Company,
+      operatingsystem: selectedProduct.OS,
+      usage: selectedProduct.Usage, // array
+      screensize: selectedProduct.ScreenSize,
+      cpuprovider: selectedProduct.CpuProvider,
+      cpu: selectedProduct.Cpu,
+      screenresolution: selectedProduct.ScreenResolution,
+      touch: selectedProduct.touch,
+      twoinone: selectedProduct.TwoInOne,
+      buildquality: selectedProduct.BuildQuality,
+      ram: selectedProduct.Ram,
+      storage: selectedProduct.Storage,
+      price: selectedProduct.price
     };
     dialogConfig.panelClass = 'custommodal';
     const dialogRef = this.dialog.open(LaptopDialogComponent, dialogConfig);
@@ -164,7 +184,18 @@ export class ProductHomeComponent implements OnInit {
     dialogConfig.autoFocus = false;
     dialogConfig.data = {
       title: `${selectedProduct.Name}`,
-      entityname: 'phone'
+      entityname: 'phone',
+
+      id: selectedProduct.Id,
+      company: selectedProduct.Company,
+      type: selectedProduct.Type,
+      price: selectedProduct.Price,
+      positives: selectedProduct.positive,
+      usage: selectedProduct.MainUsage,
+      cpu: selectedProduct.Cpu,
+      ram: selectedProduct.Ram,
+      screensize: selectedProduct.ScreenSize,
+      fivegsupport: selectedProduct.FiveGSupport
     };
     dialogConfig.panelClass = 'custommodal';
     const dialogRef = this.dialog.open(PhoneDialogComponent, dialogConfig);
@@ -179,26 +210,36 @@ export class ProductHomeComponent implements OnInit {
   // each type needs a separate function because price and usage properties are named/formatted differently
   // I didn't want to try changing things and risking something else not working
   filterPcs(products$: Observable<Pc[]>): void {
-    products$.pipe(map(products => products
-      .find(product => (parseInt(product.price, 10) <= this.budget && (product.Usage === this.usage || this.usage === 'All')))))
-      .subscribe(prod => {
-        this.currentList.push(prod);
+    products$.toPromise().then((res) => {
+      res.forEach((product) => {
+        if ((parseInt(product.price, 10) <= this.budget && (product.Usage === this.usage || this.usage === 'All')))
+        {
+          this.currentList.push(product);
+        }
       });
+    });
   }
 
   filterLaptops(products$: Observable<Laptop[]>): void {
-    products$.pipe(map(products => products
-      .find(product => (parseInt(product.price, 10) <= this.budget && (product.Usage.indexOf(this.usage) > -1 || this.usage === 'All')))))
-      .subscribe(prod => {
-        this.currentList.push(prod);
+    products$.toPromise().then((res) => {
+      res.forEach((product) => {
+        if ((parseInt(product.price, 10) <= this.budget && (product.Usage.indexOf(this.usage) > -1 || this.usage === 'All')))
+        {
+          this.currentList.push(product);
+        }
       });
+    });
   }
 
+
   filterPhones(products$: Observable<Phone[]>): void {
-    products$.pipe(map(products => products
-      .find(product => (parseInt(product.Price, 10) <= this.budget && (product.MainUsage === this.usage || this.usage === 'All')))))
-      .subscribe(prod => {
-        this.currentList.push(prod);
+    products$.toPromise().then((res) => {
+      res.forEach((product) => {
+        if ((parseInt(product.Price, 10) <= this.budget && (product.MainUsage === this.usage || this.usage === 'All')))
+        {
+          this.currentList.push(product);
+        }
       });
+    });
   }
 }

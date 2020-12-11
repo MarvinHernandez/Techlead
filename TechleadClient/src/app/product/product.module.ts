@@ -9,6 +9,7 @@ import { PcListComponent } from './pc-list.component';
 import { LaptopListComponent } from './laptop-list.component';
 import { PhoneListComponent } from './phone-list.component';
 import {SharedModule} from '../shared/shared.module';
+import {RouterModule} from '@angular/router';
 
 
 
@@ -18,7 +19,8 @@ import {SharedModule} from '../shared/shared.module';
         CommonModule,
         ReactiveFormsModule,
         MatComponentsModule,
-        SharedModule
+        SharedModule,
+        RouterModule
     ]
 })
 export class ProductModule { }

@@ -7,6 +7,8 @@ import {AuthenticationService} from '../services/authentication.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  // budgets are set to the max price of a product because that is the
+  // value of the dropdown for 'all products selected'
   loginStatus: boolean;
   laptopUsage = 'All';
   laptopBudget = '3600';
