@@ -4,7 +4,7 @@
 export interface PcSpecs {
   Cpu: string;
   Gpu: string;
-  MoatherBoared: string;
+  Motherboard: string;
   Ram: string;
   Storage: string;
   StorageUnit: string;

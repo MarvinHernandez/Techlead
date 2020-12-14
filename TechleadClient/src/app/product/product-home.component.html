@@ -1,17 +1,22 @@
-<!--so far this is only for pcs. need to conditionally render everything-->
 <app-nav-menu [MemberLoginStatus]="loginStatus"></app-nav-menu>
 <mat-card>
   <mat-card-content>
     <mat-card-header class="app-accent" layout="row">
-      <mat-card-title>
+      <mat-card-title *ngIf="currentList.length > 0">
         <span class="mat-headline">{{ msg }}</span>
       </mat-card-title>
     </mat-card-header>
-    <mat-list flex>
+    <mat-list>
         <!-- make sure its written as the actual selector -->
-      <app-pc-list [pcs]="pcs$ | async" (selected)="openDetailsModalPc($event)"> </app-pc-list>
-      <app-laptop-list [laptops]="laptops" (selected)="openDetailsModalLaptop($event)"> </app-laptop-list>
-      <app-phone-list [phones]="phones$ | async" (selected)="openDetailsModalPhone($event)"> </app-phone-list>
+      <app-pc-list *ngIf="loadPcs" [pcs]="currentList" (selected)="openDetailsModalPc($event)"> </app-pc-list>
+      <app-laptop-list *ngIf="loadLaptops" [laptops]="currentList" (selected)="openDetailsModalLaptop($event)"> </app-laptop-list>
+      <app-phone-list *ngIf="loadPhones" [phones]="currentList" (selected)="openDetailsModalPhone($event)"> </app-phone-list>
     </mat-list>
+    <mat-card-title *ngIf="currentList.length < 1" class="delay">
+      <span class="mat-headline">No products meet your description. Would you like to look for another product?</span>
+      <div style="padding-top: 2vh;">
+        <button [routerLink]="['']" id="goBack" class="btn btn-primary btn-lg">Return to Home</button>
+      </div>
+    </mat-card-title>
   </mat-card-content>
 </mat-card>
