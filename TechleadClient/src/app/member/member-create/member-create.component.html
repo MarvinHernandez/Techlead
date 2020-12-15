@@ -1,40 +1,45 @@
 <app-nav-menu [MemberLoginStatus]="loginStatus"></app-nav-menu>
-<div class="col-md-6 offset-md-3 mt-5">
-  <div class="card">
-    <h4 class="card-header">Techlead Create Account</h4>
-    <div class="card-body">
-      <form [formGroup]="createAccountForm" (ngSubmit)="createMember()">
-        <!-- User name Input -->
-        <div class="form-group">
-          <label for="userName">User Name</label>
-          <input type="text" class="form-control" type="text" formControlName="userName" [ngClass]="{ 'is-invalid': submitted && f.userName.errors }" />
-          <div *ngIf="submitted && f.userName.errors" class="invalid-feedback">
-            <div *ngIf="f.userName.errors.required">Username is required</div>
-            <div *ngIf="!f.userName.errors.required && f.userName.errors.userNameUsed">Username is used.</div>
-          </div>
-        </div>
+<div class="bgColour">
+  <mat-card class="centerBody" style="padding-bottom: 25% !important">
+    <div class="col-md-6 offset-md-3 mt-5">
+      <div class="card">
+        <h4 class="card-header" style="background-color: tomato; color: white">Techlead Create Account</h4>
+        <div class="card-body">
+          <form [formGroup]="createAccountForm" (ngSubmit)="createMember()">
+            <!-- User name Input -->
+            <div class="form-group">
+              <label for="userName">User Name</label>
+              <input type="text" class="form-control" type="text" formControlName="userName" [ngClass]="{ 'is-invalid': submitted && f.userName.errors }" />
+              <div *ngIf="submitted && f.userName.errors" class="invalid-feedback">
+                <div *ngIf="f.userName.errors.required">Username is required</div>
+                <div *ngIf="!f.userName.errors.required && f.userName.errors.userNameUsed">Username is used.</div>
+              </div>
+            </div>
+            <br/>
+            <!-- Password Input -->
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="text" class="form-control" type="text" formControlName="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+              <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                <div *ngIf="f.password.errors.required">Password is required</div>
+              </div>
+            </div>
+            <br/>
+            <span>
         <br/>
-        <!-- Password Input -->
-        <div class="form-group">
-          <label for="password">Password</label>
-          <input type="text" class="form-control" type="text" formControlName="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
-          <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-            <div *ngIf="f.password.errors.required">Password is required</div>
-          </div>
-        </div>
         <br/>
-        <span>
-        <br/>
-        <br/>
-        <button [disabled]="loading" class="btn btn-primary">
+        <button [disabled]="loading">
           <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
           Create Account
         </button>
       </span>
-        <br/>
-        <br/>
-        <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error}}</div>
-      </form>
+            <br/>
+            <br/>
+            <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error}}</div>
+          </form>
+        </div>
+      </div>
     </div>
-  </div>
+  </mat-card>
 </div>
+

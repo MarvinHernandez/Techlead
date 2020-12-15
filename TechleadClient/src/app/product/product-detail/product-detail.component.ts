@@ -24,8 +24,8 @@ import { LaptopDialogComponent } from '../../detailsdialog/laptop-dialog.compone
 import { PhoneDialogComponent } from '../../detailsdialog/phone-dialog.component';
 
 import {AuthenticationService} from '../../services/authentication.service';
-import {WishlistService} from "../../services/wishlist.service";
-import {Wishlist} from "../../models/wishlist";
+import {WishlistService} from '../../services/wishlist.service';
+import {Wishlist} from '../../models/wishlist';
 
 @Component({
   selector: 'app-product-detail',

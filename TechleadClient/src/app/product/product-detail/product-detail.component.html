@@ -1,7 +1,7 @@
 <app-nav-menu [MemberLoginStatus]="loginStatus"></app-nav-menu>
 <div class="bgColour">
   <mat-card class="centerBody" style=" border: none">
-    <mat-card-content>
+    <mat-card-content style="height: 100%;">
       <!--phone-->
       <div *ngIf="type === 'phone' && phone !== undefined"  layout="row">
       <mat-grid-list cols="3" rowHeight="1:1">
@@ -181,9 +181,10 @@
           <app-product-feedback [selectedProduct]="laptop"></app-product-feedback>
         </div>
       </div>
+
       <!--pc-->
       <div *ngIf="type === 'pc' && pc !== undefined" layout="row">
-      <mat-grid-list cols="3" rowHeight="1:1">
+      <mat-grid-list cols="3" rowHeight="1:1.2">
         <mat-grid-tile>
           <h3>{{pc.NickName}}</h3>
         </mat-grid-tile>
@@ -198,7 +199,7 @@
             </div>
         </mat-grid-tile>
         <mat-grid-tile>
-          <div layout="row">
+          <div layout="row" style="padding-bottom: 5%;">
             <div layout="row">
               <a>Usage: </a>
               {{pc.Usage}}
@@ -254,7 +255,7 @@
               <a>Price: </a>{{pc.price | currency}}
             </div>
 
-            <div layout="row" style="padding-top: 10%;">
+            <div layout="row" style="padding-bottom: 10%;">
               <button type="button" (click)="addToWishlist(pc.Id, pc.ProductType, content)" *ngIf="loginStatus">Add to Wishlist</button>
             </div>
           </div>

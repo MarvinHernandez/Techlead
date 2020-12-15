@@ -27,20 +27,6 @@ import { Phone } from '../../models/phone';
               <a style="color: green;">{{phone.Price | currency:'USD':'symbol':'1.2-2'}}</a>
             </p>
           </div>
-<!--          <table style="width: 100%">-->
-<!--            <tr style="align-content: center">-->
-<!--              <img-->
-<!--                src="assets/images/{{phone.Name}}.png"-->
-<!--                alt="Generic placeholder image"-->
-<!--                width="100px"-->
-<!--                height="100px"-->
-<!--              />-->
-<!--            </tr>-->
-<!--            <tr>-->
-<!--              <a>Price: </a>-->
-<!--              <a style="color: green;">{{phone.Price | currency:'USD':'symbol':'1.2-2'}}</a>-->
-<!--            </tr>-->
-<!--          </table>-->
         </div>
       </div>
     </mat-list-item>

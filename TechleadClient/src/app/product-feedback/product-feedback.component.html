@@ -1,7 +1,7 @@
 <!--<app-nav-menu [MemberLoginStatus]="loginStatus"></app-nav-menu>-->
 <!--<div class="col-md-6 offset-md-3 mt-5">-->
 <div>
-  <div class="card">
+  <div class="card" style="padding-bottom: 12%;">
     <div *ngIf="loginStatus">
       <h4 class="card-header" style="background-color: tomato; color: white">Submit Product Feedback</h4>
       <div class="card-body">
@@ -40,7 +40,7 @@
       </div>
     </div>
     <div *ngIf="!loginStatus">
-      <h4 class="card-header">Login to submit product feedback</h4>
+      <h4 class="card-header" style="background-color: tomato; color: white">Login to submit product feedback</h4>
     </div>
     <br/>
     <br/>
@@ -70,6 +70,6 @@
     </div>
 
 
-    <div *ngIf="showNoFeedback">There is no feedback to display</div>
+    <div *ngIf="showNoFeedback" style="text-align: center;">There is no feedback to display</div>
   </div>
 </div>
