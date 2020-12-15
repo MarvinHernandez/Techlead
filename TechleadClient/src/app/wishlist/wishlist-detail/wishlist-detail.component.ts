@@ -21,7 +21,8 @@ export class WishlistDetailComponent implements OnInit {
 
   }
 
-  deleteProduct(prodId: string) : void{
+  deleteProduct(prodId: string): void{
+    // window.location.href
     this.wishlistService.deleteByProductId(prodId, this.selectedWishlistId).subscribe(payload => {
       if(payload > 0){
         this.selectedWishlistProducts = this.selectedWishlistProducts.filter( prod => prod.Id !== prodId);
@@ -32,4 +33,37 @@ export class WishlistDetailComponent implements OnInit {
         this.toastr.error('Error: the product was not deleted');
     });
   }
+
+  reviewSearch(prodName: string, searchType: string): void {
+
+    const queryWords = prodName.split(' ');
+    let searchLink: string;
+
+    if (searchType === 'google'){
+      searchLink = 'https://www.google.com/search?q=';
+
+      searchLink += `${queryWords[0]}`;
+      for (let i = 1; i < queryWords.length; i++){
+        searchLink += `+${queryWords[i]}`;
+      }
+      searchLink += '+review';
+    }else{
+      searchLink = 'https://www.youtube.com/results?search_query=';
+
+      searchLink += `${queryWords[0]}`;
+      for (let i = 1; i < queryWords.length; i++){
+        searchLink += `+${queryWords[i]}`;
+      }
+      searchLink += '+review+&sp=CAM%253D';
+    }
+
+    window.open(searchLink, '_blank').focus();
+
+    //also work but link is opened in the same page
+    // window.location.replace(searchLink);
+    // window.location.href = searchLink;
+  }
+
+
+    // https://www.youtube.com/results?search_query=test+&sp=CAM%253D
 }

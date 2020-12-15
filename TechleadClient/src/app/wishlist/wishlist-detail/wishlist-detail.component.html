@@ -54,6 +54,8 @@
         </div>
 
         <div layout="row" class="btndiv">
+          <button type="button" (click)="reviewSearch(product.Name, 'google')">Google Search</button>
+          <button type="button" (click)="reviewSearch(product.Name, 'youtube')">Youtube Search</button>
           <button type="button" (click)="deleteProduct(product.Id)">Delete from Wishlist</button>
         </div>
       </mat-expansion-panel>
