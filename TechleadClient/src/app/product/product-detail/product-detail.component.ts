@@ -31,7 +31,7 @@ import {WishlistService} from "../../services/wishlist.service";
 })
 export class ProductDetailComponent implements OnInit {
 
-  phone: Phone = null;
+  phone: Phone;
   laptop: Laptop;
   pc: Pc;
   loginStatus: boolean;
