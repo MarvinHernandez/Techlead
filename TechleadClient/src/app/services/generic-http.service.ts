@@ -8,7 +8,9 @@ export class GenericHttpService<T> {
   constructor(
     private httpClient: HttpClient,
     private url: string,
-  ) {}
+  ) {
+  }
+
   public add(item: T): Observable<T> {
     return this.httpClient.post<T>(`${this.url}`, item);
   } // add
@@ -21,4 +23,4 @@ export class GenericHttpService<T> {
   public delete(id: number): Observable<number> {
     return this.httpClient.delete<number>(`${this.url}/${id}`);
   } // delete
-} // GenericHttpService
+}

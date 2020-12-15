@@ -64,8 +64,12 @@ export class ProductFeedbackComponent implements OnInit, OnDestroy {
 
     // TODO: Remove hardcoded product id and use the inputted product id
     const loggedInMemberName = this.appcontext.currentUserValue.username;
+    let ratingValue = this.rating.value;
+    if(ratingValue === ""){
+      ratingValue = 0;
+    }
     const feedback: ProductFeedback = {id: '', memberName: loggedInMemberName, productId: this.selectedProduct.Id,
-      text: this.feedbackField.value, rating: this.rating.value};
+      text: this.feedbackField.value, rating: ratingValue};
 
     this.feedbackService.addProductFeedback(feedback).subscribe( payload => {
         if (payload > 0) {

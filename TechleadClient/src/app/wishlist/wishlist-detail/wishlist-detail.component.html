@@ -1,221 +1,224 @@
-<mat-accordion>
-  <div *ngFor="let product of selectedWishlistProducts">
+<div style="padding-bottom: 10px; margin-bottom: 20%;">
+  <mat-accordion>
+    <div *ngFor="let product of selectedWishlistProducts">
 
-    <!--  Phone Type-->
-    <div *ngIf="product.ProductType === 'phone'">
-      <mat-expansion-panel>
-        <mat-expansion-panel-header class="my-primary-text" style="background-color: tomato;">
-          <mat-panel-title>{{product.Name}}</mat-panel-title>
-        </mat-expansion-panel-header>
+      <!--  Phone Type-->
+      <div *ngIf="product.ProductType === 'phone'">
+        <mat-expansion-panel>
+          <mat-expansion-panel-header class="my-primary-text" style="background-color: tomato;">
+            <mat-panel-title>{{product.Name}}</mat-panel-title>
+          </mat-expansion-panel-header>
 
-        <div layout="row">
-          <a>Company: </a>
-          {{product.Company}}
-        </div>
+          <div layout="row">
+            <a>Company: </a>
+            {{product.Company}}
+          </div>
 
-        <div layout="row">
-          <a>Type: </a>
-          {{product.Type}}
-        </div>
+          <div layout="row">
+            <a>Type: </a>
+            {{product.Type}}
+          </div>
 
-        <div layout="row">
-          <a>Main Usage: </a>
-          {{product.MainUsage}}
-        </div>
+          <div layout="row">
+            <a>Main Usage: </a>
+            {{product.MainUsage}}
+          </div>
 
-        <div layout="row">
-          <a>Screen Size: </a>
-          {{product.ScreenSize}}
-        </div>
+          <div layout="row">
+            <a>Screen Size: </a>
+            {{product.ScreenSize}}
+          </div>
 
-        <div layout="row">
-          <a>CPU: </a>
-          {{product.Cpu}}
-        </div>
+          <div layout="row">
+            <a>CPU: </a>
+            {{product.Cpu}}
+          </div>
 
-        <div layout="row">
-          <a>RAM: </a>
-          {{product.Ram}}
-        </div>
+          <div layout="row">
+            <a>RAM: </a>
+            {{product.Ram}}
+          </div>
 
-        <div layout="row">
-          <a>5G Support: </a>
-          {{product.FiveGSupport}}
-        </div>
+          <div layout="row">
+            <a>5G Support: </a>
+            {{product.FiveGSupport}}
+          </div>
 
-        <div layout="row">
-          <a>Positive: </a>
-          <div *ngFor="let pro of product.positive">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{pro}}</div>
-        </div>
+          <div layout="row">
+            <a>Positive: </a>
+            <div *ngFor="let pro of product.positive">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{pro}}</div>
+          </div>
 
-        <div layout="row">
-          <a>Price: </a>
-          {{product.Price | currency}}
-        </div>
+          <div layout="row">
+            <a>Price: </a>
+            {{product.Price | currency}}
+          </div>
 
-        <div layout="row" class="btndiv">
-          <button type="button" (click)="reviewSearch(product.Name, 'google')">Google Search</button>
-          <button type="button" (click)="reviewSearch(product.Name, 'youtube')">Youtube Search</button>
-          <button type="button" (click)="deleteProduct(product.Id)">Delete from Wishlist</button>
-        </div>
-      </mat-expansion-panel>
+          <div layout="row" class="btndiv">
+            <button type="button" (click)="reviewSearch(product.Name, 'google')">Google Search</button>
+            <button type="button" (click)="reviewSearch(product.Name, 'youtube')">Youtube Search</button>
+            <button type="button" (click)="deleteProduct(product.Id)">Delete from Wishlist</button>
+          </div>
+        </mat-expansion-panel>
+      </div>
+
+      <!--  PC Type-->
+      <div *ngIf="product.ProductType === 'pc'">
+        <mat-expansion-panel>
+          <mat-expansion-panel-header class="my-primary-text" style="background-color: tomato;">
+            <mat-panel-title>{{product.NickName}}</mat-panel-title>
+          </mat-expansion-panel-header>
+
+          <div layout="row">
+            <a>Usage: </a>
+            {{product.Usage}}
+          </div>
+
+          <div layout="row">
+            <a>Specs: </a>
+            <div layout="row">
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a>CPU: </a>{{product.Specs.Cpu}}
+            </div>
+            <div layout="row">
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a>GPU: </a>{{product.Specs.Gpu}}
+            </div>
+            <div layout="row">
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a>Motherboard: </a>{{product.Specs.Motherboard}}
+            </div>
+            <div layout="row">
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a>RAM: </a>{{product.Specs.Ram}}
+            </div>
+            <div layout="row">
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a>Storage: </a>{{product.Specs.Storage}}
+            </div>
+            <div layout="row">
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a>Storage Unit: </a>{{product.Specs.StorageUnit}}
+            </div>
+            <div layout="row">
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a>Case: </a>{{product.Specs.Case}}
+            </div>
+            <div layout="row">
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a>Power Supply Unit: </a>{{product.Specs.PowerSupplyUnit}}
+            </div>
+            <div layout="row">
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a>Cooling: </a>{{product.Specs.Cooling}}
+            </div>
+            <div layout="row">
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a>Cooling Liquid: </a>{{product.Specs.CoolingLiquid}}
+            </div>
+            <div layout="row">
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a>Monitor: </a>{{product.Specs.Monitor}}
+            </div>
+            <div layout="row">
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a>Pump: </a>{{product.Specs.pump}}
+            </div>
+            <div layout="row">
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a>Tubes: </a>{{product.Specs.Tubes}}
+            </div>
+            <div layout="row">
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a>Cables: </a>{{product.Specs.Cables}}
+            </div>
+          </div>
+
+          <div layout="row">
+            <a>Price: </a>{{product.price | currency}}
+          </div>
+
+          <div layout="row" class="btndiv">
+            <button type="button" (click)="reviewSearch(product.NickName, 'google')">Google Search</button>
+            <button type="button" (click)="reviewSearch(product.NickName, 'youtube')">Youtube Search</button>
+            <button type="button" (click)="deleteProduct(product.Id)">Delete from Wishlist</button>
+          </div>
+        </mat-expansion-panel>
+      </div>
+
+      <!--  Laptop Type-->
+      <div *ngIf="product.ProductType === 'laptop'">
+        <mat-expansion-panel>
+          <mat-expansion-panel-header class="my-primary-text" style="background-color: tomato;">
+            <mat-panel-title>{{product.Name}}</mat-panel-title>
+          </mat-expansion-panel-header>
+
+          <div layout="row">
+            <a>Company: </a>
+            {{product.Company}}
+          </div>
+
+          <div layout="row">
+            <a>Usage: </a>
+            <div *ngFor="let use of product.Usage">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{use}}</div>
+          </div>
+
+          <div layout="row">
+            <a>OS: </a>
+            {{product.OS}}
+          </div>
+
+          <div layout="row">
+            <a>Storage: </a>
+            {{product.Storage}}
+          </div>
+
+          <div layout="row">
+            <a>Screen Size: </a>
+            {{product.ScreenSize}}
+          </div>
+
+          <div layout="row">
+            <a>Screen Resolution: </a>
+            {{product.ScreenResolution}}
+          </div>
+
+          <div layout="row">
+            <a>CPU: </a>
+            {{product.Cpu}}
+          </div>
+
+          <div layout="row">
+            <a>CPU Provider: </a>
+            {{product.CpuProvider}}
+          </div>
+
+          <div layout="row">
+            <a>GPU: </a>
+            {{product.Gpu}}
+          </div>
+
+          <div layout="row">
+            <a>RAM: </a>
+            {{product.Ram}}
+          </div>
+
+          <div layout="row">
+            <a>Touch: </a>
+            {{product.touch}}
+          </div>
+
+          <div layout="row">
+            <a>2 in 1: </a>
+            {{product.TwoInOne}}
+          </div>
+
+          <div layout="row">
+            <a>Build Quality: </a>
+            {{product.BuildQuality}}
+          </div>
+
+          <div layout="row">
+            <a>Price: </a>
+            {{product.price | currency}}
+          </div>
+
+          <div layout="row" class="btndiv">
+            <button type="button" (click)="reviewSearch(product.Company + ' ' + product.Name, 'google')">Google Search</button>
+            <button type="button" (click)="reviewSearch(product.Company + ' ' + product.Name, 'youtube')">Youtube Search</button>
+            <button type="button" (click)="deleteProduct(product.Id)">Delete from Wishlist</button>
+          </div>
+
+        </mat-expansion-panel>
+      </div>
+
     </div>
+  </mat-accordion>
+</div>
 
-    <!--  PC Type-->
-    <div *ngIf="product.ProductType === 'pc'">
-      <mat-expansion-panel>
-        <mat-expansion-panel-header class="my-primary-text" style="background-color: tomato;">
-          <mat-panel-title>{{product.NickName}}</mat-panel-title>
-        </mat-expansion-panel-header>
-
-        <div layout="row">
-          <a>Usage: </a>
-          {{product.Usage}}
-        </div>
-
-        <div layout="row">
-          <a>Specs: </a>
-          <div layout="row">
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a>CPU: </a>{{product.Specs.Cpu}}
-          </div>
-          <div layout="row">
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a>GPU: </a>{{product.Specs.Gpu}}
-          </div>
-          <div layout="row">
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a>Motherboard: </a>{{product.Specs.Motherboard}}
-          </div>
-          <div layout="row">
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a>RAM: </a>{{product.Specs.Ram}}
-          </div>
-          <div layout="row">
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a>Storage: </a>{{product.Specs.Storage}}
-          </div>
-          <div layout="row">
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a>Storage Unit: </a>{{product.Specs.StorageUnit}}
-          </div>
-          <div layout="row">
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a>Case: </a>{{product.Specs.Case}}
-          </div>
-          <div layout="row">
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a>Power Supply Unit: </a>{{product.Specs.PowerSupplyUnit}}
-          </div>
-          <div layout="row">
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a>Cooling: </a>{{product.Specs.Cooling}}
-          </div>
-          <div layout="row">
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a>Cooling Liquid: </a>{{product.Specs.CoolingLiquid}}
-          </div>
-          <div layout="row">
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a>Monitor: </a>{{product.Specs.Monitor}}
-          </div>
-          <div layout="row">
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a>Pump: </a>{{product.Specs.pump}}
-          </div>
-          <div layout="row">
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a>Tubes: </a>{{product.Specs.Tubes}}
-          </div>
-          <div layout="row">
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a>Cables: </a>{{product.Specs.Cables}}
-          </div>
-        </div>
-
-        <div layout="row">
-          <a>Price: </a>{{product.price | currency}}
-        </div>
-
-        <div layout="row" class="btndiv">
-          <button type="button" (click)="reviewSearch(product.NickName, 'google')">Google Search</button>
-          <button type="button" (click)="reviewSearch(product.NickName, 'youtube')">Youtube Search</button>
-          <button type="button" (click)="deleteProduct(product.Id)">Delete from Wishlist</button>
-        </div>
-      </mat-expansion-panel>
-    </div>
-
-    <!--  Laptop Type-->
-    <div *ngIf="product.ProductType === 'laptop'">
-      <mat-expansion-panel>
-        <mat-expansion-panel-header class="my-primary-text" style="background-color: tomato;">
-          <mat-panel-title>{{product.Name}}</mat-panel-title>
-        </mat-expansion-panel-header>
-
-        <div layout="row">
-          <a>Company: </a>
-          {{product.Company}}
-        </div>
-
-        <div layout="row">
-          <a>Usage: </a>
-          <div *ngFor="let use of product.Usage">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{use}}</div>
-        </div>
-
-        <div layout="row">
-          <a>OS: </a>
-          {{product.OS}}
-        </div>
-
-        <div layout="row">
-          <a>Storage: </a>
-          {{product.Storage}}
-        </div>
-
-        <div layout="row">
-          <a>Screen Size: </a>
-          {{product.ScreenSize}}
-        </div>
-
-        <div layout="row">
-          <a>Screen Resolution: </a>
-          {{product.ScreenResolution}}
-        </div>
-
-        <div layout="row">
-          <a>CPU: </a>
-          {{product.Cpu}}
-        </div>
-
-        <div layout="row">
-          <a>CPU Provider: </a>
-          {{product.CpuProvider}}
-        </div>
-
-        <div layout="row">
-          <a>GPU: </a>
-          {{product.Gpu}}
-        </div>
-
-        <div layout="row">
-          <a>RAM: </a>
-          {{product.Ram}}
-        </div>
-
-        <div layout="row">
-          <a>Touch: </a>
-          {{product.touch}}
-        </div>
-
-        <div layout="row">
-          <a>2 in 1: </a>
-          {{product.TwoInOne}}
-        </div>
-
-        <div layout="row">
-          <a>Build Quality: </a>
-          {{product.BuildQuality}}
-        </div>
-
-        <div layout="row">
-          <a>Price: </a>
-          {{product.price | currency}}
-        </div>
-
-        <div layout="row" class="btndiv">
-          <button type="button" (click)="reviewSearch(product.Company + ' ' + product.Name, 'google')">Google Search</button>
-          <button type="button" (click)="reviewSearch(product.Company + ' ' + product.Name, 'youtube')">Youtube Search</button>
-          <button type="button" (click)="deleteProduct(product.Id)">Delete from Wishlist</button>
-        </div>
-
-      </mat-expansion-panel>
-    </div>
-
-  </div>
-</mat-accordion>
