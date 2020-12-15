@@ -1,6 +1,7 @@
 import {Component, Input, OnInit, Output, EventEmitter} from '@angular/core';
 import { Wishlist } from '../../models/wishlist';
 import {WishlistService} from "../../services/wishlist.service";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-wishlist-list',
@@ -12,13 +13,24 @@ export class WishlistListComponent {
   selectedWishlist: Wishlist;
   products: any[] = [];
 
-  constructor(private wishlistService: WishlistService) {
+  constructor(private wishlistService: WishlistService, private toastr: ToastrService) {
   }
 
   @Input() wishlists: Wishlist[];
   @Output() event = new EventEmitter<any[]>();
   @Output() eventWName = new EventEmitter<string>();
   @Output() eventWishlistId = new EventEmitter<string>();
+
+  delete(wishlist: Wishlist): void{
+    this.wishlistService.deleteByWishlist(wishlist).subscribe(payload => {
+      if(payload > 0){
+        this.wishlists = this.wishlists.filter( wl => wl.Id !== wishlist.Id);
+        this.toastr.success('Wishlist was successfully deleted.');
+      }
+      else
+        this.toastr.error('Error: wishlist was not deleted');
+    });
+  }
 
   async viewDetails(wishlist: Wishlist): Promise<void>{
     this.hideForm = true;

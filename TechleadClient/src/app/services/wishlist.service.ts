@@ -7,6 +7,7 @@ import {Observable} from "rxjs";
 import {Laptop} from "../models/laptop";
 import {Pc} from "../models/pc";
 import {Phone} from "../models/phone";
+import {Member} from "../models/member";
 
 @Injectable({
   providedIn: 'root'
@@ -36,8 +37,16 @@ export class WishlistService extends GenericHttpService<Wishlist> {
     return this.http.delete<number>(`${BASEURL}/api/wishlist/${wishlistId}/${prodId}`);
   } // deleteByProductId
 
+  public deleteByWishlist(wishlist: Wishlist): Observable<number>{
+    return this.http.delete<number>(`${BASEURL}/api/wishlist/${wishlist.Id}`);
+  } // deleteByProductId
+
   public addProductToWishlist(prodId: string, wishlistId: string, prodType: string): Observable<number>{
     // @ts-ignore
     return this.http.put(`${BASEURL}/api/wishlist/${wishlistId}/${prodId}/${prodType}`);
   }
+
+  public addWishlist(item: Wishlist): Observable<number> {
+    return this.http.post<number>(`${BASEURL}/api/wishlist`, item);
+  } // addMember
 }

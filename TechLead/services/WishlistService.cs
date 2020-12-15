@@ -37,10 +37,26 @@ namespace TechLead.services
         public List<Wishlist> GetByMemberId(string memberID) =>
             _wishlists.Find<Wishlist>(wishlist => wishlist.memberId == memberID).ToList();
 
-        public Wishlist Create(Wishlist wishlist)
+        //public Wishlist Create(Wishlist wishlist)
+        //{
+        //    _wishlists.InsertOne(wishlist);
+        //    return wishlist;
+        //}
+
+        public int Create(Wishlist wishlist)
         {
-            _wishlists.InsertOne(wishlist);
-            return wishlist;
+            try
+            {
+                _wishlists.InsertOne(wishlist);
+                return 1;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return 0;
+            }
+            return 0;
+
         }
 
         public void Update(string id, Wishlist wishlist) =>
@@ -63,8 +79,23 @@ namespace TechLead.services
             return 0;
         }
 
-        public void Remove(Wishlist wishlist) =>
-            _wishlists.DeleteOne(wishlist => wishlist.Id == wishlist.Id);
+        public int Remove(Wishlist wishlist)
+        {
+            int res = 0;
+            try
+            {
+             _wishlists.DeleteOne(wish => wish.Id == wishlist.Id);
+                res = 1;
+
+            }
+            catch (Exception ex)
+            {
+                return res;
+                throw;
+            }
+            return res;
+
+        }
 
         public void Remove(string id) =>
             _wishlists.DeleteOne(wishlist => wishlist.Id == id);

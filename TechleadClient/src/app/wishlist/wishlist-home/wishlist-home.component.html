@@ -9,7 +9,9 @@
 
     <div class="mat-app-background basic-container" id="to-center">
       <app-wishlist-list [wishlists]="wishlists$ | async" (event)="receiveWishlistProducts($event)" (eventWName)="receiveSelectedWName($event)" (eventWishlistId)="receiveSelectedWishlistId($event)"></app-wishlist-list>
-      <app-wishlist-detail [selectedWishlistProducts]="products" [selectedWishlistId]="wishlistId" *ngIf="products.length !== null && products !== undefined"></app-wishlist-detail>
+      <div style="margin-left: 20%; margin-right: 20%">
+        <app-wishlist-detail [selectedWishlistProducts]="products" [selectedWishlistId]="wishlistId" *ngIf="products.length !== null && products !== undefined"></app-wishlist-detail>
+      </div>
     </div>
   </mat-card>
 
