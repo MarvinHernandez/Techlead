@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { Laptop } from '../models/laptop';
+import { Laptop } from '../../models/laptop';
 
 @Component({
   selector: 'app-laptop-list',

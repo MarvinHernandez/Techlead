@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { Phone } from '../models/phone';
+import { Phone } from '../../models/phone';
 
 @Component({
   selector: 'app-phone-list',

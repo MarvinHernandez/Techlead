@@ -1,15 +1,15 @@
 import { Component, OnInit,  } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
-import {Pc} from '../models/pc';
-import {Laptop} from '../models/laptop';
-import {Phone} from '../models/phone';
+import {Pc} from '../../models/pc';
+import {Laptop} from '../../models/laptop';
+import {Phone} from '../../models/phone';
 
-import {ProductPcService} from '../services/product-pc.service';
-import {ProductLaptopService} from '../services/product-laptop.service';
-import {ProductPhoneService} from '../services/product-phone.service';
+import {ProductPcService} from '../../services/product-pc.service';
+import {ProductLaptopService} from '../../services/product-laptop.service';
+import {ProductPhoneService} from '../../services/product-phone.service';
 
-import {HomeComponent} from '../home/home.component';
+import {HomeComponent} from '../../home/home.component';
 
 import {Observable, of} from 'rxjs';
 import {catchError, map} from 'rxjs/operators';
@@ -17,11 +17,11 @@ import {catchError, map} from 'rxjs/operators';
 // details dialogs
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 
-import { PcDialogComponent } from '../detailsdialog/pc-dialog.component';
-import { LaptopDialogComponent } from '../detailsdialog/laptop-dialog.component';
-import { PhoneDialogComponent } from '../detailsdialog/phone-dialog.component';
+import { PcDialogComponent } from '../../detailsdialog/pc-dialog.component';
+import { LaptopDialogComponent } from '../../detailsdialog/laptop-dialog.component';
+import { PhoneDialogComponent } from '../../detailsdialog/phone-dialog.component';
 
-import {AuthenticationService} from '../services/authentication.service';
+import {AuthenticationService} from '../../services/authentication.service';
 
 @Component({
   selector: 'app-product-home',

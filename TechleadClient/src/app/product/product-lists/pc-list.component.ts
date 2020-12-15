@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { Pc } from '../models/pc';
+import { Pc } from '../../models/pc';
 
 @Component({
   selector: 'app-pc-list',
