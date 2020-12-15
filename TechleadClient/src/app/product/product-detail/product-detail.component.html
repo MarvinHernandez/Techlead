@@ -1,216 +1,237 @@
 <app-nav-menu [MemberLoginStatus]="loginStatus"></app-nav-menu>
-<mat-card>
-  <mat-card-content>
-<!--    <mat-card-header class="app-accent" layout="row">-->
-<!--      {{product.Name}}-->
-<!--    </mat-card-header>-->
-      <!--  Phone Type-->
-      <div *ngIf="type === 'phone' && phone !== undefined">
+<div class="bgColour">
+  <mat-card class="centerBody" style=" border: none">
+    <mat-card-content>
+      <mat-grid-list cols="2" rowHeight="1:1">
+        <div *ngIf="type === 'phone' && phone !== undefined"  layout="row">
+          <mat-grid-tile>
+            <div layout="row">
+              <mat-card-header class="app-accent" layout="row">
+                <h3>{{phone.Name}}</h3>
+              </mat-card-header>
+              <div layout="row">
+                <img
+                  src="assets/images/{{phone.Name}}.png"
+                  alt="Generic placeholder image"
+                  width="100%"
+                  height="80%"
+                />
+              </div>
+            </div>
+          </mat-grid-tile>
+          <mat-grid-tile>
 
-         <mat-card-header class="app-accent" layout="row">
-              {{phone.Name}}
-         </mat-card-header>
+            <div layout="row">
+              <div layout="row">
+                <a>Company: </a>
+                {{phone.Company}}
+              </div>
+
+              <div layout="row">
+                <a>Type: </a>
+                {{phone.Type}}
+              </div>
+
+              <div layout="row">
+                <a>Main Usage: </a>
+                {{phone.MainUsage}}
+              </div>
+
+              <div layout="row">
+                <a>Screen Size: </a>
+                {{phone.ScreenSize}}
+              </div>
+
+              <div layout="row">
+                <a>CPU: </a>
+                {{phone.Cpu}}
+              </div>
+
+              <div layout="row">
+                <a>RAM: </a>
+                {{phone.Ram}}
+              </div>
+
+              <div layout="row">
+                <a>5G Support: </a>
+                {{phone.FiveGSupport}}
+              </div>
+
+              <div layout="row">
+                <a>Positive: </a>
+                <div *ngFor="let pro of phone.positive">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{pro}}</div>
+              </div>
+
+              <div layout="row">
+                <a>Price: </a>
+                {{phone.Price | currency}}
+              </div>
+
+              <div layout="row" class="btndiv">
+                <!--            <button type="button" (click)="deleteProduct(product.Id)">Delete from Wishlist</button>-->
+              </div>
+            </div>
+          </mat-grid-tile>
+
+        </div>
+
+      </mat-grid-list>
+      <div  layout="row">
+        <app-product-feedback></app-product-feedback>
+      </div>
+
+      <!--  Pc Type-->
+      <div *ngIf="type === 'pc' && pc !== undefined">
+
+        <mat-card-header class="app-accent" layout="row">
+          {{pc.NickName}}
+        </mat-card-header>
+
+        <div layout="row">
+          <a>Usage: </a>
+          {{pc.Usage}}
+        </div>
+
+        <div layout="row">
+          <a>Specs: </a>
           <div layout="row">
-            <a>Company: </a>
-            {{phone.Company}}
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a>CPU: </a>{{pc.Specs.Cpu}}
           </div>
-
           <div layout="row">
-            <a>Type: </a>
-            {{phone.Type}}
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a>GPU: </a>{{pc.Specs.Gpu}}
           </div>
-
           <div layout="row">
-            <a>Main Usage: </a>
-            {{phone.MainUsage}}
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a>Motherboard: </a>{{pc.Specs.Motherboard}}
           </div>
-
           <div layout="row">
-            <a>Screen Size: </a>
-            {{phone.ScreenSize}}
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a>RAM: </a>{{pc.Specs.Ram}}
           </div>
-
           <div layout="row">
-            <a>CPU: </a>
-            {{phone.Cpu}}
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a>Storage: </a>{{pc.Specs.Storage}}
           </div>
-
           <div layout="row">
-            <a>RAM: </a>
-            {{phone.Ram}}
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a>Storage Unit: </a>{{pc.Specs.StorageUnit}}
           </div>
-
           <div layout="row">
-            <a>5G Support: </a>
-            {{phone.FiveGSupport}}
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a>Case: </a>{{pc.Specs.Case}}
           </div>
-
           <div layout="row">
-            <a>Positive: </a>
-            <div *ngFor="let pro of phone.positive">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{pro}}</div>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a>Power Supply Unit: </a>{{pc.Specs.PowerSupplyUnit}}
           </div>
-
           <div layout="row">
-            <a>Price: </a>
-            {{phone.Price | currency}}
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a>Cooling: </a>{{pc.Specs.Cooling}}
           </div>
-
-          <div layout="row" class="btndiv">
-<!--            <button type="button" (click)="deleteProduct(product.Id)">Delete from Wishlist</button>-->
+          <div layout="row">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a>Cooling Liquid: </a>{{pc.Specs.CoolingLiquid}}
           </div>
-
-      </div>
-
-    <!--  Pc Type-->
-    <div *ngIf="type === 'pc' && pc !== undefined">
-
-      <mat-card-header class="app-accent" layout="row">
-        {{pc.NickName}}
-      </mat-card-header>
-
-      <div layout="row">
-        <a>Usage: </a>
-        {{pc.Usage}}
-      </div>
-
-      <div layout="row">
-        <a>Specs: </a>
-        <div layout="row">
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a>CPU: </a>{{pc.Specs.Cpu}}
+          <div layout="row">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a>Monitor: </a>{{pc.Specs.Monitor}}
+          </div>
+          <div layout="row">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a>Pump: </a>{{pc.Specs.pump}}
+          </div>
+          <div layout="row">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a>Tubes: </a>{{pc.Specs.Tubes}}
+          </div>
+          <div layout="row">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a>Cables: </a>{{pc.Specs.Cables}}
+          </div>
         </div>
+
         <div layout="row">
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a>GPU: </a>{{pc.Specs.Gpu}}
+          <a>Price: </a>{{pc.price | currency}}
         </div>
+
+
+        <div layout="row" class="btndiv">
+          <!--            <button type="button" (click)="deleteProduct(product.Id)">Delete from Wishlist</button>-->
+        </div>
+
+      </div>
+
+      <!--  Laptop Type-->
+      <div *ngIf="type === 'laptop' && laptop !== undefined">
+
+        <mat-card-header class="app-accent" layout="row">
+          {{laptop.Name}}
+        </mat-card-header>
         <div layout="row">
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a>Motherboard: </a>{{pc.Specs.Motherboard}}
+          <a>Company: </a>
+          {{laptop.Company}}
         </div>
+
         <div layout="row">
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a>RAM: </a>{{pc.Specs.Ram}}
+          <a>Usage: </a>
+          <div *ngFor="let use of laptop.Usage">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{use}}</div>
         </div>
+
         <div layout="row">
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a>Storage: </a>{{pc.Specs.Storage}}
+          <a>OS: </a>
+          {{laptop.OS}}
         </div>
+
         <div layout="row">
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a>Storage Unit: </a>{{pc.Specs.StorageUnit}}
+          <a>Storage: </a>
+          {{laptop.Storage}}
         </div>
+
         <div layout="row">
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a>Case: </a>{{pc.Specs.Case}}
+          <a>Screen Size: </a>
+          {{laptop.ScreenSize}}
         </div>
+
         <div layout="row">
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a>Power Supply Unit: </a>{{pc.Specs.PowerSupplyUnit}}
+          <a>Screen Resolution: </a>
+          {{laptop.ScreenResolution}}
         </div>
+
         <div layout="row">
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a>Cooling: </a>{{pc.Specs.Cooling}}
+          <a>CPU: </a>
+          {{laptop.Cpu}}
         </div>
+
         <div layout="row">
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a>Cooling Liquid: </a>{{pc.Specs.CoolingLiquid}}
+          <a>CPU Provider: </a>
+          {{laptop.CpuProvider}}
         </div>
+
         <div layout="row">
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a>Monitor: </a>{{pc.Specs.Monitor}}
+          <a>GPU: </a>
+          {{laptop.Gpu}}
         </div>
+
         <div layout="row">
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a>Pump: </a>{{pc.Specs.pump}}
+          <a>RAM: </a>
+          {{laptop.Ram}}
         </div>
+
         <div layout="row">
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a>Tubes: </a>{{pc.Specs.Tubes}}
+          <a>Touch: </a>
+          {{laptop.touch}}
         </div>
+
         <div layout="row">
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a>Cables: </a>{{pc.Specs.Cables}}
+          <a>2 in 1: </a>
+          {{laptop.TwoInOne}}
         </div>
+
+        <div layout="row">
+          <a>Build Quality: </a>
+          {{laptop.BuildQuality}}
+        </div>
+
+        <div layout="row">
+          <a>Price: </a>
+          {{laptop.price | currency}}
+        </div>
+
+        <div layout="row" class="btndiv">
+          <!--            <button type="button" (click)="deleteProduct(product.Id)">Delete from Wishlist</button>-->
+        </div>
+
       </div>
 
-      <div layout="row">
-        <a>Price: </a>{{pc.price | currency}}
-      </div>
+    </mat-card-content>
+  </mat-card>
 
-
-      <div layout="row" class="btndiv">
-        <!--            <button type="button" (click)="deleteProduct(product.Id)">Delete from Wishlist</button>-->
-      </div>
-
-    </div>
-
-    <!--  Laptop Type-->
-    <div *ngIf="type === 'laptop' && laptop !== undefined">
-
-      <mat-card-header class="app-accent" layout="row">
-        {{laptop.Name}}
-      </mat-card-header>
-      <div layout="row">
-        <a>Company: </a>
-        {{laptop.Company}}
-      </div>
-
-      <div layout="row">
-        <a>Usage: </a>
-        <div *ngFor="let use of laptop.Usage">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{use}}</div>
-      </div>
-
-      <div layout="row">
-        <a>OS: </a>
-        {{laptop.OS}}
-      </div>
-
-      <div layout="row">
-        <a>Storage: </a>
-        {{laptop.Storage}}
-      </div>
-
-      <div layout="row">
-        <a>Screen Size: </a>
-        {{laptop.ScreenSize}}
-      </div>
-
-      <div layout="row">
-        <a>Screen Resolution: </a>
-        {{laptop.ScreenResolution}}
-      </div>
-
-      <div layout="row">
-        <a>CPU: </a>
-        {{laptop.Cpu}}
-      </div>
-
-      <div layout="row">
-        <a>CPU Provider: </a>
-        {{laptop.CpuProvider}}
-      </div>
-
-      <div layout="row">
-        <a>GPU: </a>
-        {{laptop.Gpu}}
-      </div>
-
-      <div layout="row">
-        <a>RAM: </a>
-        {{laptop.Ram}}
-      </div>
-
-      <div layout="row">
-        <a>Touch: </a>
-        {{laptop.touch}}
-      </div>
-
-      <div layout="row">
-        <a>2 in 1: </a>
-        {{laptop.TwoInOne}}
-      </div>
-
-      <div layout="row">
-        <a>Build Quality: </a>
-        {{laptop.BuildQuality}}
-      </div>
-
-      <div layout="row">
-        <a>Price: </a>
-        {{laptop.price | currency}}
-      </div>
-
-      <div layout="row" class="btndiv">
-        <!--            <button type="button" (click)="deleteProduct(product.Id)">Delete from Wishlist</button>-->
-      </div>
-
-    </div>
-
-  </mat-card-content>
-</mat-card>
+</div>

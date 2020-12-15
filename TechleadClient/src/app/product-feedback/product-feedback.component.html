@@ -1,8 +1,9 @@
-<app-nav-menu [MemberLoginStatus]="loginStatus"></app-nav-menu>
-<div class="col-md-6 offset-md-3 mt-5">
+<!--<app-nav-menu [MemberLoginStatus]="loginStatus"></app-nav-menu>-->
+<!--<div class="col-md-6 offset-md-3 mt-5">-->
+<div>
   <div class="card">
     <div *ngIf="loginStatus">
-      <h4 class="card-header">Submit Product Feedback</h4>
+      <h4 class="card-header" style="background-color: tomato; color: white">Submit Product Feedback</h4>
       <div class="card-body">
         <form [formGroup]="createFeedbackForm" (ngSubmit)="createFeedback()">
           <!--Product Type-->
@@ -29,7 +30,7 @@
           <br/>
           <span>
         <br/>
-       <button [disabled]="loading" class="btn btn-primary">
+       <button [disabled]="loading">
           <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
           Submit Feedback
         </button>

@@ -42,6 +42,7 @@ export class ProductHomeComponent implements OnInit {
   type: string;
 
   constructor(private route: ActivatedRoute,
+              private router: Router,
               private productPcService: ProductPcService,
               private productLaptopService: ProductLaptopService,
               private productPhoneService: ProductPhoneService,
@@ -118,92 +119,17 @@ export class ProductHomeComponent implements OnInit {
   // open modals for each type of product
   // list of specifications for desired pc
   openDetailsModalPc(selectedProduct: Pc): void {
-    const dialogConfig = new MatDialogConfig();
-    dialogConfig.disableClose = true;
-    dialogConfig.autoFocus = false;
-    dialogConfig.data = {
-      title: `${selectedProduct.NickName}`,
-      entityname: 'pc',
-
-      id: selectedProduct.Id,
-      price: selectedProduct.price,
-      usage: selectedProduct.Usage,
-      specs: selectedProduct.Specs
-    };
-    dialogConfig.panelClass = 'custommodal';
-    const dialogRef = this.dialog.open(PcDialogComponent, dialogConfig);
-    dialogRef.afterClosed().subscribe(result => {
-      if (result) {
-        // this is where i would add the item to a wishlist /////////////////////////////////////////////////
-        // i assume there would need to be away to recognize which user is signed in
-        // and you would add it to them
-        // i don't currently know if members have a wishlist[] field that you could add to
-        // i also don't think it's currently set up to have a member selected
-
-      }
-    });
+    this.router.navigate(['/product/', selectedProduct.ProductType, selectedProduct.Id]);
   }
 
   // list of specifications for desired laptop
   openDetailsModalLaptop(selectedProduct: Laptop): void {
-    const dialogConfig = new MatDialogConfig();
-    dialogConfig.disableClose = true;
-    dialogConfig.autoFocus = false;
-    dialogConfig.data = {
-      title: `${selectedProduct.Name}`,
-      entityname: 'laptop',
-
-      id: selectedProduct.Id,
-      company: selectedProduct.Company,
-      operatingsystem: selectedProduct.OS,
-      usage: selectedProduct.Usage, // array
-      screensize: selectedProduct.ScreenSize,
-      cpuprovider: selectedProduct.CpuProvider,
-      cpu: selectedProduct.Cpu,
-      screenresolution: selectedProduct.ScreenResolution,
-      touch: selectedProduct.touch,
-      twoinone: selectedProduct.TwoInOne,
-      buildquality: selectedProduct.BuildQuality,
-      ram: selectedProduct.Ram,
-      storage: selectedProduct.Storage,
-      price: selectedProduct.price
-    };
-    dialogConfig.panelClass = 'custommodal';
-    const dialogRef = this.dialog.open(LaptopDialogComponent, dialogConfig);
-    dialogRef.afterClosed().subscribe(result => {
-      if (result) {
-        // some code
-      }
-    });
+    this.router.navigate(['/product/', selectedProduct.ProductType, selectedProduct.Id]);
   }
 
   // list of specifications for desired phone
   openDetailsModalPhone(selectedProduct: Phone): void {
-    const dialogConfig = new MatDialogConfig();
-    dialogConfig.disableClose = true;
-    dialogConfig.autoFocus = false;
-    dialogConfig.data = {
-      title: `${selectedProduct.Name}`,
-      entityname: 'phone',
-
-      id: selectedProduct.Id,
-      company: selectedProduct.Company,
-      type: selectedProduct.Type,
-      price: selectedProduct.Price,
-      positives: selectedProduct.positive,
-      usage: selectedProduct.MainUsage,
-      cpu: selectedProduct.Cpu,
-      ram: selectedProduct.Ram,
-      screensize: selectedProduct.ScreenSize,
-      fivegsupport: selectedProduct.FiveGSupport
-    };
-    dialogConfig.panelClass = 'custommodal';
-    const dialogRef = this.dialog.open(PhoneDialogComponent, dialogConfig);
-    dialogRef.afterClosed().subscribe(result => {
-      if (result) {
-        // some code
-      }
-    });
+    this.router.navigate(['/product/', selectedProduct.ProductType, selectedProduct.Id]);
   }
 
   // filter products

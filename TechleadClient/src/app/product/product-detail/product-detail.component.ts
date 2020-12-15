@@ -61,6 +61,18 @@ export class ProductDetailComponent implements OnInit {
       });
     }
 
+    if(this.type === 'laptop') {
+      this.wishlistService.getLaptopByProductId(this.id).subscribe(res => {
+        this.laptop = res;
+      });
+    }
+
+    if(this.type === 'pc') {
+      this.wishlistService.getPcByProductId(this.id).subscribe(res => {
+        this.pc = res;
+      });
+    }
+
   } // ngOnInit
 
   // ngOnAfterInit(): void{
