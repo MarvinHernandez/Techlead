@@ -1,22 +1,21 @@
 <app-nav-menu [MemberLoginStatus]="loginStatus"></app-nav-menu>
-<mat-card>
-  <mat-card-content>
-    <mat-card-header class="app-accent" layout="row">
-      <mat-card-title *ngIf="currentList.length > 0">
-        <span class="mat-headline">{{ msg }}</span>
-      </mat-card-title>
-    </mat-card-header>
-    <mat-list>
+<div class="bgColour">
+  <mat-card class="centerBody" style="padding-bottom: 20%">
+    <mat-card-content>
+      <h1 id="main-header">{{ msg }}</h1>
+      <mat-list>
         <!-- make sure its written as the actual selector -->
-      <app-pc-list *ngIf="loadPcs" [pcs]="currentList" (selected)="openDetailsModalPc($event)"> </app-pc-list>
-      <app-laptop-list *ngIf="loadLaptops" [laptops]="currentList" (selected)="openDetailsModalLaptop($event)"> </app-laptop-list>
-      <app-phone-list *ngIf="loadPhones" [phones]="currentList" (selected)="openDetailsModalPhone($event)"> </app-phone-list>
-    </mat-list>
-    <mat-card-title *ngIf="currentList.length < 1" class="delay">
-      <span class="mat-headline">No products meet your description. Would you like to look for another product?</span>
-      <div style="padding-top: 2vh;">
-        <button [routerLink]="['']" id="goBack" class="btn btn-primary btn-lg">Return to Home</button>
-      </div>
-    </mat-card-title>
-  </mat-card-content>
-</mat-card>
+        <app-pc-list *ngIf="loadPcs" [pcs]="currentList" (selected)="openDetailsModalPc($event)"> </app-pc-list>
+        <app-laptop-list *ngIf="loadLaptops" [laptops]="currentList" (selected)="openDetailsModalLaptop($event)"> </app-laptop-list>
+        <app-phone-list *ngIf="loadPhones" [phones]="currentList" (selected)="openDetailsModalPhone($event)"> </app-phone-list>
+      </mat-list>
+      <mat-card-title *ngIf="currentList.length < 1" class="delay">
+        <span class="mat-headline">No products meet your description. Would you like to look for another product?</span>
+        <div style="padding-top: 2vh;">
+          <button [routerLink]="['']" id="goBack" class="btn btn-primary btn-lg">Return to Home</button>
+        </div>
+      </mat-card-title>
+    </mat-card-content>
+  </mat-card>
+</div>
+

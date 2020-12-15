@@ -3,7 +3,6 @@ mat-expansion-panel{
 }
 
 mat-panel-title{
-  color: white;
   font-family: "Agency FB";
   font-weight: bold;
   font-size: 200%;
@@ -28,4 +27,8 @@ button{
 
 .btndiv {
   text-align: right !important;
+}
+
+mat-grid-tile{
+  width: 100%;
 }

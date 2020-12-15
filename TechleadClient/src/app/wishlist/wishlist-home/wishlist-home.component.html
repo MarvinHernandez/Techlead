@@ -1,11 +1,18 @@
 <app-nav-menu [MemberLoginStatus]="loginStatus"></app-nav-menu>
-<h1 id="main-header">Welcome {{membername}}, to your wishlist menu</h1>
-<div *ngIf="selectedWName !== null && selectedWName !== undefined">
-  <h2>You have selected {{selectedWName}} wishlist</h2>
+<div class="bgColour">
+
+  <mat-card class="centerBody" style="padding-bottom: 20% !important">
+    <h1 id="main-header">Welcome {{membername}}, to your wishlist menu</h1>
+    <div *ngIf="selectedWName !== null && selectedWName !== undefined">
+      <h2>You have selected {{selectedWName}} wishlist</h2>
+    </div>
+
+    <div class="mat-app-background basic-container" id="to-center">
+      <app-wishlist-list [wishlists]="wishlists$ | async" (event)="receiveWishlistProducts($event)" (eventWName)="receiveSelectedWName($event)" (eventWishlistId)="receiveSelectedWishlistId($event)"></app-wishlist-list>
+      <app-wishlist-detail [selectedWishlistProducts]="products" [selectedWishlistId]="wishlistId" *ngIf="products.length !== null && products !== undefined"></app-wishlist-detail>
+    </div>
+  </mat-card>
+
 </div>
 
-<div class="mat-app-background basic-container" id="to-center">
-  <app-wishlist-list [wishlists]="wishlists$ | async" (event)="receiveWishlistProducts($event)" (eventWName)="receiveSelectedWName($event)" (eventWishlistId)="receiveSelectedWishlistId($event)"></app-wishlist-list>
-  <app-wishlist-detail [selectedWishlistProducts]="products" [selectedWishlistId]="wishlistId" *ngIf="products.length !== null && products !== undefined"></app-wishlist-detail>
-</div>
 
