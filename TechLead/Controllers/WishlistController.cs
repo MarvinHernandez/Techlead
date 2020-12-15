@@ -39,12 +39,20 @@ namespace TechLead.Controllers
             return Wishlist;
         }
 
-        [HttpPost]
-        public ActionResult<Wishlist> Create(Wishlist Wishlist)
-        {
-            _wishlistService.Create(Wishlist);
+        //[HttpPost]
+        //public ActionResult<Wishlist> Create(Wishlist Wishlist)
+        //{
+        //    _wishlistService.Create(Wishlist);
 
-            return CreatedAtRoute("GetWishlist", new { id = Wishlist.Id.ToString() }, Wishlist);
+        //    return CreatedAtRoute("GetWishlist", new { id = Wishlist.Id.ToString() }, Wishlist);
+        //}
+
+        [HttpPost]
+        public ActionResult<int> Create(Wishlist wishlist)
+        {
+            int res = 0;
+            res = _wishlistService.Create(wishlist);
+            return res;
         }
 
         [HttpPut("{id}")]
@@ -78,18 +86,19 @@ namespace TechLead.Controllers
         }
 
         [HttpDelete("{id}")]
-        public IActionResult Delete(string id)
+        public ActionResult<int> Delete(string id)
         {
             var Wishlist = _wishlistService.Get(id);
+            var res = 0;
 
             if (Wishlist == null)
             {
-                return NotFound();
+                return res;
             }
 
-            _wishlistService.Remove(Wishlist.Id);
+            res = _wishlistService.Remove(Wishlist);
 
-            return NoContent();
+            return res;
         }
 
         [HttpDelete("{id}/{productId}")]

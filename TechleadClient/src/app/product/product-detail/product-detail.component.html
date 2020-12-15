@@ -272,7 +272,7 @@
 
 <ng-template #content let-modal>
   <div class="modal-header">
-    <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+    <h4 class="modal-title" id="modal-basic-title">Adding to Wishlist</h4>
     <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
       <span aria-hidden="true">&times;</span>
     </button>
@@ -282,12 +282,18 @@
       <div class="form-group">
         <label>Select a Wishlist</label>
         <select class="form-control" [(ngModel)] ='wishlistId'>
-          <option value="empty"></option>
+          <option selected="true" disabled="disabled"></option>
+<!--          <option value="empty"></option>-->
           <option value="new">Create a new Wishlist</option>
-          <option value="wl.Id" *ngFor="let wl of wishlists">{{wl.wishlistName}}</option>
+          <option value="{{wl.Id}}" *ngFor="let wl of wishlists">{{wl.wishlistName}}</option>
         </select>
 
-<!--        <div class="input-group">-->
+        <label *ngIf="wishlistId === 'new'" style="margin-top: 4%;">Enter a Name for your new Wishlist</label>
+        <br/>
+        <input *ngIf="wishlistId === 'new'" [(ngModel)] ='newWLName' class="form-control">
+
+
+        <!--        <div class="input-group">-->
 <!--          <input id="dateOfBirth" class="form-control" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker #dp="ngbDatepicker">-->
 <!--          <div class="input-group-append">-->
 <!--            <button class="btn btn-outline-secondary calendar" (click)="dp.toggle()" type="button"></button>-->
@@ -296,7 +302,7 @@
       </div>
 <!--    </form>-->
   </div>
-  <div class="modal-footer" *ngIf="wishlistId !== undefined || wishlistId !== 'empty'">
-    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Add</button>
+  <div class="modal-footer" *ngIf="wishlistId !== undefined && (wishlistId !== 'new' || newWLName !== '')">
+    <button type="button" class="btn btn-outline-dark" (click)="onAdd()">Add</button>
   </div>
 </ng-template>

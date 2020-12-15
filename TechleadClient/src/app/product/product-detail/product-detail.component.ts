@@ -14,7 +14,7 @@ import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import {HomeComponent} from '../../home/home.component';
 
 import {Observable, of} from 'rxjs';
-import {catchError, map} from 'rxjs/operators';
+import {catchError, first, map} from 'rxjs/operators';
 
 // details dialogs
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
@@ -26,6 +26,8 @@ import { PhoneDialogComponent } from '../../detailsdialog/phone-dialog.component
 import {AuthenticationService} from '../../services/authentication.service';
 import {WishlistService} from '../../services/wishlist.service';
 import {Wishlist} from '../../models/wishlist';
+import {ToastrService} from "ngx-toastr";
+import {WishlistProduct} from "../../models/wishlistProduct";
 
 @Component({
   selector: 'app-product-detail',
@@ -43,6 +45,9 @@ export class ProductDetailComponent implements OnInit {
   id: string;
   wishlists: Wishlist[];
   wishlistId: string;
+  prodId: string;
+  prodType: string;
+  newWLName: string = '';
 
   constructor(private route: ActivatedRoute,
               private productPcService: ProductPcService,
@@ -50,7 +55,8 @@ export class ProductDetailComponent implements OnInit {
               private productPhoneService: ProductPhoneService,
               private appcontext: AuthenticationService,
               private wishlistService: WishlistService,
-              private modalService: NgbModal) { }
+              private modalService: NgbModal,
+              private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
@@ -91,10 +97,43 @@ export class ProductDetailComponent implements OnInit {
   addToWishlist(prodId: string, prodType: string, content): void{
     let closeResult = '';
 
+    this.prodId = prodId;
+    this.prodType = prodType;
+
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
       closeResult = `Closed with: ${result}`;
     });
 
     // this.wishlistService.addProductToWishlist(prodId, this.wishlistId, prodType);
+  }
+
+  onAdd(): void{
+    if(this.newWLName === ''){
+      let res = this.wishlistService.addProductToWishlist(this.prodId, this.wishlistId, this.prodType).subscribe(payload => {
+        if(payload > 0){
+          this.toastr.success('Product was successfully added to your wishlist.');
+        }
+        else
+          this.toastr.error('Error: the product was not added to your wishlist.');
+      });
+    }else {
+      const product: WishlistProduct = {productID: this.prodId , productType: this.prodType};
+
+      const wishlist: Wishlist = {Id: '', wishlistName: this.newWLName, memberId: this.appcontext.currentUserValue.id, products: [product]};
+
+      this.wishlistService.addWishlist(wishlist).subscribe(payload => {
+        if (payload > 0) {
+          this.toastr.success('New wishlist created. Product added to the wishlist');
+
+        } else {
+          this.toastr.error('Unable to create new wishlist');
+        }
+      });
+    }
+
+    this.newWLName = '';
+    this.wishlistId = undefined;
+
+    this.modalService.dismissAll();
   }
 }
