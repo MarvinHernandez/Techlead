@@ -63,7 +63,7 @@ namespace TechLead.Controllers
         }
 
         [HttpPut("{id}/{productId}/{productType}")]
-        public IActionResult Update(string id, string productId, string productType)
+        public ActionResult<int> Update(string id, string productId, string productType)
         {
             var Wishlist = _wishlistService.Get(id);
 
@@ -73,11 +73,8 @@ namespace TechLead.Controllers
             }
 
             int res = _wishlistService.Update(id, productId, productType);
-            if (res == 0)
-            {
-                return NotFound();
-            }
-            return NoContent();
+            
+            return res;
         }
 
         [HttpDelete("{id}")]
