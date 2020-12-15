@@ -9,6 +9,8 @@ import {ProductPcService} from '../../services/product-pc.service';
 import {ProductLaptopService} from '../../services/product-laptop.service';
 import {ProductPhoneService} from '../../services/product-phone.service';
 
+import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+
 import {HomeComponent} from '../../home/home.component';
 
 import {Observable, of} from 'rxjs';
@@ -23,6 +25,7 @@ import { PhoneDialogComponent } from '../../detailsdialog/phone-dialog.component
 
 import {AuthenticationService} from '../../services/authentication.service';
 import {WishlistService} from "../../services/wishlist.service";
+import {Wishlist} from "../../models/wishlist";
 
 @Component({
   selector: 'app-product-detail',
@@ -38,13 +41,16 @@ export class ProductDetailComponent implements OnInit {
   loginStatus: boolean;
   type: string;
   id: string;
+  wishlists: Wishlist[];
+  wishlistId: string;
 
   constructor(private route: ActivatedRoute,
               private productPcService: ProductPcService,
               private productLaptopService: ProductLaptopService,
               private productPhoneService: ProductPhoneService,
               private appcontext: AuthenticationService,
-              private wishlistService: WishlistService) { }
+              private wishlistService: WishlistService,
+              private modalService: NgbModal) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
@@ -54,6 +60,10 @@ export class ProductDetailComponent implements OnInit {
 
     if (this.appcontext.currentUserValue) {
       this.loginStatus = true;
+
+      this.wishlistService.getByUserId(this.appcontext.currentUserValue.id).subscribe(res => {
+        this.wishlists = res;
+      });
     }
 
     if(this.type === 'phone') {
@@ -76,16 +86,15 @@ export class ProductDetailComponent implements OnInit {
         this.selectedProduct = res;
       });
     }
-
   } // ngOnInit
 
-  // ngOnAfterInit(): void{
-  //   if(this.type === 'phone') {
-  //     this.wishlistService.getPcByProductId(this.id).subscribe(res => {
-  //       this.product = res;
-  //     });
-  //   }
-  // }
+  addToWishlist(prodId: string, prodType: string, content): void{
+    let closeResult = '';
 
+    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+      closeResult = `Closed with: ${result}`;
+    });
 
+    // this.wishlistService.addProductToWishlist(prodId, this.wishlistId, prodType);
+  }
 }

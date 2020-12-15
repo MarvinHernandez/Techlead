@@ -450,7 +450,6 @@ C:\Users\yulii\Desktop\cpa\6th_semester\INFO5103_Managing_Softare_Prjs\prj\Techl
 C:\Users\yulii\Desktop\cpa\6th_semester\INFO5103_Managing_Softare_Prjs\prj\Techlead\TechLead\bin\Debug\netcoreapp3.1\runtimes\win\native\libzstd.dll
 C:\Users\yulii\Desktop\cpa\6th_semester\INFO5103_Managing_Softare_Prjs\prj\Techlead\TechLead\bin\Debug\netcoreapp3.1\runtimes\win\native\snappy32.dll
 C:\Users\yulii\Desktop\cpa\6th_semester\INFO5103_Managing_Softare_Prjs\prj\Techlead\TechLead\bin\Debug\netcoreapp3.1\runtimes\win\native\snappy64.dll
-C:\Users\yulii\Desktop\cpa\6th_semester\INFO5103_Managing_Softare_Prjs\prj\Techlead\TechLead\obj\Debug\netcoreapp3.1\TechLead.csprojAssemblyReference.cache
 C:\Users\yulii\Desktop\cpa\6th_semester\INFO5103_Managing_Softare_Prjs\prj\Techlead\TechLead\obj\Debug\netcoreapp3.1\TechLead.AssemblyInfoInputs.cache
 C:\Users\yulii\Desktop\cpa\6th_semester\INFO5103_Managing_Softare_Prjs\prj\Techlead\TechLead\obj\Debug\netcoreapp3.1\TechLead.AssemblyInfo.cs
 C:\Users\yulii\Desktop\cpa\6th_semester\INFO5103_Managing_Softare_Prjs\prj\Techlead\TechLead\obj\Debug\netcoreapp3.1\TechLead.csproj.CoreCompileInputs.cache
@@ -462,3 +461,4 @@ C:\Users\yulii\Desktop\cpa\6th_semester\INFO5103_Managing_Softare_Prjs\prj\Techl
 C:\Users\yulii\Desktop\cpa\6th_semester\INFO5103_Managing_Softare_Prjs\prj\Techlead\TechLead\obj\Debug\netcoreapp3.1\TechLead.dll
 C:\Users\yulii\Desktop\cpa\6th_semester\INFO5103_Managing_Softare_Prjs\prj\Techlead\TechLead\obj\Debug\netcoreapp3.1\TechLead.pdb
 C:\Users\yulii\Desktop\cpa\6th_semester\INFO5103_Managing_Softare_Prjs\prj\Techlead\TechLead\obj\Debug\netcoreapp3.1\TechLead.genruntimeconfig.cache
+C:\Users\yulii\Desktop\cpa\6th_semester\INFO5103_Managing_Softare_Prjs\prj\Techlead\TechLead\obj\Debug\netcoreapp3.1\TechLead.csprojAssemblyReference.cache

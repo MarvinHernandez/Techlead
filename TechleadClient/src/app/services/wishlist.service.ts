@@ -35,4 +35,9 @@ export class WishlistService extends GenericHttpService<Wishlist> {
   public deleteByProductId(prodId: string, wishlistId: string): Observable<number>{
     return this.http.delete<number>(`${BASEURL}/api/wishlist/${wishlistId}/${prodId}`);
   } // deleteByProductId
+
+  public addProductToWishlist(prodId: string, wishlistId: string, prodType: string): Observable<number>{
+    // @ts-ignore
+    return this.http.put(`${BASEURL}/api/wishlist/${wishlistId}/${prodId}/${prodType}`);
+  }
 }

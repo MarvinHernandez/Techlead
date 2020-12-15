@@ -67,8 +67,8 @@
                 {{phone.Price | currency}}
               </div>
 
-              <div layout="row" class="btndiv">
-                <!--            <button type="button" (click)="deleteProduct(product.Id)">Delete from Wishlist</button>-->
+              <div layout="row" style="padding-top: 10%;">
+                <button type="button" (click)="addToWishlist(phone.Id, phone.ProductType, content)" *ngIf="loginStatus">Add to Wishlist</button>
               </div>
             </div>
           </mat-grid-tile>
@@ -84,12 +84,12 @@
       <div *ngIf="type === 'laptop' && laptop !== undefined">
       <mat-grid-list cols="3" rowHeight="1:1">
         <mat-grid-tile>
-          <h3>{{phone.Name}}</h3>
+          <h3>{{laptop.Name}}</h3>
         </mat-grid-tile>
         <mat-grid-tile>
             <div layout="row">
               <img
-                src="assets/images/{{phone.Name}}.png"
+                src="assets/images/{{laptop.Name}}.png"
                 alt="Generic placeholder image"
                 width="100%"
                 height="80%"
@@ -169,10 +169,9 @@
               {{laptop.price | currency}}
             </div>
 
-            <div layout="row" class="btndiv">
-              <!--            <button type="button" (click)="deleteProduct(product.Id)">Delete from Wishlist</button>-->
+            <div layout="row" style="padding-top: 10%;">
+              <button type="button" (click)="addToWishlist(laptop.Id, laptop.ProductType, content)" *ngIf="loginStatus">Add to Wishlist</button>
             </div>
-
           </div>
 
         </mat-grid-tile>
@@ -255,9 +254,8 @@
               <a>Price: </a>{{pc.price | currency}}
             </div>
 
-
-            <div layout="row" class="btndiv">
-              <!--            <button type="button" (click)="deleteProduct(product.Id)">Delete from Wishlist</button>-->
+            <div layout="row" style="padding-top: 10%;">
+              <button type="button" (click)="addToWishlist(pc.Id, pc.ProductType, content)" *ngIf="loginStatus">Add to Wishlist</button>
             </div>
           </div>
         </mat-grid-tile>
@@ -269,5 +267,35 @@
       </div>
     </mat-card-content>
   </mat-card>
-
 </div>
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+<!--    <form>-->
+      <div class="form-group">
+        <label>Select a Wishlist</label>
+        <select class="form-control" [(ngModel)] ='wishlistId'>
+          <option value="empty"></option>
+          <option value="new">Create a new Wishlist</option>
+          <option value="wl.Id" *ngFor="let wl of wishlists">{{wl.wishlistName}}</option>
+        </select>
+
+<!--        <div class="input-group">-->
+<!--          <input id="dateOfBirth" class="form-control" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker #dp="ngbDatepicker">-->
+<!--          <div class="input-group-append">-->
+<!--            <button class="btn btn-outline-secondary calendar" (click)="dp.toggle()" type="button"></button>-->
+<!--          </div>-->
+<!--        </div>-->
+      </div>
+<!--    </form>-->
+  </div>
+  <div class="modal-footer" *ngIf="wishlistId !== undefined || wishlistId !== 'empty'">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Add</button>
+  </div>
+</ng-template>
