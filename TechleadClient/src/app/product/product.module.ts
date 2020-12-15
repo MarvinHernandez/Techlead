@@ -11,17 +11,21 @@ import { LaptopListComponent } from './product-lists/laptop-list.component';
 import { PhoneListComponent } from './product-lists/phone-list.component';
 import {SharedModule} from '../shared/shared.module';
 import {RouterModule} from '@angular/router';
+import {MatGridListModule} from "@angular/material/grid-list";
+import {ProductFeedbackModule} from "../product-feedback/product-feedback.module";
 
 
 
 @NgModule({
   declarations: [ProductHomeComponent, PcListComponent, LaptopListComponent, PhoneListComponent, ProductDetailComponent],
-    imports: [
-        CommonModule,
-        ReactiveFormsModule,
-        MatComponentsModule,
-        SharedModule,
-        RouterModule
-    ]
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    MatComponentsModule,
+    SharedModule,
+    RouterModule,
+    MatGridListModule,
+    ProductFeedbackModule
+  ]
 })
 export class ProductModule { }

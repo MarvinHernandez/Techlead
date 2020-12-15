@@ -6,12 +6,15 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {SharedModule} from '../shared/shared.module';
 
 @NgModule({
-  declarations: [ProductFeedbackComponent],
-  imports: [
-    CommonModule,
-    MatComponentsModule,
-    ReactiveFormsModule,
-    SharedModule
-  ]
+    declarations: [ProductFeedbackComponent],
+    exports: [
+        ProductFeedbackComponent
+    ],
+    imports: [
+        CommonModule,
+        MatComponentsModule,
+        ReactiveFormsModule,
+        SharedModule
+    ]
 })
 export class ProductFeedbackModule { }
