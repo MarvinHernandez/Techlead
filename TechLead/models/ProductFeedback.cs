@@ -15,9 +15,9 @@ namespace TechLead.models
         [BsonRepresentation(BsonType.ObjectId)]
         public string Id { get; set; }
 
-        [BsonElement("memberId")]
-        [BsonRepresentation(BsonType.ObjectId)]
-        public string memberId { get; set; }
+        [BsonElement("memberName")]
+        [BsonRepresentation(BsonType.String)]
+        public string memberName { get; set; }
 
         [BsonElement("productId")]
         [BsonRepresentation(BsonType.ObjectId)]
@@ -25,7 +25,7 @@ namespace TechLead.models
 
         [BsonElement("rating")]
         [BsonRepresentation(BsonType.Int64)]
-        public int password { get; set; }
+        public int rating { get; set; }
 
         [BsonElement("text")]
         [BsonRepresentation(BsonType.String)]

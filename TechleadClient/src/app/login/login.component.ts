@@ -4,6 +4,7 @@ import {catchError, first, map} from 'rxjs/operators';
 import { AuthenticationService} from '../services/authentication.service'
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-debuglogin-home',
@@ -17,9 +18,11 @@ export class LoginComponent implements OnInit {
   error = '';
   userName: FormControl;
   password: FormControl;
-  constructor(private router: Router, private builder: FormBuilder, private appcontext: AuthenticationService) {
+  constructor(private router: Router,
+              private builder: FormBuilder,
+              private toastr: ToastrService,
+              private appcontext: AuthenticationService) {} // constructor
 
-  } // constructor
   ngOnInit(): void {
     this.loginForm = this.builder.group({
       username: ['', Validators.required],
@@ -42,9 +45,11 @@ export class LoginComponent implements OnInit {
       .pipe(first())
       .subscribe(
         data => {
-          this.router.navigate(['/']);
+            this.toastr.success("Login Successful. Redirecting to home");
+            this.router.navigate(['/']);
         },
         error => {
+          this.toastr.error("Login Failed: Check username and password");
           this.submitted = false;
         });
   }

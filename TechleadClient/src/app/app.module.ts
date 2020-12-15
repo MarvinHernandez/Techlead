@@ -19,7 +19,7 @@ import { PhoneDialogComponent } from './detailsdialog/phone-dialog.component';
 
 
 // ? for home component
-import { ReactiveFormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {ProductModule} from './product/product.module';
 
 @NgModule({
@@ -30,24 +30,26 @@ import {ProductModule} from './product/product.module';
     LaptopDialogComponent,
     PhoneDialogComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    MemberModule,
-    HttpClientModule,
-    MatComponentsModule,
-    BrowserAnimationsModule,
-    ProductFeedbackModule,
-    WishlistModule,
-    ProductModule,
-    ReactiveFormsModule,
-    LoginModule,
-    SharedModule,
-    ToastrModule.forRoot({
-      timeOut: 3500,
-      positionClass: 'toast-bottom-right',
-      preventDuplicates: true})
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        MemberModule,
+        HttpClientModule,
+        MatComponentsModule,
+        BrowserAnimationsModule,
+        ProductFeedbackModule,
+        WishlistModule,
+        ProductModule,
+        ReactiveFormsModule,
+        LoginModule,
+        SharedModule,
+        ToastrModule.forRoot({
+            timeOut: 3500,
+            positionClass: 'toast-bottom-right',
+            preventDuplicates: true
+        }),
+        FormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

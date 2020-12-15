@@ -24,7 +24,8 @@ export class MemberCreateComponent implements OnInit, OnDestroy {
   submitted = false;
   loading = false;
 
-  constructor(private builder: FormBuilder, public memberService: MemberService, private toastr: ToastrService, private router: Router, private appcontext: AuthenticationService) {
+  constructor(private builder: FormBuilder, public memberService: MemberService,
+              private toastr: ToastrService, private router: Router, private appcontext: AuthenticationService) {
     this.userName = new FormControl('', Validators.compose([Validators.required,
     this.userNameUsedValidator.bind(this)]));
     this.password = new FormControl('', Validators.compose([Validators.required]));
@@ -67,8 +68,8 @@ export class MemberCreateComponent implements OnInit, OnDestroy {
     }
 
     this.loading = true;
-    this.memberService.add(this.member).subscribe( payload => {
-        if (payload.id !== '') {
+    this.memberService.addMember(this.member).subscribe( payload => {
+        if (payload > 0) {
           this.toastr.success("Account Created. Redirecting to home");
           this.appcontext.login(this.userName.value, this.password.value)
             .pipe(first())

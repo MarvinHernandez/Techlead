@@ -1,0 +1,61 @@
+<app-nav-menu [MemberLoginStatus]="loginStatus"></app-nav-menu>
+<mat-card>
+  <mat-card-content>
+<!--    <mat-card-header class="app-accent" layout="row">-->
+<!--      {{product.Name}}-->
+<!--    </mat-card-header>-->
+      <!--  Phone Type-->
+      <div *ngIf="type === 'phone'">
+
+          <div layout="row">
+            <a>Company: </a>
+            {{phone.Company}}
+          </div>
+
+          <div layout="row">
+            <a>Type: </a>
+            {{phone.Type}}
+          </div>
+
+          <div layout="row">
+            <a>Main Usage: </a>
+            {{phone.MainUsage}}
+          </div>
+
+          <div layout="row">
+            <a>Screen Size: </a>
+            {{phone.ScreenSize}}
+          </div>
+
+          <div layout="row">
+            <a>CPU: </a>
+            {{phone.Cpu}}
+          </div>
+
+          <div layout="row">
+            <a>RAM: </a>
+            {{phone.Ram}}
+          </div>
+
+          <div layout="row">
+            <a>5G Support: </a>
+            {{phone.FiveGSupport}}
+          </div>
+
+          <div layout="row">
+            <a>Positive: </a>
+            <div *ngFor="let pro of phone.positive">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{pro}}</div>
+          </div>
+
+          <div layout="row">
+            <a>Price: </a>
+            {{phone.Price | currency}}
+          </div>
+
+          <div layout="row" class="btndiv">
+<!--            <button type="button" (click)="deleteProduct(product.Id)">Delete from Wishlist</button>-->
+          </div>
+
+      </div>
+  </mat-card-content>
+</mat-card>

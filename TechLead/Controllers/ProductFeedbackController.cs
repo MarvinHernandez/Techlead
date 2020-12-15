@@ -42,11 +42,11 @@ namespace TechLead.Controllers
         }
 
         [HttpPost]
-        public ActionResult<ProductFeedback> Create(ProductFeedback productFeedback)
+        public ActionResult<int> Create(ProductFeedback productFeedback)
         {
-            _productFeedbackService.Create(productFeedback);
-
-            return CreatedAtRoute("GetProductFeedback", new { id = productFeedback.Id.ToString() }, productFeedback);
+            int res = 0;
+            res = _productFeedbackService.Create(productFeedback);
+            return res;
         }
 
         [HttpPut("{id}")]
