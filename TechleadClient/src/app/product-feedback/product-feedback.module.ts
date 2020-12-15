@@ -4,6 +4,7 @@ import {ProductFeedbackComponent} from './product-feedback.component';
 import {MatComponentsModule} from '../mat-components/mat-components.module';
 import {ReactiveFormsModule} from '@angular/forms';
 import {SharedModule} from '../shared/shared.module';
+import {MatGridListModule} from "@angular/material/grid-list";
 
 @NgModule({
     declarations: [ProductFeedbackComponent],
@@ -14,7 +15,8 @@ import {SharedModule} from '../shared/shared.module';
         CommonModule,
         MatComponentsModule,
         ReactiveFormsModule,
-        SharedModule
+        SharedModule,
+        MatGridListModule
     ]
 })
 export class ProductFeedbackModule { }

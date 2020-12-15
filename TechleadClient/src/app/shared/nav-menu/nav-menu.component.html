@@ -4,9 +4,9 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav">
+    <div class="navbar-nav ml-auto">
       <a class="nav-link"[routerLink]="['/wishlisthome']">Wishlist</a>
-      <a class="nav-link"[routerLink]="['/createaccount']">Create Account</a>
+      <a class="nav-link" *ngIf="!MemberLoginStatus" [routerLink]="['/createaccount']">Create Account</a>
       <a class="nav-link" *ngIf="!MemberLoginStatus" [routerLink]="['/login']">Login</a>
 <!--      <a class="nav-link" [routerLink]="['/createproductfeedback']">Create Product Feedback</a>-->
       <a class="nav-link" *ngIf="MemberLoginStatus" (click)="logout()">Logout</a>
