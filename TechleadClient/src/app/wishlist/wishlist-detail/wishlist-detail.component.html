@@ -124,6 +124,8 @@
         </div>
 
         <div layout="row" class="btndiv">
+          <button type="button" (click)="reviewSearch(product.NickName, 'google')">Google Search</button>
+          <button type="button" (click)="reviewSearch(product.NickName, 'youtube')">Youtube Search</button>
           <button type="button" (click)="deleteProduct(product.Id)">Delete from Wishlist</button>
         </div>
       </mat-expansion-panel>
@@ -207,6 +209,8 @@
         </div>
 
         <div layout="row" class="btndiv">
+          <button type="button" (click)="reviewSearch(product.Company + ' ' + product.Name, 'google')">Google Search</button>
+          <button type="button" (click)="reviewSearch(product.Company + ' ' + product.Name, 'youtube')">Youtube Search</button>
           <button type="button" (click)="deleteProduct(product.Id)">Delete from Wishlist</button>
         </div>
 
