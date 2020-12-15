@@ -45,18 +45,31 @@
     <br/>
     <br/>
     <!-- Feedback output table-->
-    <table *ngIf="showFeedbackTable">
-      <tr>
-        <th style="text-align: center;width:5%;border:1px solid #000000">User Name</th>
-        <th style="text-align: center;width:5%;border:1px solid #000000">Rating</th>
-        <th style="text-align: center;width:95%;border:1px solid #000000">Feedback Text</th>
-      </tr>
-      <tr *ngFor="let feedback of selectedProductFeedbacks">
-        <td style="text-align: center;width:5%;border:1px solid #000000">{{feedback.memberName}}</td>
-        <td style="text-align: center;width:5%;border:1px solid #000000">{{feedback.rating}}</td>
-        <td style="text-align: center;width:95%;border:1px solid #000000">{{feedback.text}}</td>
-      </tr>
-    </table>
+    <div style="padding-left: 6%;text-align: center">
+      <mat-grid-list cols="2" rowHeight="3:1" *ngIf="showFeedbackTable" class="centerBodyFeedback">
+        <mat-grid-tile *ngFor="let feedback of selectedProductFeedbacks" class="col-4 col-lg-4 col-sm-4">
+          <div class="card">
+            <h6 class="card-header" style="background-color: tomato; color: white">Member: {{feedback.memberName}}</h6>
+            <div class="card-body">
+              <div layout="row">
+                <img
+                  src="assets/images/{{feedback.rating}}.png"
+                  alt="Generic placeholder image"
+                  width="40%"
+                  height="7%"
+                />
+              </div>
+              <br/>
+              <div layout="row">
+                {{feedback.text}}
+              </div>
+            </div>
+          </div>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </div>
+
+
     <div *ngIf="showNoFeedback">There is no feedback to display</div>
   </div>
 </div>

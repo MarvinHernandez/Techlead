@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import {Component, OnInit, OnDestroy, Input} from '@angular/core';
 import {FormControl, FormGroup, FormBuilder, Validators} from '@angular/forms';
 import {ProductFeedbackService} from '../services/product-feedback.service';
 import {Subscription} from 'rxjs';
@@ -13,6 +13,7 @@ import {ProductFeedback} from '../models/productFeedback';
   styleUrls: ['./product-feedback.component.scss']
 })
 export class ProductFeedbackComponent implements OnInit, OnDestroy {
+  @Input() selectedProduct: any;
   error: string;
   showFeedbackTable: boolean;
   showNoFeedback: boolean;
@@ -63,7 +64,7 @@ export class ProductFeedbackComponent implements OnInit, OnDestroy {
 
     // TODO: Remove hardcoded product id and use the inputted product id
     const loggedInMemberName = this.appcontext.currentUserValue.username;
-    const feedback: ProductFeedback = {id: '', memberName: loggedInMemberName, productId: '5f889ac8c8d4cc8c0d305b00',
+    const feedback: ProductFeedback = {id: '', memberName: loggedInMemberName, productId: this.selectedProduct.Id,
       text: this.feedbackField.value, rating: this.rating.value};
 
     this.feedbackService.addProductFeedback(feedback).subscribe( payload => {
@@ -89,7 +90,7 @@ export class ProductFeedbackComponent implements OnInit, OnDestroy {
   // loads the feedback for this product
   loadFeedbackForProduct(): void {
     // TODO: Remove hardcoded product id and replace it with the inputted product's id
-    this.feedbackService.getByProductId('5f889ac8c8d4cc8c0d305b00').subscribe(feedbacks => {
+    this.feedbackService.getByProductId(this.selectedProduct.Id).subscribe(feedbacks => {
       if (feedbacks){
         this.selectedProductFeedbacks = feedbacks;
         if (feedbacks.length > 0){

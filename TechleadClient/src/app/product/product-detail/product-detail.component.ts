@@ -34,6 +34,7 @@ export class ProductDetailComponent implements OnInit {
   phone: Phone;
   laptop: Laptop;
   pc: Pc;
+  selectedProduct: any;
   loginStatus: boolean;
   type: string;
   id: string;
@@ -58,18 +59,21 @@ export class ProductDetailComponent implements OnInit {
     if(this.type === 'phone') {
       this.wishlistService.getPhoneByProductId(this.id).subscribe(res => {
         this.phone = res;
+        this.selectedProduct = res;
       });
     }
 
     if(this.type === 'laptop') {
       this.wishlistService.getLaptopByProductId(this.id).subscribe(res => {
         this.laptop = res;
+        this.selectedProduct = res;
       });
     }
 
     if(this.type === 'pc') {
       this.wishlistService.getPcByProductId(this.id).subscribe(res => {
         this.pc = res;
+        this.selectedProduct = res;
       });
     }
 
